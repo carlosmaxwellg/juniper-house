@@ -27,7 +27,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
-      <body>{children}</body>
+      <body>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
