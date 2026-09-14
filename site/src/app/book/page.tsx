@@ -1,0 +1,5 @@
+import { Container, Section } from "@/components/foundations";
+import { BookingFlow } from "@/components/booking/booking-flow";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata=pageMetadata("Book your Planning Consultation", "Explore a fictional five-step consultation booking experience. No appointment, payment, or message is created.", "/book", true);
+export default function Page() { return <Section><Container><p className="eyebrow">An illustrative first step</p><h1 className="mb-6">Book your Planning Consultation</h1><p className="boundary mb-10"><strong>Demonstration only:</strong> Juniper House is fictional. You can explore the booking experience, but no appointment will be created, no payment will be taken, and entered details are not sent or permanently stored.</p><noscript><p className="boundary">This demonstration needs JavaScript. You can still read about the <a href="/consultation">Planning Consultation</a>.</p></noscript><BookingFlow /></Container></Section>; }

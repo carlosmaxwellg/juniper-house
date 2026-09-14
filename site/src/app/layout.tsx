@@ -10,6 +10,8 @@ import { siteContent } from "@/content/site";
 
 import { MobileBookingAction } from "@/components/global/mobile-booking-action";
 
+import { allowIndexing, publicSiteUrl } from "@/lib/metadata";
+
 import "./globals.css";
 
 const manrope = Manrope({
@@ -30,6 +32,9 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
+  metadataBase: publicSiteUrl ? new URL(publicSiteUrl) : undefined,
+  robots: { index: allowIndexing, follow: true },
+  icons: { icon: "/icon.svg" },
   title: {
     default: siteContent.name,
     template: `%s | ${siteContent.shortName}`,

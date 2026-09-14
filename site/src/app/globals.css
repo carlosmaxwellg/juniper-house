@@ -67,6 +67,7 @@
   --font-serif: var(--font-newsreader);
 }
 
+@layer base {
 *,
 *::before,
 *::after {
@@ -326,6 +327,8 @@ strong {
   }
 }
 
+}
+
 /* Shared page patterns, using the approved editorial system. */
 .button { display:inline-flex; min-height:3rem; align-items:center; justify-content:center; gap:1.75rem; padding:.875rem 1.5rem; background:var(--semantic-action); color:var(--semantic-action-text); font-size:.875rem; font-weight:650; text-decoration:none; border:1px solid var(--semantic-action); transition:background 180ms; }
 .button:hover { background:var(--brand-juniper-ink); }
@@ -401,3 +404,40 @@ strong {
 @media (max-width:63.99rem) { body { padding-bottom:5.5rem; } }
 @media (max-width:47.99rem) { .model-image > div { aspect-ratio:5/4; } .home-hero { padding-top:3rem; } }
 @media (prefers-reduced-motion:reduce) { *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; animation:none !important; } }
+.pathway-grid { display:grid; gap:2rem; margin-bottom:2rem; }
+.treatment-card-facts { margin:0; font-size:.875rem; }
+.treatment-card-facts > div { display:grid; grid-template-columns:7rem 1fr; gap:1rem; padding:.65rem 0; border-bottom:1px solid var(--semantic-border); }
+.treatment-card-facts dt { font-weight:650; }
+.treatment-card-facts dd { margin:0; }
+.comparison-row { display:grid; gap:1rem; padding:1.5rem 0; border-top:1px solid var(--semantic-border); }
+.comparison-row a { font-weight:650; color:var(--semantic-action); }
+.comparison-row span { display:block; font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.5rem; }
+@media (min-width:48rem) { .pathway-grid { grid-template-columns:repeat(3,1fr); } .comparison-row { grid-template-columns:1fr 1fr 1.4fr; gap:2rem; } }
+.booking-layout { display:grid; gap:3rem; align-items:start; }
+.booking-main { min-width:0; }
+.booking-summary { background:var(--brand-bone); padding:2rem; }
+.booking-progress { display:flex; gap:.5rem; justify-content:space-between; list-style:none; padding:0; margin:0 0 2.5rem; font-size:.75rem; }
+.booking-progress li { display:flex; flex-direction:column; gap:.5rem; align-items:center; }
+.booking-progress li > span:first-child { display:grid; place-items:center; width:2rem; height:2rem; border:1px solid var(--semantic-action); border-radius:50%; }
+.booking-progress [aria-current] { font-weight:700; }
+.booking-progress [aria-current] > span:first-child { background:var(--semantic-action); color:white; }
+.booking-step-heading { margin-bottom:2rem; font-size:clamp(1.75rem,3vw,2.5rem); }
+.booking-panel { padding:2rem; border:1px solid var(--semantic-border); background:var(--semantic-surface); }
+.booking-controls { display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; margin-top:2rem; }
+.field { display:flex; flex-direction:column; gap:.6rem; font-size:.875rem; font-weight:650; }
+.field input, .field select, .field textarea { min-height:3rem; width:100%; max-width:100%; border:1px solid var(--semantic-action); background:var(--semantic-surface); padding:.75rem; border-radius:0; font-size:1rem; font-weight:400; }
+.field [aria-invalid=true] { border:2px solid var(--semantic-error); }
+.choice { display:flex; align-items:flex-start; gap:1rem; min-height:3rem; border:1px solid var(--semantic-border); padding:1.25rem; margin-bottom:1rem; cursor:pointer; background:var(--semantic-surface); }
+.choice:has(input:checked) { border-color:var(--semantic-action); outline:1px solid var(--semantic-action); }
+.choice input { flex-shrink:0; width:1.25rem; height:1.25rem; margin-top:.2rem; accent-color:var(--semantic-action); }
+fieldset { border:0; padding:0; margin:0; min-width:0; }
+.form-grid, .time-grid { display:grid; gap:1.5rem; }
+.field-error { color:var(--semantic-error); margin-top:.5rem; font-size:.875rem; font-weight:650; }
+.error-summary { padding:1.5rem; border:2px solid var(--semantic-error); margin-bottom:2rem; background:var(--semantic-surface); }
+.error-summary ul { padding-left:1.25rem; margin-top:1rem; }
+.error-summary a { text-decoration:underline; color:var(--semantic-error); }
+.review-details { margin:0; }
+.review-details > div { display:grid; gap:.5rem; border-bottom:1px solid var(--semantic-border); padding:1rem 0; }
+.review-details dt { font-weight:650; }
+.review-details dd { margin:0; overflow-wrap:anywhere; }
+@media (min-width:48rem) { .booking-layout { grid-template-columns:2fr 1fr; } .form-grid,.time-grid { grid-template-columns:1fr 1fr; } .review-details > div { grid-template-columns:1fr 1.5fr; gap:1.5rem; } }
