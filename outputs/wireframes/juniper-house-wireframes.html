@@ -1,0 +1,799 @@
+<style>
+  #jh-wireframes {
+    --jh-ink: light-dark(#24312d, #eef5f1);
+    --jh-muted: light-dark(#64716c, #aebbb5);
+    --jh-line: light-dark(#c7d0cc, #52605a);
+    --jh-soft: light-dark(#eef2f0, #27332e);
+    --jh-paper: light-dark(#ffffff, #18221e);
+    --jh-accent: light-dark(#dce7e1, #36483f);
+    color: var(--jh-ink);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+  #jh-wireframes .jh-controls {
+    margin-bottom: 1rem;
+  }
+  #jh-wireframes .jh-control-label {
+    display: block;
+    margin-bottom: .4rem;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-control-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    margin-bottom: .7rem;
+  }
+  #jh-wireframes .jh-control {
+    appearance: none;
+    border: 1px solid var(--jh-line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--jh-ink);
+    padding: .45rem .75rem;
+    font: inherit;
+    cursor: pointer;
+  }
+  #jh-wireframes .jh-control[aria-pressed="true"] {
+    background: var(--jh-ink);
+    border-color: var(--jh-ink);
+    color: var(--jh-paper);
+  }
+  #jh-wireframes .jh-stage {
+    width: 100%;
+    margin-inline: auto;
+    transition: max-width 180ms ease;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] {
+    max-width: 390px;
+  }
+  #jh-wireframes .jh-browser {
+    overflow: hidden;
+    border: 1px solid var(--jh-line);
+    border-radius: 18px;
+    background: var(--jh-paper);
+    box-shadow: 0 18px 55px light-dark(rgba(24, 42, 34, .08), rgba(0, 0, 0, .2));
+  }
+  #jh-wireframes .jh-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    min-height: 42px;
+    padding: 0 .85rem;
+    border-bottom: 1px solid var(--jh-line);
+    background: var(--jh-soft);
+  }
+  #jh-wireframes .jh-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-address {
+    margin-left: .5rem;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-site {
+    min-height: 640px;
+  }
+  #jh-wireframes .jh-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 64px;
+    padding: .8rem clamp(1rem, 4vw, 2.4rem);
+    border-bottom: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-logo {
+    font-family: Georgia, serif;
+    font-weight: 500;
+    letter-spacing: .02em;
+    white-space: nowrap;
+  }
+  #jh-wireframes .jh-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-nav-cta,
+  #jh-wireframes .jh-action {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    border: 1px solid var(--jh-ink);
+    border-radius: 999px;
+    padding: .55rem .95rem;
+    background: var(--jh-ink);
+    color: var(--jh-paper);
+    font-weight: 500;
+  }
+  #jh-wireframes .jh-action-secondary {
+    background: transparent;
+    color: var(--jh-ink);
+  }
+  #jh-wireframes .jh-menu {
+    display: none;
+    margin-left: auto;
+    border: 1px solid var(--jh-line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--jh-ink);
+    padding: .45rem .7rem;
+  }
+  #jh-wireframes .jh-section {
+    padding: clamp(1.25rem, 4vw, 3rem) clamp(1rem, 5vw, 3.5rem);
+    border-bottom: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-section:last-child {
+    border-bottom: 0;
+  }
+  #jh-wireframes .jh-kicker {
+    color: var(--jh-muted);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .72rem;
+  }
+  #jh-wireframes .jh-title {
+    max-width: 760px;
+    margin: .55rem 0 .75rem;
+    font-family: Georgia, serif;
+    font-size: clamp(1.75rem, 5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.04;
+  }
+  #jh-wireframes .jh-heading {
+    margin: 0 0 .7rem;
+    font-family: Georgia, serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 400;
+  }
+  #jh-wireframes .jh-subheading {
+    margin: 0 0 .35rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  #jh-wireframes .jh-copy {
+    max-width: 700px;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-hero-grid,
+  #jh-wireframes .jh-two-col,
+  #jh-wireframes .jh-booking-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr);
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: start;
+  }
+  #jh-wireframes .jh-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-top: 1.1rem;
+  }
+  #jh-wireframes .jh-image {
+    display: grid;
+    place-items: center;
+    min-height: 250px;
+    border: 1px solid var(--jh-line);
+    background: repeating-linear-gradient(135deg, transparent, transparent 12px, var(--jh-soft) 12px, var(--jh-soft) 24px);
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .75rem;
+  }
+  #jh-wireframes .jh-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  #jh-wireframes .jh-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #jh-wireframes .jh-block {
+    min-height: 110px;
+    padding: 1rem;
+    border: 1px solid var(--jh-line);
+    background: var(--jh-paper);
+  }
+  #jh-wireframes .jh-block-accent {
+    background: var(--jh-accent);
+  }
+  #jh-wireframes .jh-block p,
+  #jh-wireframes .jh-list,
+  #jh-wireframes .jh-meta {
+    margin: .35rem 0 0;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-list {
+    padding-left: 1.1rem;
+  }
+  #jh-wireframes .jh-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem 1.3rem;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-trust span::before {
+    content: "✓";
+    margin-right: .35rem;
+    color: var(--jh-ink);
+  }
+  #jh-wireframes .jh-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .75rem;
+    counter-reset: jh-step;
+  }
+  #jh-wireframes .jh-step {
+    min-height: 120px;
+    border-top: 2px solid var(--jh-ink);
+    padding-top: .7rem;
+    counter-increment: jh-step;
+  }
+  #jh-wireframes .jh-step::before {
+    content: "0" counter(jh-step);
+    display: block;
+    margin-bottom: .65rem;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-facts {
+    border: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-fact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    padding: .75rem;
+    border-bottom: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-fact:last-child {
+    border-bottom: 0;
+  }
+  #jh-wireframes .jh-fact span:first-child {
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-note {
+    padding: 1rem;
+    border-left: 3px solid var(--jh-ink);
+    background: var(--jh-soft);
+  }
+  #jh-wireframes .jh-compare {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #jh-wireframes .jh-compare th,
+  #jh-wireframes .jh-compare td {
+    padding: .75rem;
+    border-bottom: 1px solid var(--jh-line);
+    text-align: left;
+    vertical-align: top;
+  }
+  #jh-wireframes .jh-compare th {
+    color: var(--jh-muted);
+    font-weight: 500;
+  }
+  #jh-wireframes .jh-faq {
+    border-top: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-faq-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .9rem 0;
+    border-bottom: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-footer {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem clamp(1rem, 5vw, 3.5rem);
+    background: var(--jh-soft);
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-disclosure {
+    grid-column: 1 / -1;
+    padding-top: 1rem;
+    border-top: 1px solid var(--jh-line);
+  }
+  #jh-wireframes .jh-progress {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: .35rem;
+    margin-bottom: 1rem;
+  }
+  #jh-wireframes .jh-progress-item {
+    border-top: 3px solid var(--jh-line);
+    padding-top: .45rem;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-progress-item.is-active {
+    border-color: var(--jh-ink);
+    color: var(--jh-ink);
+  }
+  #jh-wireframes .jh-booking-step-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1rem;
+  }
+  #jh-wireframes .jh-booking-step {
+    border: 1px solid var(--jh-line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--jh-ink);
+    padding: .35rem .65rem;
+    font: inherit;
+  }
+  #jh-wireframes .jh-booking-step[aria-pressed="true"] {
+    background: var(--jh-ink);
+    color: var(--jh-paper);
+  }
+  #jh-wireframes .jh-form-field {
+    margin-bottom: .9rem;
+  }
+  #jh-wireframes .jh-form-field label {
+    display: block;
+    margin-bottom: .3rem;
+    color: var(--jh-muted);
+  }
+  #jh-wireframes .jh-input {
+    min-height: 42px;
+    border: 1px solid var(--jh-line);
+    background: var(--jh-paper);
+  }
+  #jh-wireframes .jh-times {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .5rem;
+  }
+  #jh-wireframes .jh-time {
+    border: 1px solid var(--jh-line);
+    padding: .65rem;
+    text-align: center;
+  }
+  #jh-wireframes .jh-summary {
+    border: 1px solid var(--jh-line);
+    padding: 1rem;
+    background: var(--jh-soft);
+  }
+  #jh-wireframes .jh-placeholder {
+    height: 12px;
+    margin: .45rem 0;
+    background: var(--jh-soft);
+  }
+  #jh-wireframes .jh-placeholder.short {
+    width: 62%;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-nav,
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-nav-cta {
+    display: none;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-menu {
+    display: block;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-hero-grid,
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-two-col,
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-booking-grid {
+    grid-template-columns: 1fr;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-grid,
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-grid-3,
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-grid-2,
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-steps {
+    grid-template-columns: 1fr;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-footer {
+    grid-template-columns: 1fr 1fr;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-disclosure {
+    grid-column: 1 / -1;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-progress {
+    grid-template-columns: 1fr;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-progress-item {
+    border-top: 0;
+    border-left: 3px solid var(--jh-line);
+    padding: .25rem 0 .25rem .6rem;
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-progress-item.is-active {
+    border-left-color: var(--jh-ink);
+  }
+  #jh-wireframes .jh-stage[data-view="mobile"] .jh-times {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 620px) {
+    #jh-wireframes .jh-nav,
+    #jh-wireframes .jh-nav-cta {
+      display: none;
+    }
+    #jh-wireframes .jh-menu {
+      display: block;
+    }
+    #jh-wireframes .jh-hero-grid,
+    #jh-wireframes .jh-two-col,
+    #jh-wireframes .jh-booking-grid {
+      grid-template-columns: 1fr;
+    }
+    #jh-wireframes .jh-grid,
+    #jh-wireframes .jh-grid-3,
+    #jh-wireframes .jh-grid-2,
+    #jh-wireframes .jh-steps {
+      grid-template-columns: 1fr;
+    }
+    #jh-wireframes .jh-footer {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #jh-wireframes .jh-stage {
+      transition: none;
+    }
+  }
+</style>
+
+<div id="jh-wireframes">
+  <div class="jh-controls" aria-label="Wireframe controls">
+    <span class="jh-control-label">Page structure</span>
+    <div class="jh-control-group" id="jh-page-controls">
+      <button class="jh-control" type="button" data-page="home" aria-pressed="true">Home</button>
+      <button class="jh-control" type="button" data-page="concern" aria-pressed="false">Concern</button>
+      <button class="jh-control" type="button" data-page="treatment" aria-pressed="false">Treatment</button>
+      <button class="jh-control" type="button" data-page="consultation" aria-pressed="false">Consultation</button>
+      <button class="jh-control" type="button" data-page="approach" aria-pressed="false">Approach</button>
+      <button class="jh-control" type="button" data-page="about" aria-pressed="false">About</button>
+      <button class="jh-control" type="button" data-page="booking" aria-pressed="false">Booking</button>
+    </div>
+    <span class="jh-control-label">Viewport</span>
+    <div class="jh-control-group" id="jh-view-controls">
+      <button class="jh-control" type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+      <button class="jh-control" type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+    </div>
+  </div>
+
+  <div class="jh-stage" id="jh-stage" data-view="desktop">
+    <div class="jh-browser">
+      <div class="jh-browser-bar" aria-hidden="true">
+        <span class="jh-dot"></span><span class="jh-dot"></span><span class="jh-dot"></span>
+        <span class="jh-address" id="jh-address">juniperhouse.example/</span>
+      </div>
+      <div class="jh-site" id="jh-site" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <template id="jh-shared-header">
+    <header class="jh-header">
+      <div class="jh-logo">Juniper House</div>
+      <nav class="jh-nav" aria-label="Site navigation">
+        <span>Concerns</span><span>Treatments</span><span>Our Approach</span><span>About</span>
+      </nav>
+      <span class="jh-nav-cta">Book a consultation</span>
+      <button class="jh-menu" type="button">Menu</button>
+    </header>
+  </template>
+
+  <template id="jh-shared-footer">
+    <footer class="jh-footer">
+      <div><strong>Juniper House</strong><p>Skin health and medical aesthetics.</p></div>
+      <div><strong>Explore</strong><p>Concerns<br>Treatments<br>Consultation</p></div>
+      <div><strong>Clinic</strong><p>Approach<br>About<br>Visit</p></div>
+      <div><strong>Legal</strong><p>Privacy<br>Accessibility<br>Medical disclaimer</p></div>
+      <div class="jh-disclosure">Fictional clinic concept created as a portfolio project. No real appointments are offered.</div>
+    </footer>
+  </template>
+
+  <template id="jh-page-home">
+    <main>
+      <section class="jh-section">
+        <div class="jh-hero-grid">
+          <div>
+            <div class="jh-kicker">Skin health + medical aesthetics · Austin</div>
+            <h1 class="jh-title">Lead with the customer problem and consultation value</h1>
+            <p class="jh-copy">Positioning statement: expert guidance for people who know what they want to improve, but not which treatment they need.</p>
+            <div class="jh-actions"><span class="jh-action">Book a consultation</span><span class="jh-action jh-action-secondary">Explore your concerns</span></div>
+          </div>
+          <div class="jh-image">Hero image with human warmth<br>not a procedure close-up</div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-trust"><span>Qualified provider roles</span><span>$150 · 45 minutes</span><span>Clear price guidance</span><span>Austin location</span></div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-kicker">Start with what you notice</div>
+        <h2 class="jh-heading">Concern-led entry points</h2>
+        <div class="jh-grid">
+          <div class="jh-block"><strong>Uneven tone</strong><p>Sun damage and pigmentation</p></div>
+          <div class="jh-block"><strong>Redness</strong><p>Visible vessels and boundaries</p></div>
+          <div class="jh-block"><strong>Texture</strong><p>Acne marks and pores</p></div>
+          <div class="jh-block"><strong>Fine lines</strong><p>Skin quality and balance</p></div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-two-col">
+          <div class="jh-image">Consultation / provider image</div>
+          <div>
+            <div class="jh-kicker">The first step</div>
+            <h2 class="jh-heading">Make the paid consultation tangible</h2>
+            <p class="jh-copy">Show the assessment, Now / Next / Later plan, pricing, timing, recovery, and no-pressure policy.</p>
+            <div class="jh-facts">
+              <div class="jh-fact"><span>Duration</span><strong>45 minutes</strong></div>
+              <div class="jh-fact"><span>Price</span><strong>$150</strong></div>
+              <div class="jh-fact"><span>Treatment credit</span><strong>$100</strong></div>
+            </div>
+            <div class="jh-actions"><span class="jh-action">See how it works</span></div>
+          </div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-kicker">A considered method</div>
+        <h2 class="jh-heading">Process before promotion</h2>
+        <div class="jh-steps">
+          <div class="jh-step"><strong>Assess</strong><p class="jh-meta">Goals, history, skin and context</p></div>
+          <div class="jh-step"><strong>Prioritize</strong><p class="jh-meta">What matters now and later</p></div>
+          <div class="jh-step"><strong>Treat</strong><p class="jh-meta">Only appropriate options</p></div>
+          <div class="jh-step"><strong>Review</strong><p class="jh-meta">Progress and next decisions</p></div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-two-col">
+          <div>
+            <div class="jh-kicker">Focused care</div>
+            <h2 class="jh-heading">Treatment groups, not a wall of devices</h2>
+          </div>
+          <div class="jh-grid jh-grid-2">
+            <div class="jh-block"><strong>Maintain</strong><p>Facial + peel</p></div>
+            <div class="jh-block"><strong>Correct tone</strong><p>IPL + laser</p></div>
+            <div class="jh-block"><strong>Improve texture</strong><p>Microneedling + laser</p></div>
+            <div class="jh-block"><strong>Soften & balance</strong><p>Injectables</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-two-col">
+          <div>
+            <div class="jh-kicker">Who guides the plan</div>
+            <h2 class="jh-heading">Lead provider trust block</h2>
+            <p class="jh-copy">Credentials, scope, treatment philosophy, and what this provider personally performs.</p>
+            <div class="jh-actions"><span class="jh-action jh-action-secondary">Meet the team</span></div>
+          </div>
+          <div class="jh-image">Provider portrait</div>
+        </div>
+      </section>
+      <section class="jh-section jh-block-accent">
+        <div class="jh-two-col">
+          <div><div class="jh-kicker">Clear next step</div><h2 class="jh-heading">End with consultation value, not urgency</h2></div>
+          <div><p class="jh-copy">Restate deliverable, price, credit terms, and customer control.</p><div class="jh-actions"><span class="jh-action">Book a consultation</span></div></div>
+        </div>
+      </section>
+    </main>
+  </template>
+
+  <template id="jh-page-concern">
+    <main>
+      <section class="jh-section">
+        <div class="jh-kicker">Concerns / Uneven tone & sun damage</div>
+        <div class="jh-hero-grid">
+          <div><h1 class="jh-title">Name the concern without diagnosing it</h1><p class="jh-copy">Clarify what visitors may notice, why different causes need different approaches, and what consultation determines.</p><div class="jh-actions"><span class="jh-action">Book a consultation</span><span class="jh-action jh-action-secondary">Compare approaches</span></div></div>
+          <div class="jh-image">Inclusive concern image<br>with model disclosure</div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-grid jh-grid-3">
+          <div class="jh-block"><strong>What you may notice</strong><p>Specific, neutral symptom language</p></div>
+          <div class="jh-block"><strong>What may influence it</strong><p>Sun, inflammation, skin type, history</p></div>
+          <div class="jh-block"><strong>What assessment clarifies</strong><p>Type, depth, suitability, timing</p></div>
+        </div>
+      </section>
+      <section class="jh-section">
+        <h2 class="jh-heading">Possible professional pathways</h2>
+        <div class="table-responsive">
+          <table class="jh-compare">
+            <thead><tr><th>Approach</th><th>May suit</th><th>Downtime</th><th>From</th></tr></thead>
+            <tbody>
+              <tr><td>Chemical peel</td><td>Surface tone and texture</td><td>0–7 days</td><td>$225</td></tr>
+              <tr><td>IPL</td><td>Selected pigment and redness</td><td>Variable</td><td>$375</td></tr>
+              <tr><td>Fractional laser</td><td>Persistent tone + texture</td><td>3–7 days</td><td>$550</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-note"><strong>Medical boundary appears before the CTA.</strong><p>Persistent, changing, unexplained, or medically concerning pigmentation should be assessed by an appropriate medical professional.</p></div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-two-col">
+          <div><div class="jh-kicker">The consultation clarifies</div><h2 class="jh-heading">Cause, suitability, sequence, cost, and expectations</h2></div>
+          <div class="jh-grid jh-grid-2">
+            <div class="jh-block">What may fit</div><div class="jh-block">What may not fit</div><div class="jh-block">What to do first</div><div class="jh-block">When to refer</div>
+          </div>
+        </div>
+      </section>
+      <section class="jh-section"><h2 class="jh-heading">Responsible FAQ</h2><div class="jh-faq"><div class="jh-faq-row"><span>Can all skin tones receive the same treatment?</span><span>+</span></div><div class="jh-faq-row"><span>How many sessions might be discussed?</span><span>+</span></div><div class="jh-faq-row"><span>What should I avoid before assessment?</span><span>+</span></div></div></section>
+      <section class="jh-section jh-block-accent"><div class="jh-two-col"><h2 class="jh-heading">Not sure which path fits?</h2><div><p class="jh-copy">The consultation is the decision product.</p><span class="jh-action">Book a consultation</span></div></div></section>
+    </main>
+  </template>
+
+  <template id="jh-page-treatment">
+    <main>
+      <section class="jh-section">
+        <div class="jh-kicker">Treatments / Medical microneedling</div>
+        <div class="jh-hero-grid">
+          <div><h1 class="jh-title">Explain the treatment and the decision</h1><p class="jh-copy">Plain-language mechanism, appropriate goals, realistic limits, and consultation requirement.</p><div class="jh-actions"><span class="jh-action">Book a consultation</span><span class="jh-action jh-action-secondary">Explore related concerns</span></div></div>
+          <aside class="jh-facts">
+            <div class="jh-fact"><span>From</span><strong>$475</strong></div>
+            <div class="jh-fact"><span>Appointment</span><strong>60 min</strong></div>
+            <div class="jh-fact"><span>Downtime</span><strong>2–4 days</strong></div>
+            <div class="jh-fact"><span>Provider</span><strong>Qualified medical provider</strong></div>
+          </aside>
+        </div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-grid jh-grid-2">
+          <div class="jh-block"><h2 class="jh-subheading">May be discussed for</h2><ul class="jh-list"><li>Texture</li><li>Acne scarring</li><li>Fine lines</li><li>Skin quality</li></ul></div>
+          <div class="jh-block"><h2 class="jh-subheading">May not be appropriate when</h2><ul class="jh-list"><li>Selected active conditions</li><li>Healing is impaired</li><li>Goals exceed likely outcome</li><li>Another route fits better</li></ul></div>
+        </div>
+      </section>
+      <section class="jh-section"><div class="jh-kicker">What happens</div><h2 class="jh-heading">Preparation → treatment → recovery → review</h2><div class="jh-steps"><div class="jh-step"><strong>Consult</strong><p class="jh-meta">Assess fit</p></div><div class="jh-step"><strong>Prepare</strong><p class="jh-meta">Instructions + comfort</p></div><div class="jh-step"><strong>Treat</strong><p class="jh-meta">Procedure details</p></div><div class="jh-step"><strong>Review</strong><p class="jh-meta">Progress and course</p></div></div></section>
+      <section class="jh-section"><div class="jh-two-col"><div class="jh-image">Procedure-context image<br>not sensational close-up</div><div><div class="jh-kicker">Timeline</div><h2 class="jh-heading">Set expectations across days and weeks</h2><p class="jh-copy">Immediate response, common recovery, gradual change, typical course, and maintenance.</p></div></div></section>
+      <section class="jh-section"><h2 class="jh-heading">Alternatives and trade-offs</h2><table class="jh-compare"><thead><tr><th>Option</th><th>Best used when</th><th>Main trade-off</th></tr></thead><tbody><tr><td>Peel</td><td>More superficial concern</td><td>Different depth and mechanism</td></tr><tr><td>Fractional laser</td><td>More persistent correction</td><td>Cost and recovery</td></tr></tbody></table></section>
+      <section class="jh-section"><div class="jh-note"><strong>Risks and limitations stay in the main page flow.</strong><p>Do not hide essential suitability, recovery, or risk information inside a collapsed FAQ.</p></div></section>
+      <section class="jh-section"><h2 class="jh-heading">Treatment FAQ</h2><div class="jh-faq"><div class="jh-faq-row"><span>What does it feel like?</span><span>+</span></div><div class="jh-faq-row"><span>How many sessions may be recommended?</span><span>+</span></div><div class="jh-faq-row"><span>Who performs the treatment?</span><span>+</span></div></div></section>
+      <section class="jh-section jh-block-accent"><div class="jh-two-col"><h2 class="jh-heading">Discuss whether this fits your plan</h2><span class="jh-action">Book a consultation</span></div></section>
+    </main>
+  </template>
+
+  <template id="jh-page-consultation">
+    <main>
+      <section class="jh-section">
+        <div class="jh-hero-grid">
+          <div><div class="jh-kicker">The Skin & Aesthetic Planning Consultation</div><h1 class="jh-title">Make the first step feel like a valuable service</h1><p class="jh-copy">Explain the outcome of the appointment before discussing treatment purchase.</p><div class="jh-actions"><span class="jh-action">Choose a time</span></div></div>
+          <aside class="jh-facts"><div class="jh-fact"><span>Duration</span><strong>45 minutes</strong></div><div class="jh-fact"><span>Price</span><strong>$150</strong></div><div class="jh-fact"><span>Credit</span><strong>$100 toward $350+</strong></div><div class="jh-fact"><span>Deliverable</span><strong>Digital care plan</strong></div></aside>
+        </div>
+      </section>
+      <section class="jh-section"><div class="jh-kicker">You leave with</div><h2 class="jh-heading">Now / Next / Later</h2><div class="jh-grid jh-grid-3"><div class="jh-block jh-block-accent"><strong>Now</strong><p>Immediate priority and first sensible action</p></div><div class="jh-block"><strong>Next</strong><p>Potential corrective sequence</p></div><div class="jh-block"><strong>Later</strong><p>Maintenance or optional future care</p></div></div></section>
+      <section class="jh-section"><h2 class="jh-heading">What happens during the appointment</h2><div class="jh-steps"><div class="jh-step"><strong>Listen</strong><p class="jh-meta">Goals, history, context</p></div><div class="jh-step"><strong>Assess</strong><p class="jh-meta">Appropriate in-person review</p></div><div class="jh-step"><strong>Explain</strong><p class="jh-meta">Options and trade-offs</p></div><div class="jh-step"><strong>Plan</strong><p class="jh-meta">Sequence, cost, downtime</p></div></div></section>
+      <section class="jh-section"><div class="jh-two-col"><div class="jh-image">Lead provider portrait</div><div><div class="jh-kicker">Who conducts it</div><h2 class="jh-heading">Provider role, qualifications, and boundaries</h2><p class="jh-copy">Link the consultation to a named, qualified person—not “our expert team.”</p><span class="jh-action jh-action-secondary">Meet your provider</span></div></div></section>
+      <section class="jh-section"><div class="jh-grid jh-grid-2"><div class="jh-block"><strong>No same-day pressure</strong><p>Take the plan away and decide later.</p></div><div class="jh-block"><strong>Credit terms in context</strong><p>Clear eligibility, timing, and exclusions.</p></div></div></section>
+      <section class="jh-section"><h2 class="jh-heading">Consultation FAQ</h2><div class="jh-faq"><div class="jh-faq-row"><span>Do I need to know which treatment I want?</span><span>+</span></div><div class="jh-faq-row"><span>Will treatment happen that day?</span><span>+</span></div><div class="jh-faq-row"><span>What should I bring?</span><span>+</span></div><div class="jh-faq-row"><span>How does the credit work?</span><span>+</span></div></div></section>
+      <section class="jh-section jh-block-accent"><div class="jh-two-col"><div><h2 class="jh-heading">Ready for a clear plan?</h2><p class="jh-copy">$150 · 45 minutes · no treatment obligation</p></div><span class="jh-action">Choose a time</span></div></section>
+    </main>
+  </template>
+
+  <template id="jh-page-approach">
+    <main>
+      <section class="jh-section"><div class="jh-kicker">Our Approach</div><h1 class="jh-title">Prove “considered care” through method and standards</h1><p class="jh-copy">This page carries the positioning evidence that would otherwise be diluted across Philosophy, Why Us, Safety, and Standards pages.</p></section>
+      <section class="jh-section"><h2 class="jh-heading">Assess → Prioritize → Treat → Review</h2><div class="jh-steps"><div class="jh-step"><strong>Assess</strong><p class="jh-meta">Understand before suggesting</p></div><div class="jh-step"><strong>Prioritize</strong><p class="jh-meta">Sequence by need</p></div><div class="jh-step"><strong>Treat</strong><p class="jh-meta">Use proportionate care</p></div><div class="jh-step"><strong>Review</strong><p class="jh-meta">Adjust with evidence</p></div></div></section>
+      <section class="jh-section"><div class="jh-grid jh-grid-2"><div class="jh-block"><h2 class="jh-subheading">What we commit to</h2><ul class="jh-list"><li>Explain recommendation logic</li><li>Show price and recovery</li><li>Identify who provides care</li><li>Respect a decision to wait</li></ul></div><div class="jh-block"><h2 class="jh-subheading">What we avoid</h2><ul class="jh-list"><li>Trend-led escalation</li><li>Hidden cost</li><li>Guaranteed outcomes</li><li>Pressure-heavy packages</li></ul></div></div></section>
+      <section class="jh-section"><div class="jh-two-col"><div><div class="jh-kicker">Clinical governance</div><h2 class="jh-heading">Show roles, oversight, and scope</h2><p class="jh-copy">Medical director, advanced-practice provider, laser professional, and esthetician responsibilities.</p></div><div class="jh-image">Simple responsibility diagram</div></div></section>
+      <section class="jh-section"><h2 class="jh-heading">Pricing and proof policy</h2><div class="jh-grid jh-grid-3"><div class="jh-block"><strong>Price ranges</strong><p>Starting point + cost drivers</p></div><div class="jh-block"><strong>Responsible outcomes</strong><p>Context, variation, no guarantees</p></div><div class="jh-block"><strong>Referral boundaries</strong><p>When another professional fits</p></div></div></section>
+      <section class="jh-section jh-block-accent"><div class="jh-two-col"><h2 class="jh-heading">Experience the method through a consultation</h2><span class="jh-action">Book a consultation</span></div></section>
+    </main>
+  </template>
+
+  <template id="jh-page-about">
+    <main>
+      <section class="jh-section"><div class="jh-hero-grid"><div><div class="jh-kicker">About Juniper House</div><h1 class="jh-title">Humanize the clinic without inventing grand history</h1><p class="jh-copy">A concise fictional origin grounded in the need for clearer, more thoughtful aesthetic guidance in Austin.</p></div><div class="jh-image">Clinic environment / Austin context</div></div></section>
+      <section class="jh-section"><div class="jh-two-col"><div><div class="jh-kicker">Why it exists</div><h2 class="jh-heading">The category problem and the clinic response</h2></div><p class="jh-copy">Connect confusion, pressure, and treatment overload to the considered-care model.</p></div></section>
+      <section class="jh-section"><div class="jh-kicker">Meet the team</div><h2 class="jh-heading">Role-specific provider cards</h2><div class="jh-grid jh-grid-2"><div class="jh-block"><div class="jh-image">Portrait</div><h3 class="jh-subheading">Lead NP / PA</h3><p>Consultation + medical aesthetics</p></div><div class="jh-block"><div class="jh-image">Portrait</div><h3 class="jh-subheading">Medical Director</h3><p>Oversight + clinical governance</p></div><div class="jh-block"><div class="jh-image">Portrait</div><h3 class="jh-subheading">Laser Professional</h3><p>Qualified energy-device care</p></div><div class="jh-block"><div class="jh-image">Portrait</div><h3 class="jh-subheading">Licensed Esthetician</h3><p>Facials + permitted skin services</p></div></div></section>
+      <section class="jh-section"><div class="jh-note"><strong>Fictional profile disclosure near team content.</strong><p>Do not let realistic bios imply these are licensed professionals at an operating clinic.</p></div></section>
+      <section class="jh-section"><div class="jh-two-col"><div><div class="jh-kicker">Visit</div><h2 class="jh-heading">Austin context, accessibility, and practical details</h2></div><div class="jh-image">Illustrative location map</div></div></section>
+      <section class="jh-section jh-block-accent"><div class="jh-two-col"><h2 class="jh-heading">Meet the team through a planning consultation</h2><span class="jh-action">Book a consultation</span></div></section>
+    </main>
+  </template>
+
+  <template id="jh-page-booking">
+    <main>
+      <section class="jh-section">
+        <div class="jh-kicker">Simulated booking experience</div>
+        <h1 class="jh-heading">Book your Planning Consultation</h1>
+        <div class="jh-note"><strong>Portfolio demonstration.</strong> No real appointment or payment will be created.</div>
+      </section>
+      <section class="jh-section">
+        <div class="jh-booking-step-controls" aria-label="Booking step preview">
+          <button class="jh-booking-step" type="button" data-book-step="1" aria-pressed="true">1 Appointment</button>
+          <button class="jh-booking-step" type="button" data-book-step="2" aria-pressed="false">2 Provider</button>
+          <button class="jh-booking-step" type="button" data-book-step="3" aria-pressed="false">3 Time</button>
+          <button class="jh-booking-step" type="button" data-book-step="4" aria-pressed="false">4 Details</button>
+          <button class="jh-booking-step" type="button" data-book-step="5" aria-pressed="false">5 Confirm</button>
+        </div>
+        <div class="jh-progress" id="jh-book-progress">
+          <div class="jh-progress-item is-active">Appointment</div><div class="jh-progress-item">Provider</div><div class="jh-progress-item">Time</div><div class="jh-progress-item">Details</div><div class="jh-progress-item">Confirm</div>
+        </div>
+        <div class="jh-booking-grid">
+          <div id="jh-book-content"></div>
+          <aside class="jh-summary"><div class="jh-kicker">Your appointment</div><h2 class="jh-subheading">Planning Consultation</h2><p>45 minutes · $150</p><hr><p>$100 may be applied to a first treatment of $350+ within 60 days.</p><p>No treatment is required.</p></aside>
+        </div>
+      </section>
+    </main>
+  </template>
+
+  <template id="jh-book-1"><div><h2 class="jh-heading">Confirm the appointment type</h2><div class="jh-block jh-block-accent"><strong>Skin & Aesthetic Planning Consultation</strong><p>Assessment, options, and a digital Now / Next / Later care plan.</p><div class="jh-facts"><div class="jh-fact"><span>Duration</span><strong>45 minutes</strong></div><div class="jh-fact"><span>Price</span><strong>$150</strong></div></div></div><div class="jh-actions"><span class="jh-action">Continue to provider</span></div></div></template>
+  <template id="jh-book-2"><div><h2 class="jh-heading">Choose a provider preference</h2><div class="jh-grid jh-grid-2"><div class="jh-block jh-block-accent"><strong>First available</strong><p>Recommended for the earliest suitable time.</p></div><div class="jh-block"><strong>Lead NP / PA</strong><p>Planning consultations + medical aesthetics.</p></div></div><div class="jh-actions"><span class="jh-action">Continue to time</span></div></div></template>
+  <template id="jh-book-3"><div><h2 class="jh-heading">Choose a date and time</h2><div class="jh-form-field"><label>Selected date · Austin time</label><div class="jh-input"></div></div><div class="jh-times"><div class="jh-time">9:00 AM</div><div class="jh-time">10:30 AM</div><div class="jh-time">1:00 PM</div><div class="jh-time">2:30 PM</div><div class="jh-time">4:00 PM</div><div class="jh-time">5:30 PM</div></div><div class="jh-actions"><span class="jh-action">Continue to details</span></div></div></template>
+  <template id="jh-book-4"><div><h2 class="jh-heading">Provide minimum contact details</h2><div class="jh-grid jh-grid-2"><div class="jh-form-field"><label>First name</label><div class="jh-input"></div></div><div class="jh-form-field"><label>Last name</label><div class="jh-input"></div></div><div class="jh-form-field"><label>Email</label><div class="jh-input"></div></div><div class="jh-form-field"><label>Mobile number</label><div class="jh-input"></div></div></div><div class="jh-form-field"><label>Optional broad concern category</label><div class="jh-input"></div></div><div class="jh-note">No diagnoses, medications, photographs, or detailed health information in this form.</div><div class="jh-actions"><span class="jh-action">Review booking</span></div></div></template>
+  <template id="jh-book-5"><div><h2 class="jh-heading">Review and confirm the simulation</h2><div class="jh-facts"><div class="jh-fact"><span>Appointment</span><strong>Planning Consultation</strong></div><div class="jh-fact"><span>Provider</span><strong>First available</strong></div><div class="jh-fact"><span>Date and time</span><strong>Demonstration selection</strong></div><div class="jh-fact"><span>Payment</span><strong>Not processed</strong></div></div><div class="jh-note"><strong>Final disclosure before submission.</strong><p>This is a portfolio demonstration. Selecting confirm will not create an appointment or charge a payment method.</p></div><div class="jh-actions"><span class="jh-action">Complete simulated booking</span></div></div></template>
+</div>
+
+<script>
+  (function () {
+    const root = document.getElementById('jh-wireframes');
+    const stage = document.getElementById('jh-stage');
+    const site = document.getElementById('jh-site');
+    const address = document.getElementById('jh-address');
+    const paths = {
+      home: '/',
+      concern: '/concerns/uneven-tone-sun-damage',
+      treatment: '/treatments/medical-microneedling',
+      consultation: '/consultation',
+      approach: '/approach',
+      about: '/about',
+      booking: '/book'
+    };
+
+    function addShared(id) {
+      const fragment = document.getElementById(id).content.cloneNode(true);
+      site.appendChild(fragment);
+    }
+
+    function renderPage(page) {
+      site.innerHTML = '';
+      addShared('jh-shared-header');
+      const pageTemplate = document.getElementById('jh-page-' + page);
+      site.appendChild(pageTemplate.content.cloneNode(true));
+      if (page !== 'booking') addShared('jh-shared-footer');
+      address.textContent = 'juniperhouse.example' + paths[page];
+      if (page === 'booking') {
+        wireBookingControls();
+        renderBookingStep(1);
+      }
+    }
+
+    function renderBookingStep(step) {
+      const content = document.getElementById('jh-book-content');
+      if (!content) return;
+      content.innerHTML = '';
+      content.appendChild(document.getElementById('jh-book-' + step).content.cloneNode(true));
+      const progressItems = Array.from(document.querySelectorAll('#jh-book-progress .jh-progress-item'));
+      progressItems.forEach(function (item, index) {
+        item.classList.toggle('is-active', index <= step - 1);
+      });
+      root.querySelectorAll('.jh-booking-step').forEach(function (button) {
+        button.setAttribute('aria-pressed', button.dataset.bookStep === String(step) ? 'true' : 'false');
+      });
+    }
+
+    function wireBookingControls() {
+      root.querySelectorAll('.jh-booking-step').forEach(function (button) {
+        button.addEventListener('click', function () {
+          renderBookingStep(Number(button.dataset.bookStep));
+        });
+      });
+    }
+
+    document.getElementById('jh-page-controls').addEventListener('click', function (event) {
+      const button = event.target.closest('[data-page]');
+      if (!button) return;
+      root.querySelectorAll('[data-page]').forEach(function (candidate) {
+        candidate.setAttribute('aria-pressed', candidate === button ? 'true' : 'false');
+      });
+      renderPage(button.dataset.page);
+    });
+
+    document.getElementById('jh-view-controls').addEventListener('click', function (event) {
+      const button = event.target.closest('[data-view]');
+      if (!button) return;
+      root.querySelectorAll('[data-view]').forEach(function (candidate) {
+        candidate.setAttribute('aria-pressed', candidate === button ? 'true' : 'false');
+      });
+      stage.dataset.view = button.dataset.view;
+    });
+
+    renderPage('home');
+  }());
+</script>
