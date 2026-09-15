@@ -14,7 +14,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
   return (
     <nav
       aria-label="Primary navigation"
-      className="hidden lg:block"
+      className="relative hidden lg:block"
       id={navigationId}
     >
       <DesktopNavigationBehavior navigationId={navigationId} />
@@ -30,7 +30,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
               </Link>
             ) : (
               <details
-                className="group relative"
+                className="group"
                 name="desktop-primary-navigation"
               >
                 <summary className="flex min-h-12 cursor-pointer list-none items-center gap-2 px-3 text-sm font-semibold hover:text-action [&::-webkit-details-marker]:hidden">

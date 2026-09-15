@@ -51,11 +51,18 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Tab" && panel) {
-        const targets = Array.from(panel.querySelectorAll<HTMLElement>("a[href], button, summary")).filter((el) => el.getClientRects().length > 0);
+        const targets = Array.from(
+          panel.querySelectorAll<HTMLElement>("a[href], button, summary"),
+        ).filter((el) => el.getClientRects().length > 0);
         const first = targets[0];
         const last = targets[targets.length - 1];
-        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
-        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
       }
       if (event.key === "Escape") {
         event.preventDefault();

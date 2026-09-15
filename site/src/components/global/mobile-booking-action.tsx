@@ -21,5 +21,14 @@ export function MobileBookingAction() {
     };
   }, [pathname]);
   if (!visible || pathname.startsWith("/book")) return null;
-  return <aside aria-label="Book a consultation" className="mobile-booking lg:hidden"><Link className="button w-full" href="/book">Book a consultation <span aria-hidden="true">↗</span></Link></aside>;
+  return (
+    <aside
+      aria-label="Book a consultation"
+      className="mobile-booking lg:hidden"
+    >
+      <Link className="button w-full" href="/book">
+        Book a consultation <span aria-hidden="true">↗</span>
+      </Link>
+    </aside>
+  );
 }

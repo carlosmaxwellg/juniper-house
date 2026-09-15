@@ -50,9 +50,8 @@ export function DesktopNavigationBehavior({
       const focusedDetails =
         document.activeElement?.closest<HTMLDetailsElement>("details[open]") ??
         openDetails[0];
-      const summary = focusedDetails.querySelector<HTMLElement>(
-        ":scope > summary",
-      );
+      const summary =
+        focusedDetails.querySelector<HTMLElement>(":scope > summary");
 
       closeOpenDetails();
       summary?.focus();
@@ -61,7 +60,8 @@ export function DesktopNavigationBehavior({
 
     closeOpenDetails();
     function handleClick(event: MouseEvent) {
-      if (event.target instanceof Element && event.target.closest("a")) closeOpenDetails();
+      if (event.target instanceof Element && event.target.closest("a"))
+        closeOpenDetails();
     }
     navigationElement.addEventListener("click", handleClick);
     document.addEventListener("pointerdown", handlePointerDown);

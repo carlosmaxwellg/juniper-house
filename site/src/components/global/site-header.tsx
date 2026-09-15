@@ -10,10 +10,10 @@ import { MobileNavigation } from "./mobile-navigation";
 export function SiteHeader() {
   return (
     <header className="relative z-40 border-b border-border bg-background">
-      <Container className="flex min-h-20 items-center justify-between gap-6">
+      <Container className="flex min-h-20 items-center justify-between gap-3 sm:gap-6">
         <Link
           aria-label={`${siteContent.shortName}, home`}
-          className="flex shrink-0 flex-col no-underline"
+          className="flex min-w-0 flex-col no-underline sm:shrink-0"
           href="/"
         >
           <span className="font-serif text-2xl leading-none">

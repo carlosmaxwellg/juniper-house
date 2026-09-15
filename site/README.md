@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Juniper House
 
-## Getting Started
+A fictional Austin skin and aesthetics clinic, built as a portfolio project. The approved strategy, copy, wireframes, and visual direction live in `../outputs/approved/`; the application lives here.
 
-First, run the development server:
+## Run locally
 
-```bash
+Use Node.js 24 and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. For a production preview:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js 16.3.5, React 19, strict TypeScript, and Tailwind v4 are the application stack. Public pages prerender at build time. Webpack is selected explicitly for development and production builds because Turbopack's worker process was blocked by the development environment. This remains a standard Next.js deployment, not a static export.
 
-## Learn More
+Newsreader and Manrope use `next/font/google`: a clean build needs access to Google Fonts, while visitors receive self-hosted fonts from the site. No runtime Google Fonts request is needed.
 
-To learn more about Next.js, take a look at the following resources:
+## Content and implementation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/content/treatments.ts`, `concerns.ts`, and `types.ts`: typed clinical-orientation content and cross references, transcribed from approved copy.
+- `src/content/pages.ts`: consultation, approach, team, visit, and disclosure content.
+- `src/content/policies.ts`: notices describing the actual portfolio implementation.
+- `src/content/creator.ts`: the intentionally blank creator portfolio/contact destinations. Fill these in when available; the pages display a clear placeholder meanwhile.
+- `src/components/templates/`: shared concern, treatment, and narrative page composition.
+- `src/components/global/`: navigation, concept notice, footer, and mobile booking action.
+- `src/lib/booking/state.ts`: pure booking reducer, validation, and deterministic sample availability.
+- `src/components/booking/booking-flow.tsx`: five-step interactive demo and in-place confirmation.
+- `src/components/content/inquiry-form.tsx`: local inquiry demonstration.
+- `src/app/globals.css`: approved tokens, foundations, and responsive patterns.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Approved copy is not a substitute for clinical or legal review for a real clinic. Provider names, credentials, prices, hours, and contact details are explicitly fictional. No testimonials or patient results are invented. The two supplied images are illustrative and labeled visibly.
 
-## Deploy on Vercel
+## Demonstration privacy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Booking and inquiry details stay in React memory. There are no submission endpoints, server actions, payment services, mail services, analytics, persistent browser storage, or medical intake integrations. Final actions update the screen and clear entered personal fields. Refreshing resets the flow. Confirmation is displayed in place; `/book/confirmation` explains that no saved appointment exists.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The schedule is a fixed, labeled sample week in October 2026, including an empty day and provider-specific availability. It does not claim to be current or live. Change the sample week in the one availability module when useful.
+
+The optional free-text checks are only a reminder against entering health details, not a medical-data detector or a secure intake system. Use test information only.
+
+## Validation
+
+```sh
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run test:e2e
+```
+
+The end-to-end suite starts the built app on `127.0.0.1:3100`. It uses the installed Google Chrome through Playwright; install Chrome first on another machine, or change the channel in `playwright.config.ts` to an installed Playwright browser. Test reports and traces stay in ignored local folders. Tests require permission to start a local server and browser.
+
+The Node tests cover reducer transitions, invalid/stale choices, data clearing, validation, content completeness, and internal references. Browser tests cover every public route, axe accessibility scans, menu behavior, booking and inquiry journeys, request/storage checks, responsive reflow, text spacing, reduced motion, forced colors, image loading, and no-JavaScript content.
+
+## Deployment configuration
+
+See `DEPLOYMENT.md` and `QA.md` for the reviewed release state and remaining manual checks. No deployment is configured or authorized by running the local build.
+
+- Root directory on the host: `site`
+- Runtime: Node.js 24
+- Install: `npm ci`
+- Build: `npm run build`
+- Start on a generic Next-compatible host: `npm run start`
+- `NEXT_PUBLIC_SITE_URL`: approved absolute HTTPS site URL; set before the host builds the site.
+- `SITE_ALLOW_INDEXING`: defaults off. Only set to `true` after an explicit indexing decision. Vercel previews remain `noindex` even if they inherit this flag.
+
+Without an approved URL, local social-image metadata uses localhost and canonical links are omitted. That is suitable for local QA only. Booking and confirmation always remain `noindex`; no fictional clinic business schema is emitted. CSP blocks native form submissions and third-party requests; its inline-script allowance supports statically rendered Next.js hydration and is not a nonce-based strict CSP.

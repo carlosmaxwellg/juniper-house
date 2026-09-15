@@ -7,11 +7,7 @@ export type StackProps = ComponentPropsWithoutRef<"div"> & {
   space?: LayoutSpace;
 };
 
-export function Stack({
-  className,
-  space = "md",
-  ...props
-}: StackProps) {
+export function Stack({ className, space = "md", ...props }: StackProps) {
   return (
     <div
       className={withBaseClass("layout-stack", className)}

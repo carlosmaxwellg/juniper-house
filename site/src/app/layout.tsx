@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 
-import {
-  PortfolioNotice,
-  SiteFooter,
-  SiteHeader,
-} from "@/components/global";
+import { PortfolioNotice, SiteFooter, SiteHeader } from "@/components/global";
 import { siteContent } from "@/content/site";
 
 import { MobileBookingAction } from "@/components/global/mobile-booking-action";
@@ -32,7 +28,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: publicSiteUrl ? new URL(publicSiteUrl) : undefined,
+  metadataBase: new URL(publicSiteUrl || "http://localhost:3000"),
   robots: { index: allowIndexing, follow: true },
   icons: { icon: "/icon.svg" },
   title: {

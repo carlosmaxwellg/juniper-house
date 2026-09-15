@@ -16,7 +16,9 @@ export function SiteFooter() {
             >
               {siteContent.name}
             </Link>
-            <p className="max-w-sm text-surface/75">{siteContent.description}</p>
+            <p className="max-w-sm text-surface/75">
+              {siteContent.description}
+            </p>
             <p className="type-label uppercase text-surface/60">
               {siteContent.location}
             </p>
@@ -25,11 +27,7 @@ export function SiteFooter() {
           {footerNavigation.map((section) => (
             <nav
               aria-label={`${section.label} footer navigation`}
-              className={
-                section.columnSpan === 4
-                  ? "col-span-4"
-                  : "col-span-2"
-              }
+              className={section.columnSpan === 4 ? "col-span-4" : "col-span-2"}
               key={section.label}
             >
               <Stack space="sm">

@@ -7,11 +7,7 @@ export type ClusterProps = ComponentPropsWithoutRef<"div"> & {
   space?: LayoutSpace;
 };
 
-export function Cluster({
-  className,
-  space = "md",
-  ...props
-}: ClusterProps) {
+export function Cluster({ className, space = "md", ...props }: ClusterProps) {
   return (
     <div
       className={withBaseClass("layout-cluster", className)}
