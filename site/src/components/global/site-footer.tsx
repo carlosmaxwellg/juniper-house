@@ -16,9 +16,6 @@ export function SiteFooter() {
             >
               {siteContent.name}
             </Link>
-            <p className="max-w-sm text-surface/75">
-              {siteContent.description}
-            </p>
             <p className="type-label uppercase text-surface/60">
               {siteContent.location}
             </p>
@@ -53,8 +50,8 @@ export function SiteFooter() {
 
         <div className="mt-12 border-t border-surface/20 pt-6 text-sm text-surface/70">
           <p>
-            Juniper House is a fictional clinic concept created as a web design
-            and development portfolio project.
+            Juniper House is a fictional clinic created as a portfolio concept.
+            {" "}<Link className="underline inline-flex min-h-12 items-center" href="/portfolio-concept">Read the full disclosure</Link>.
           </p>
         </div>
       </Container>

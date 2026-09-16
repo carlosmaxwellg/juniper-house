@@ -307,6 +307,19 @@ test("responsive reflow and mobile booking action", async ({ page }) => {
   await expect(page.locator(".mobile-booking")).toBeVisible();
 });
 
+test("homepage disclosure, motion and enlarged editorial text remain accessible", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page.getByRole("region", { name: "Portfolio concept notice" })).toHaveCount(0);
+  await expect(page.locator("footer").getByText("Juniper House is a fictional clinic created as a portfolio concept.", { exact: false })).toBeVisible();
+  await expect(page.locator("footer").getByRole("link", { name: "Read the full disclosure" })).toHaveAttribute("href", "/portfolio-concept");
+  await expect(page.locator(".home-hero .model-image")).toHaveCSS("animation-name", "none");
+  await page.addStyleTag({ content: "* { line-height:1.5 !important; letter-spacing:.12em !important; word-spacing:.16em !important; } p { margin-bottom:2em !important; }" });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await audit(page);
+});
+
 test("production images, fonts, metadata and headers load without browser errors", async ({
   page,
   request,

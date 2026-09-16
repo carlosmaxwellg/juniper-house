@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/icon";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -27,7 +29,7 @@ export function MobileBookingAction() {
       className="mobile-booking lg:hidden"
     >
       <Link className="button w-full" href="/book">
-        Book a consultation <span aria-hidden="true">↗</span>
+        Book a consultation <Icon />
       </Link>
     </aside>
   );

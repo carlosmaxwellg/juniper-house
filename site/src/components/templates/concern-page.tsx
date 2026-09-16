@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
 import {
@@ -58,7 +60,7 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
                     href={`/treatments/${slug}`}
                     key={slug}
                   >
-                    Explore {treatments.find((t) => t.slug === slug)!.name} ↗
+                    Explore {treatments.find((t) => t.slug === slug)!.name} <Icon />
                   </Link>
                 ))}
               </article>
@@ -75,7 +77,7 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
           <div>
             <Copy blocks={[{ kind: "list", items: c.consultationClarifies }]} />
             <Link className="text-link mt-6" href="/consultation">
-              See how the consultation works ↗
+              See how the consultation works <Icon />
             </Link>
           </div>
         </Container>

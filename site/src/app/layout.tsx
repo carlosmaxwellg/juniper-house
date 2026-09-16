@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 
-import { PortfolioNotice, SiteFooter, SiteHeader } from "@/components/global";
+import { SiteFooter, SiteHeader } from "@/components/global";
 import { siteContent } from "@/content/site";
 
 import { MobileBookingAction } from "@/components/global/mobile-booking-action";
@@ -9,6 +9,7 @@ import { MobileBookingAction } from "@/components/global/mobile-booking-action";
 import { allowIndexing, publicSiteUrl } from "@/lib/metadata";
 
 import "./globals.css";
+import "./home.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -45,7 +46,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
-        <PortfolioNotice />
         <SiteHeader />
         <main id="main-content" tabIndex={-1}>
           {children}

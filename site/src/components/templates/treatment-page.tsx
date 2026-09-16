@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
 import {
@@ -32,7 +34,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
           <div className="flex flex-wrap gap-5 items-center">
             <Button />
             <Link className="text-link" href="#risks">
-              Read risks and limitations ↓
+              Read risks and limitations <Icon name="down" />
             </Link>
           </div>
         </Container>
@@ -79,7 +81,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
               clinic; no real provider or license is represented.
             </p>
             <Link className="text-link" href="/about">
-              Meet the fictional team ↗
+              Meet the fictional team <Icon />
             </Link>
           </div>
         </Container>
@@ -128,7 +130,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
             })}
           </div>
           <Link className="text-link" href="/consultation">
-            What the Planning Consultation clarifies ↗
+            What the Planning Consultation clarifies <Icon />
           </Link>
         </Container>
       </Section>

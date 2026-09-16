@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
 import { EditorialHero, FinalCta } from "@/components/content/shared";
@@ -26,7 +28,7 @@ export default function Page() {
               options, and set a useful order.
             </p>
             <Link className="text-link mt-5" href="/consultation">
-              See how the consultation works ↗
+              See how the consultation works <Icon />
             </Link>
           </div>
         </Container>
@@ -59,7 +61,7 @@ export default function Page() {
                       className="text-link mt-5"
                       href={`/treatments/${t.slug}`}
                     >
-                      Explore {t.name} ↗
+                      Explore {t.name} <Icon />
                     </Link>
                   </article>
                 ))}

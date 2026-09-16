@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import { creator } from "@/content/creator";
 export function CreatorContact({
   purpose = "contact",
@@ -10,7 +12,7 @@ export function CreatorContact({
       {purpose === "contact"
         ? "Contact the creator"
         : "View the creator’s portfolio"}{" "}
-      ↗
+      <Icon />
     </a>
   ) : (
     <p className="text-sm">

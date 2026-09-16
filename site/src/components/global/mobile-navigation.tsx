@@ -1,5 +1,7 @@
 "use client";
 
+import { Icon } from "@/components/icon";
+
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -110,9 +112,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
         ref={menuButtonRef}
         type="button"
       >
-        <span aria-hidden="true" className="text-xl leading-none">
-          ≡
-        </span>
+        <Icon name="menu" />
         Menu
       </button>
 
@@ -141,9 +141,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
                     ref={closeButtonRef}
                     type="button"
                   >
-                    <span aria-hidden="true" className="text-xl leading-none">
-                      ×
-                    </span>
+                    <Icon name="close" />
                     Close
                   </button>
                 </div>
@@ -164,12 +162,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
                           <details className="group">
                             <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 text-xl font-semibold [&::-webkit-details-marker]:hidden">
                               {item.label}
-                              <span
-                                aria-hidden="true"
-                                className="text-2xl transition-transform group-open:rotate-45 motion-reduce:transition-none"
-                              >
-                                +
-                              </span>
+                              <Icon name="chevron" className="transition-transform group-open:rotate-180 motion-reduce:transition-none" />
                             </summary>
                             <div className="space-y-6 pb-6 pl-4">
                               {item.sections.map((section, index) => (

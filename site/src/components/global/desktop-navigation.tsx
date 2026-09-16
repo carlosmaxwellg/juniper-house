@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 
 import type { NavigationItem } from "@/content/navigation";
@@ -35,12 +37,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
               >
                 <summary className="flex min-h-12 cursor-pointer list-none items-center gap-2 px-3 text-sm font-semibold hover:text-action [&::-webkit-details-marker]:hidden">
                   {item.label}
-                  <span
-                    aria-hidden="true"
-                    className="text-lg leading-none transition-transform group-open:rotate-45 motion-reduce:transition-none"
-                  >
-                    +
-                  </span>
+                  <Icon name="chevron" className="transition-transform group-open:rotate-180 motion-reduce:transition-none" />
                 </summary>
                 <div
                   className={`absolute right-0 top-full z-50 border border-border bg-surface p-6 shadow-xl ${

@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
 import {
@@ -59,14 +61,14 @@ const method = [
 ];
 export default function Home() {
   return (
-    <>
+    <div className="home-page">
       <section className="home-hero" data-hero>
         <Container className="home-hero-grid">
-          <div>
+          <div className="hero-copy">
             <Eyebrow>
               Skin health and medical aesthetics · Austin, Texas
             </Eyebrow>
-            <h1 className="type-display">Know what fits before you decide.</h1>
+            <h1 className="type-display">Know what fits <span>before you decide.</span></h1>
             <p className="type-lead">
               Thoughtful skin and aesthetic care begins with a clear
               understanding of your goals, your options, and what each path may
@@ -76,11 +78,11 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-5">
               <Button />
               <Link className="text-link" href="/concerns">
-                Explore your concerns <span aria-hidden="true">↗</span>
+                Explore your concerns <Icon />
               </Link>
             </div>
           </div>
-          <ModelImage priority />
+          <ModelImage priority sizes="(max-width: 767px) 130vw, 80vw" />
         </Container>
       </section>
       <div className="trust-strip">
@@ -90,16 +92,16 @@ export default function Home() {
               "Qualified provider roles",
               "45-minute consultation · $150",
               "Prices and recovery made visible",
-              "West Austin concept location",
+              "West Austin, Texas",
             ].map((text) => (
               <li key={text}>{text}</li>
             ))}
           </ul>
         </Container>
       </div>
-      <Section>
+      <Section className="home-concerns">
         <Container>
-          <div className="section-heading">
+          <div className="section-heading home-section-heading">
             <Eyebrow>Start with the concern</Eyebrow>
             <h2>Start with what you’re noticing</h2>
             <p>
@@ -108,25 +110,29 @@ export default function Home() {
               that may be worth discussing.
             </p>
           </div>
-          <div className="concern-grid">
+          <div className="concern-index">
             {concerns.map(([slug, name, body, label], i) => (
-              <article className="concern-card" key={slug}>
+              <article className="concern-row" key={slug}>
                 <span className="number">0{i + 1}</span>
                 <h3>{name}</h3>
-                <p>{body}</p>
+                <div><p>{body}</p>
                 <Link className="text-link" href={`/concerns/${slug}`}>
-                  {label} <span aria-hidden="true">↗</span>
+                  {label} <Icon />
                 </Link>
+                </div>
               </article>
             ))}
           </div>
         </Container>
       </Section>
-      <Section className="bg-surface-muted">
-        <Container className="editorial-grid">
+      <Section className="home-consultation">
+        <Container>
+          <div className="consultation-intro">
           <div>
             <Eyebrow>A consultation with something to show for it</Eyebrow>
             <h2>Leave with a plan, not a sales pitch.</h2>
+          </div>
+          <div className="consultation-copy">
             <p>
               Your Skin &amp; Aesthetic Planning Consultation is a focused
               45-minute appointment with the lead aesthetic provider. We’ll
@@ -139,17 +145,20 @@ export default function Home() {
               reason behind each recommendation. You can take it away and decide
               in your own time.
             </p>
-            <p className="font-semibold">
-              45 minutes · $150 · No treatment required
+            <p className="consultation-price">
+              <span>45 minutes</span>{" "}<span>$150</span>{" "}<span>No treatment required</span>
             </p>
             <p className="text-sm">
               $100 treatment credit on a first treatment of $350+ booked within
               60 days.
             </p>
             <Link className="text-link mt-5" href="/consultation">
-              See how the consultation works <span aria-hidden="true">↗</span>
+              See how the consultation works <Icon />
             </Link>
           </div>
+          </div>
+          <div className="consultation-story">
+          <ModelImage consultation sizes="(max-width: 767px) 115vw, 95vw" />
           <div className="plan-panel">
             <Eyebrow>Your personal care plan</Eyebrow>
             {[
@@ -172,9 +181,10 @@ export default function Home() {
               </div>
             ))}
           </div>
+          </div>
         </Container>
       </Section>
-      <Section>
+      <Section className="home-approach">
         <Container>
           <div className="section-heading">
             <Eyebrow>The Juniper House approach</Eyebrow>
@@ -189,20 +199,22 @@ export default function Home() {
             ))}
           </ol>
           <Link className="text-link mt-8" href="/approach">
-            Read about our approach <span aria-hidden="true">↗</span>
+            Read about our approach <Icon />
           </Link>
         </Container>
       </Section>
-      <Section className="bg-surface-muted">
-        <Container className="editorial-grid">
-          <div>
+      <Section className="home-treatments">
+        <Container>
+          <div className="treatment-heading">
+            <div>
             <Eyebrow>Options, with perspective</Eyebrow>
             <h2>A focused treatment menu</h2>
+            </div>
             <Link className="text-link" href="/treatments">
-              Compare treatments <span aria-hidden="true">↗</span>
+              Compare treatments <Icon />
             </Link>
           </div>
-          <div>
+          <div className="treatment-index">
             {[
               [
                 "Maintain and support",
@@ -220,8 +232,9 @@ export default function Home() {
                 "Soften and balance",
                 "Neuromodulators and conservative HA filler may be discussed when movement or volume—not skin quality alone—is the main consideration.",
               ],
-            ].map(([title, body]) => (
-              <article className="concern-card" key={title}>
+            ].map(([title, body], i) => (
+              <article className="treatment-row" key={title}>
+                <span className="number">0{i + 1}</span>
                 <h3>{title}</h3>
                 <p>{body}</p>
               </article>
@@ -229,8 +242,9 @@ export default function Home() {
           </div>
         </Container>
       </Section>
-      <Section>
-        <Container className="editorial-grid">
+      <Section className="home-provider">
+        <Container>
+          <div className="provider-intro">
           <div>
             <Eyebrow>Advice before intervention</Eyebrow>
             <h2>Meet your planning provider</h2>
@@ -240,22 +254,19 @@ export default function Home() {
               is to clarify the decision—not to fit every concern to a
               procedure.
             </p>
-            <blockquote className="font-serif text-3xl leading-snug my-8">
+            <Link className="text-link mt-4" href="/about">
+              Meet the fictional team <Icon />
+            </Link>
+          </div>
+            <blockquote className="provider-quote">
               “A useful consultation may lead to treatment, a different
               sequence, or a recommendation to wait. The reasoning should be
               clear either way.”
             </blockquote>
-            <p className="text-sm">
-              Rowan Ellis is a fictional provider profile created for this
-              portfolio concept. Credentials and practice history are
-              illustrative and must not be treated as real.
-            </p>
-            <Link className="text-link mt-4" href="/about">
-              Meet the fictional team <span aria-hidden="true">↗</span>
-            </Link>
           </div>
           <div>
             <Eyebrow>What responsible care looks like here</Eyebrow>
+            <div className="provider-principles">
             {[
               [
                 "Prices you can see",
@@ -279,15 +290,17 @@ export default function Home() {
                 <p>{body}</p>
               </article>
             ))}
+            </div>
           </div>
         </Container>
       </Section>
-      <Section className="bg-surface-muted">
-        <Container className="editorial-grid items-center">
-          <ModelImage interior />
-          <div>
-            <Eyebrow>West Austin · Illustrative location</Eyebrow>
+      <Section className="home-visit">
+        <Container>
+          <ModelImage interior sizes="100vw" />
+          <div className="visit-details">
+            <div><Eyebrow>West Austin</Eyebrow>
             <h2>Visit Juniper House</h2>
+            </div>
             <p>
               Tuesday–Friday, 9:00 a.m.–6:00 p.m.
               <br />
@@ -295,13 +308,14 @@ export default function Home() {
               <br />
               Sunday–Monday, closed
             </p>
-            <p>
+            <div><p>
               Explore illustrative arrival, parking, and accessibility
-              information. There is no operating clinic or real clinic address.
+              information.
             </p>
             <Link className="text-link mt-5" href="/visit">
-              Plan your visit <span aria-hidden="true">↗</span>
+              Plan your visit <Icon />
             </Link>
+            </div>
           </div>
         </Container>
       </Section>
@@ -309,6 +323,6 @@ export default function Home() {
         title="Clarity before treatment."
         body="Bring the concern. Leave with a prioritized plan, realistic expectations, and room to decide."
       />
-    </>
+    </div>
   );
 }

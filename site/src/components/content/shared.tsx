@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -18,7 +20,7 @@ export function Button({
       href={href}
     >
       {children}
-      <span aria-hidden="true">↗</span>
+      <Icon />
     </Link>
   );
 }
@@ -74,33 +76,37 @@ export function EditorialHero({
 }
 export function ModelImage({
   interior = false,
+  consultation = false,
   priority = false,
+  sizes = "(max-width: 767px) 100vw, 50vw",
 }: {
   interior?: boolean;
+  consultation?: boolean;
   priority?: boolean;
+  sizes?: string;
 }) {
   return (
-    <figure className={`model-image ${interior ? "interior-image" : ""}`}>
+    <figure className={`model-image ${interior ? "interior-image" : ""} ${consultation ? "consultation-image" : ""}`}>
       <div>
         <Image
           src={
-            interior
+            consultation ? "/images/clinic/consultation-planning.png" : interior
               ? "/images/clinic/interior-concept.png"
               : "/images/people/hero-model.png"
           }
           alt={
-            interior
+            consultation ? "A hand holding a pen beside an open planning notebook on a warm stone desk." : interior
               ? "Illustrative reception with warm stone, natural wood, and soft daylight."
               : "Model seated in a warm, softly lit interior."
           }
           fill
-          sizes="(max-width: 767px) 100vw, 50vw"
+          sizes={sizes}
           preload={priority}
           className="object-cover"
         />
       </div>
       <figcaption>
-        {interior
+        {consultation ? "Generated consultation scene. Illustrative, not a real appointment." : interior
           ? "Generated environment. Illustrative concept, not an operating clinic."
           : "Model image. Not a patient or treatment result."}
       </figcaption>
@@ -152,7 +158,7 @@ export function FaqList({
         <details key={faq.question}>
           <summary>
             {faq.question}
-            <span aria-hidden="true">+</span>
+            <Icon name="plus" />
           </summary>
           <p>{faq.answer}</p>
         </details>

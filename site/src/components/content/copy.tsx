@@ -1,5 +1,6 @@
 import type { CopyBlock } from "@/content/types";
 import { Boundary } from "./shared";
+import { Icon } from "@/components/icon";
 
 export function Copy({ blocks }: { blocks: CopyBlock[] }) {
   return (
@@ -22,7 +23,12 @@ export function Copy({ blocks }: { blocks: CopyBlock[] }) {
           );
         return (
           <p key={i} className="whitespace-pre-line">
-            {block.text}
+            {block.text.includes(" → ") ? block.text.split(" → ").map((step, index) => (
+              <span className="copy-sequence-step" key={`${index}-${step}`}>
+                {index > 0 && <><span className="sr-only"> then </span><Icon name="right" /></>}
+                {step}
+              </span>
+            )) : block.text}
           </p>
         );
       })}

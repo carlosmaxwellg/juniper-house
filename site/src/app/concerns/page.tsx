@@ -1,3 +1,5 @@
+
+import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
 import { Boundary, EditorialHero, FinalCta } from "@/components/content/shared";
@@ -26,7 +28,7 @@ export default function Page() {
                 <h3>{c.name}</h3>
                 <p>{c.shortDescription}</p>
                 <Link className="text-link" href={`/concerns/${c.slug}`}>
-                  Explore {c.name.toLowerCase()} ↗
+                  Explore {c.name.toLowerCase()} <Icon />
                 </Link>
               </article>
             ))}
@@ -51,7 +53,7 @@ export default function Page() {
               className="text-link mt-6"
               href="/treatments/custom-clinical-facial"
             >
-              Explore Custom Clinical Facial ↗
+              Explore Custom Clinical Facial <Icon />
             </Link>
           </div>
           <div>
@@ -63,7 +65,7 @@ export default function Page() {
               site offers pathways, not self-diagnosis.
             </p>
             <Link className="text-link mt-6" href="/consultation">
-              What the consultation separates ↗
+              What the consultation separates <Icon />
             </Link>
           </div>
         </Container>

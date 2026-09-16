@@ -4,13 +4,13 @@
 
 The approved portfolio implementation is complete through local deployment readiness. The global shell, homepage, typed content models, all concern and treatment pages, remaining narrative pages, simulated booking and inquiry experiences, responsive behavior, accessibility work, metadata, security headers, automated tests, and deployment documentation are implemented. The final clean production build and all local checks pass; see `site/QA.md` for the evidence and `site/DEPLOYMENT.md` for the release procedure.
 
-No deployment, remote push, or external-service change has been made. The next action is to select and approve a Vercel review-preview destination and URL. Creator portfolio and contact URLs intentionally remain visible placeholders and can be updated later in `site/src/content/creator.ts`.
+The subsequent approved visual-elevation pass is complete locally: stronger hero and image-led compositions, varied editorial layouts, SVG icons, restrained motion, and one general footer disclosure. All 37 browser checks and eight unit tests pass. See `site/VISUAL-PASS.md` and `site/QA.md`. No new deployment or external-service change was made during the visual pass. The existing linked Vercel project and earlier preview remain in place; a Preview update requires separate approval. Creator portfolio and contact URLs intentionally remain visible placeholders in `site/src/content/creator.ts`.
 
 **Prepared:** 7 September 2026  
 **Repository:** `/Users/carlos/Desktop/Freelance Web Design + AI Development/juniper-house`  
 **Application:** `site/`  
 **Current branch:** `main`  
-**Next milestone:** Finish and verify the global site shell, then build the homepage as the first complete vertical slice
+**Next milestone:** Review the completed local visual pass, then obtain approval before updating the Vercel Preview
 
 ## Purpose and working preference
 

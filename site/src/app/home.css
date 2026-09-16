@@ -1,0 +1,112 @@
+/* The visual pass keeps the shared page templates and approved palette intact. */
+.icon { display: inline-block; flex-shrink: 0; vertical-align: middle; }
+.copy-sequence-step { display: inline-flex; align-items: center; gap: 0.5rem; margin-right: 0.5rem; max-width: 100%; }
+.button .icon, .text-link .icon { transition: transform 180ms ease; }
+.button:hover .icon-arrow, .text-link:hover .icon-arrow { transform: translate(2px, -2px); }
+.text-link { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.3em; transition: text-underline-offset 180ms; }
+.text-link:hover { text-underline-offset: 0.45em; }
+.home-page h2 { font-size: clamp(2.5rem, 4.4vw, 4rem); line-height: 1.08; letter-spacing: -0.025em; }
+.home-hero { padding-block: 0 2.5rem; }
+.home-hero-grid { align-items: stretch; gap: 2rem; }
+.hero-copy { padding-block: 3rem 1rem; align-self: center; position: relative; z-index: 1; }
+.home-hero h1 { font-size: clamp(3.25rem, 6.5vw, 6rem); line-height: 0.99; letter-spacing: -0.04em; max-width: 45rem; margin-bottom: 2rem; }
+.home-hero h1 span { display: block; }
+.home-hero .type-lead { font-size: 1rem; line-height: 1.75; max-width: 30rem; }
+.home-hero .eyebrow { max-width: 25rem; margin-bottom: 2rem; }
+.home-hero .model-image > div { aspect-ratio: 5/4; }
+.home-hero .model-image img { object-position: 60% 43%; transform: scale(1.12); transform-origin: 65% 43%; }
+.home-hero .model-image figcaption { padding-right: 1rem; }
+.home-page .trust-strip { background: var(--brand-bone); padding-block: 1.25rem; }
+.home-page .trust-strip li { border-left: 1px solid var(--brand-moss); padding-left: 1rem; }
+.home-section-heading { max-width: none; }
+.concern-row { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; border-top: 1px solid var(--semantic-border); padding-block: 2rem; }
+.concern-row:last-child { border-bottom: 1px solid var(--semantic-border); }
+.home-page .number { color: var(--brand-clay); font-size: 0.75rem; letter-spacing: 0.1em; padding-top: 0.5rem; }
+.concern-row h3 { font-size: clamp(1.85rem, 3vw, 2.75rem); font-weight: 400; max-width: 25rem; }
+.concern-row > div { grid-column: 2; }
+.concern-row p { max-width: 29rem; }
+.concern-row .text-link { margin-top: 0.5rem; }
+.home-consultation { background: var(--brand-juniper); color: var(--brand-porcelain); }
+.home-consultation :is(h2, h3, .eyebrow, .text-link) { color: inherit; }
+.home-consultation a:focus-visible { outline-color: var(--brand-porcelain); }
+.consultation-intro { display: grid; gap: 2rem; margin-bottom: 3rem; }
+.consultation-intro h2 { max-width: 33rem; }
+.consultation-copy > p + p { margin-top: 1.25rem; }
+.consultation-price { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; align-items: baseline; padding-top: 1rem; }
+.consultation-price > span:nth-child(-n+2) { font-family: var(--font-newsreader), Georgia, serif; font-size: 2.75rem; line-height: 1.15; }
+.consultation-price > span:last-child { flex-basis: 100%; font-size: 0.8125rem; }
+.consultation-story { display: grid; align-items: start; gap: 2rem; }
+.consultation-image > div { aspect-ratio: 4/3; }
+.consultation-image img { object-position: 57% center; }
+.home-consultation .model-image figcaption { color: var(--brand-porcelain); }
+.home-consultation .plan-panel { background: var(--brand-porcelain); color: var(--brand-juniper-ink); padding: clamp(1.5rem, 4vw, 3.5rem); border: 0; }
+.home-consultation .plan-panel .eyebrow { color: var(--brand-juniper); border-bottom: 1px solid var(--brand-moss); padding-bottom: 1.5rem; margin-bottom: 0; }
+.home-consultation .plan-panel h3 { font-size: 2.25rem; font-weight: 400; }
+.home-consultation .plan-panel p { font-size: 0.875rem; }
+.home-approach { padding-block: clamp(3.5rem, 6vw, 5.5rem); }
+.home-approach .section-heading { max-width: none; }
+.home-approach h2 { font-size: clamp(2.25rem, 3.5vw, 3rem); }
+.home-approach .steps { gap: 1.5rem; }
+.home-approach .steps li::before { margin-bottom: 1rem; }
+.home-approach .steps p { font-size: 0.875rem; }
+.home-treatments { background: var(--brand-bone); }
+.home-treatments .number { color: var(--brand-juniper); }
+.treatment-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 3rem; }
+.treatment-row { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; padding-block: 2rem; border-top: 1px solid var(--brand-mineral); }
+.treatment-row h3 { font-size: clamp(1.75rem, 2.6vw, 2.5rem); font-weight: 400; }
+.treatment-row p { grid-column: 2; max-width: 38rem; }
+.provider-intro { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; margin-bottom: 4rem; }
+.provider-intro h2 { margin-bottom: 1.5rem; }
+.provider-quote { font-family: var(--font-newsreader), Georgia, serif; font-size: clamp(2.25rem, 3.8vw, 3.75rem); font-weight: 400; line-height: 1.18; letter-spacing: -0.02em; color: var(--brand-juniper); margin: 0; overflow-wrap: anywhere; }
+.provider-principles { display: grid; gap: 0 2rem; }
+.provider-principles .concern-card h3 { font-size: 1.5rem; }
+.provider-principles .concern-card p { font-size: 0.875rem; margin-bottom: 0; }
+.home-visit { padding-top: 0; }
+.home-visit .interior-image > div { aspect-ratio: 5/4; }
+.home-visit .interior-image img { object-position: center 55%; }
+.visit-details { display: grid; gap: 2rem; padding-top: 2.5rem; }
+.visit-details .eyebrow { margin-bottom: 1rem; }
+.visit-details > p { font-size: 0.875rem; }
+.home-page .final-cta { background: var(--brand-bone); border: 0; text-align: center; }
+.home-page .final-cta .max-w-3xl { max-width: 57rem; margin-inline: auto; }
+.home-page .final-cta h2 { font-size: clamp(3.25rem, 7vw, 6rem); }
+.home-page .final-cta .type-lead { max-width: 36rem; margin-inline: auto; }
+@media (min-width: 48rem) {
+  .home-hero-grid { grid-template-columns: 1.05fr 1fr; gap: 1.5rem; }
+  .hero-copy { padding-block: 4rem; }
+  .home-hero .model-image { margin-right: calc(-1 * max(var(--container-gutter), (100vw - var(--container-max)) / 2)); }
+  .home-hero .model-image > div { aspect-ratio: auto; height: calc(100% - 2rem); min-height: 37rem; }
+  .home-hero .model-image figcaption { margin-left: 0.5rem; }
+  .home-section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; align-items: end; }
+  .home-section-heading .eyebrow { grid-column: 1/-1; }
+  .home-section-heading h2 { margin: 0; }
+  .home-section-heading > p:last-child { max-width: 30rem; }
+  .concern-row { grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem; align-items: start; }
+  .concern-row > div { grid-column: auto; }
+  .consultation-intro { grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+  .consultation-story { grid-template-columns: 1.1fr 1fr; gap: 0; align-items: center; }
+  .consultation-story .model-image { margin-right: -2rem; }
+  .consultation-story .model-image > div { aspect-ratio: 4/5; }
+  .consultation-story .plan-panel { position: relative; margin-block: 2rem 4rem; }
+  .treatment-row { grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; align-items: start; }
+  .treatment-row p { grid-column: auto; }
+  .provider-intro { grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+  .provider-principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-visit .interior-image > div { aspect-ratio: 2.3/1; }
+  .visit-details { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .visit-details > div:first-child { grid-column: 1/-1; }
+}
+@media (min-width: 75rem) {
+  .home-hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+  .provider-principles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .visit-details { grid-template-columns: 1.2fr 1fr 1fr; gap: 3rem; }
+  .visit-details > div:first-child { grid-column: auto; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero .model-image { animation: image-arrival 480ms ease-out; }
+  @keyframes image-arrival { from { opacity: 0.7; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button .icon, .text-link .icon, .text-link { transition: none; }
+  .button:hover .icon-arrow, .text-link:hover .icon-arrow { transform: none; }
+}

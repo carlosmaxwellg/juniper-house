@@ -600,8 +600,8 @@
 .faq-list summary::-webkit-details-marker {
   display: none;
 }
-.faq-list details[open] summary span {
-  transform: rotate(45deg);
+.faq-list details[open] summary .icon-plus-vertical {
+  display: none;
 }
 .faq-list details p {
   padding-bottom: 1.5rem;
