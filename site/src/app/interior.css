@@ -1,0 +1,89 @@
+/* Shared interior compositions; approved content and reading order stay intact. */
+.interior-page h1 {
+  font-size: clamp(3rem, 4.9vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+.interior-page h2 {
+  font-size: clamp(2.25rem, 3.3vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.interior-page .layout-section { padding-block: clamp(3.5rem, 6.5vw, 6.5rem); }
+.interior-page .editorial-hero { padding-top: 2.5rem; }
+.interior-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+.interior-hero-grid > div { min-width: 0; }
+.interior-hero-grid .type-lead { max-width: 35rem; font-size: 1.0625rem; line-height: 1.75; }
+.interior-hero-grid .model-image > div { aspect-ratio: 5/4; }
+.interior-hero-grid .image-concern > div { aspect-ratio: 4/3; }
+.interior-hero-grid .image-concern img { object-position: center 35%; }
+.interior-hero-grid .model-image:not(.image-concern) img { object-position: center; }
+.interior-page .quick-facts { gap: 1.5rem; padding: 1.5rem; border-top: 1px solid var(--brand-moss); }
+.interior-page .quick-facts > div { min-width: 0; }
+.interior-page .quick-facts dd { font-size: 0.875rem; }
+.illustrated-hero .quick-facts { grid-template-columns: minmax(0, 1fr); }
+.interior-page .reading-copy li { padding-block: 0.55rem; border-bottom: 1px solid var(--brand-mineral); }
+.interior-page .reading-copy li + li { margin-top: 0; }
+.interior-page .reading-copy ul { padding-left: 1.15rem; }
+.interior-page .reading-copy > h3:first-child { margin-top: 0; }
+.interior-pathways { display: grid; gap: 1.5rem; margin-bottom: 3rem; counter-reset: pathway; }
+.interior-pathways .concern-card { position: relative; padding-left: 3rem; padding-block: 1.5rem; }
+.pathway-number { position: absolute; top: 1.8rem; left: 0; font-size: 0.75rem; color: var(--brand-juniper); }
+.interior-pathways h3 { font-size: clamp(1.75rem, 2.2vw, 2.25rem); font-weight: 400; }
+.interior-pathways .text-link { display: flex; width: fit-content; max-width: 100%; }
+.interior-consultation { background: var(--brand-juniper); color: var(--brand-porcelain); }
+.interior-consultation :is(h2, .text-link, figcaption) { color: inherit; }
+.interior-consultation a:focus-visible { outline-color: var(--brand-porcelain); }
+.interior-consultation .model-image { margin-top: 2rem; }
+.interior-consultation .model-image > div { aspect-ratio: 3/2; }
+.interior-consultation .editorial-grid { align-items: center; }
+.interior-consultation .reading-copy li { border-color: var(--brand-moss); padding-block: 1rem; }
+.treatment-process .editorial-grid > div { border-top: 1px solid var(--brand-moss); padding-top: 2rem; }
+.treatment-process .eyebrow { margin-bottom: 1rem; }
+.treatment-process .copy-sequence-step { margin-block: 0.25rem; color: var(--brand-juniper); font-weight: 650; }
+.interior-page #risks { border-block: 1px solid var(--brand-clay); }
+.interior-pricing .reading-copy > p:first-child { font-family: var(--font-newsreader), Georgia, serif; font-size: clamp(1.75rem, 2.6vw, 2.5rem); line-height: 1.3; }
+.interior-page .faq-list summary { font-weight: 500; }
+.interior-page .final-cta { background: var(--brand-bone); text-align: center; }
+.interior-page .final-cta .max-w-3xl { max-width: 55rem; margin-inline: auto; }
+.interior-page .final-cta h2 { font-size: clamp(2.75rem, 5vw, 4.5rem); }
+.interior-page .final-cta .type-lead { max-width: 40rem; margin-inline: auto; }
+.narrative-page .content-section { border-bottom: 0; }
+.narrative-page .content-section .editorial-grid { gap: 2rem; }
+.narrative-page .content-section h2 { max-width: 28rem; }
+.narrative-chapters > div:first-child { margin-bottom: 3rem; }
+.copy-chapters { display: grid; gap: 2rem; }
+.copy-chapter { min-width: 0; border-top: 1px solid var(--brand-moss); padding-top: 1.5rem; }
+.copy-chapter h3 { font-size: 2rem; font-weight: 400; }
+.copy-chapter-boundary { grid-column: 1/-1; }
+.narrative-approach .narrative-section-1 { background: var(--brand-juniper); color: var(--brand-porcelain); }
+.narrative-approach .narrative-section-1 :is(h2, h3) { color: inherit; }
+.narrative-about .narrative-section-3 .reading-copy h3 { font-size: clamp(2.25rem, 3.4vw, 3.25rem); color: var(--brand-juniper); }
+.narrative-about .narrative-section-5 { background: var(--brand-bone); }
+.narrative-consultation .narrative-section-1 { background: var(--brand-bone); }
+.narrative-visit .narrative-section-2 .reading-copy { font-family: var(--font-newsreader), Georgia, serif; font-size: 1.75rem; }
+.concerns-index .concern-grid { grid-template-columns: minmax(0, 1fr); }
+.concerns-index .concern-card h3 { font-size: clamp(1.85rem, 3vw, 2.75rem); font-weight: 400; }
+.interior-page .text-link { max-width: 100%; }
+@media (min-width: 48rem) {
+  .interior-hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 3.5rem; }
+  .interior-hero-grid .model-image > div { aspect-ratio: 4/5; }
+  .treatment-hero .interior-hero-grid .model-image > div { aspect-ratio: 5/4; }
+  .interior-pathways { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+  .interior-pathways .concern-card:first-child { grid-column: 1/-1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 3rem; }
+  .interior-pathways .concern-card:first-child h3 { grid-row: span 5; }
+  .interior-pathways .concern-card:first-child :is(p, a) { grid-column: 2; }
+  .illustrated-hero .quick-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .illustrated-hero .quick-facts > div:last-child { grid-column: 1/-1; }
+  .narrative-page .content-section .editorial-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 5rem; }
+  .copy-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+  .concerns-index .concern-card { display: grid; grid-template-columns: 2rem minmax(0, 1fr) minmax(0, 1fr); gap: 0 2rem; }
+  .concerns-index .concern-card .number { grid-row: span 2; }
+  .concerns-index .concern-card h3 { grid-row: span 2; }
+  .concerns-index .concern-card .text-link { grid-column: 3; }
+}
+@media (min-width: 75rem) {
+  .interior-hero-grid { gap: 5rem; }
+  .treatment-hero .quick-facts { grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 2rem; }
+  .narrative-approach .narrative-section-1 .copy-chapters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

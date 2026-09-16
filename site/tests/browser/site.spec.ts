@@ -134,6 +134,44 @@ test("desktop menus and skip link work by keyboard", async ({ page }) => {
     page.locator("#desktop-primary-navigation details[open]"),
   ).toHaveCount(0);
 });
+test("desktop concerns separator clears every link at wide and narrow desktop widths", async ({ page }) => {
+  for (const width of [1024, 1440, 1920]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto("/");
+    await page.locator("#desktop-primary-navigation summary").first().click();
+    const menu = page.locator("#desktop-primary-navigation details[open]");
+    const last = menu.getByRole("link", { name: "Fine lines & facial balance", exact: true });
+    const all = menu.getByRole("link", { name: "View all concerns" });
+    await last.hover();
+    await expect(last).toHaveCSS("text-decoration-line", "underline");
+    const lastBox = await last.boundingBox();
+    const allBox = await all.boundingBox();
+    expect(allBox!.y).toBeGreaterThanOrEqual(lastBox!.y + lastBox!.height + 8);
+    await last.focus();
+    await page.keyboard.press("Tab");
+    await expect(all).toBeFocused();
+  }
+});
+
+for (const route of ["/concerns/fine-lines-facial-balance", "/treatments/medical-microneedling", "/approach", "/about", "/consultation", "/visit"]) {
+  test(`interior imagery and accessible reflow: ${route}`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const width of [320, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(route);
+      for (const image of await page.locator("main img").all()) {
+        await image.scrollIntoViewIfNeeded();
+        await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    }
+    await page.setViewportSize({ width: 320, height: 740 });
+    await page.addStyleTag({ content: "* { line-height:1.5 !important; letter-spacing:.12em !important; word-spacing:.16em !important; } p { margin-bottom:2em !important; }" });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await audit(page);
+  });
+}
+
 test("booking errors, no availability, editing, completion, privacy", async ({
   page,
   context,

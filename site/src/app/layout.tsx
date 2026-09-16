@@ -10,6 +10,7 @@ import { allowIndexing, publicSiteUrl } from "@/lib/metadata";
 
 import "./globals.css";
 import "./home.css";
+import "./interior.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",

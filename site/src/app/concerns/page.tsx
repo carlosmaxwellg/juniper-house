@@ -2,7 +2,7 @@
 import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
-import { Boundary, EditorialHero, FinalCta } from "@/components/content/shared";
+import { Boundary, EditorialHero, FinalCta, ModelImage } from "@/components/content/shared";
 import { concerns } from "@/content/concerns";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
@@ -12,8 +12,9 @@ export const metadata = pageMetadata(
 );
 export default function Page() {
   return (
-    <>
+    <div className="interior-page concerns-index">
       <EditorialHero
+        image={<ModelImage variant="concern" priority sizes="(max-width: 767px) 100vw, 50vw" />}
         eyebrow="Explore by concern"
         title="Start with what you want to understand."
         introduction="The same visible change can have more than one possible path. Explore common concerns for orientation, then use a consultation to decide what—if anything—belongs in your plan."
@@ -84,6 +85,6 @@ export default function Page() {
         </Container>
       </Section>
       <FinalCta />
-    </>
+    </div>
   );
 }

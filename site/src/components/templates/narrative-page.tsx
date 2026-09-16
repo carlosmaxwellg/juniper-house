@@ -8,7 +8,7 @@ import {
   ModelImage,
   QuickFacts,
 } from "@/components/content/shared";
-import { Copy } from "@/components/content/copy";
+import { Copy, ChapterCopy } from "@/components/content/copy";
 import type { NarrativePage as NarrativeContent } from "@/content/types";
 
 export function NarrativePage({
@@ -28,11 +28,12 @@ export function NarrativePage({
     "terms",
   ].includes(kind);
   return (
-    <>
+    <div className={utility ? "utility-page" : `interior-page narrative-page narrative-${kind}`}>
       <EditorialHero
         eyebrow={page.hero.eyebrow}
         title={page.hero.headline}
         introduction={page.hero.introduction}
+        image={utility ? undefined : kind === "consultation" || kind === "approach" ? <ModelImage consultation priority sizes="(max-width: 767px) 120vw, 70vw" /> : <ModelImage interior priority sizes="(max-width: 767px) 120vw, 70vw" />}
       >
         {kind === "consultation" ? (
           <>
@@ -56,22 +57,21 @@ export function NarrativePage({
           <Button />
         )}
       </EditorialHero>
-      {page.sections.map((section, i) => (
+      {page.sections.map((section, i) => {
+        const chapters = !utility && section.blocks.filter(block => block.kind === "heading").length >= 3;
+        return (
         <Section
-          className={`content-section ${i % 2 === 0 ? "" : "bg-surface-muted"}`}
+          className={`content-section ${utility ? (i % 2 === 0 ? "" : "bg-surface-muted") : `narrative-section narrative-section-${i + 1} ${i % 3 === 1 ? "bg-surface-muted" : ""}`}`}
           key={section.title}
         >
-          <Container className="editorial-grid">
+          <Container className={chapters ? "narrative-chapters" : "editorial-grid"}>
             <div>
               <h2>{section.title}</h2>
-              {kind === "about" && section.title === "A sense of place" && (
-                <ModelImage interior />
-              )}
             </div>
-            <Copy blocks={section.blocks} />
+            {chapters ? <ChapterCopy blocks={section.blocks} /> : <Copy blocks={section.blocks} />}
           </Container>
         </Section>
-      ))}
+      );})}
       {children}
       {page.faqs.length > 0 && (
         <Section className="bg-surface-muted">
@@ -82,6 +82,6 @@ export function NarrativePage({
         </Section>
       )}
       {!utility && <FinalCta {...page.finalCta} />}
-    </>
+    </div>
   );
 }

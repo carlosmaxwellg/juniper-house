@@ -68,7 +68,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
                     </div>
                   ))}
                   <Link
-                    className="col-span-full border-t border-border pt-4 font-semibold text-action"
+                    className="block col-span-full mt-4 border-t border-border pt-4 font-semibold text-action"
                     href={item.href}
                   >
                     View all {item.label.toLowerCase()}

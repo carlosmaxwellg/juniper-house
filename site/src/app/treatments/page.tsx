@@ -2,7 +2,7 @@
 import { Icon } from "@/components/icon";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
-import { EditorialHero, FinalCta } from "@/components/content/shared";
+import { EditorialHero, FinalCta, ModelImage } from "@/components/content/shared";
 import { treatments } from "@/content/treatments";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
@@ -12,8 +12,9 @@ export const metadata = pageMetadata(
 );
 export default function Page() {
   return (
-    <>
+    <div className="interior-page treatments-index">
       <EditorialHero
+        image={<ModelImage variant="treatment" priority sizes="(max-width: 767px) 100vw, 50vw" />}
         eyebrow="Focused treatment menu"
         title="Compare the options without choosing alone."
         introduction="This menu gives you the practical facts: what each treatment may address, who performs it, what recovery can involve, and where alternatives differ. Final suitability depends on individual assessment."
@@ -118,6 +119,6 @@ export default function Page() {
         </Container>
       </Section>
       <FinalCta />
-    </>
+    </div>
   );
 }

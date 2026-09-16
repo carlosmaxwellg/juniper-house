@@ -9,6 +9,7 @@ import {
   FaqList,
   FinalCta,
   QuickFacts,
+  ModelImage,
 } from "@/components/content/shared";
 import { Copy } from "@/components/content/copy";
 import { concerns } from "@/content/concerns";
@@ -16,7 +17,7 @@ import type { Treatment } from "@/content/types";
 
 export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
   return (
-    <>
+    <div className="interior-page treatment-detail">
       <Container>
         <Breadcrumbs
           items={[
@@ -25,11 +26,13 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
           ]}
         />
       </Container>
-      <Section className="editorial-hero" data-hero>
+      <Section className="editorial-hero treatment-hero" data-hero>
         <Container>
+          <div className="interior-hero-grid"><div>
           <Eyebrow>{t.name}</Eyebrow>
           <h1>{t.hero.headline}</h1>
           <p className="type-lead max-w-3xl">{t.hero.introduction}</p>
+          </div><ModelImage variant="treatment" priority sizes="(max-width: 767px) 130vw, 65vw" /></div>
           <QuickFacts facts={t.quickFacts} />
           <div className="flex flex-wrap gap-5 items-center">
             <Button />
@@ -51,7 +54,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
           </div>
         </Container>
       </Section>
-      <Section className="bg-surface-muted">
+      <Section className="bg-surface-muted treatment-process">
         <Container className="editorial-grid">
           <div>
             <Eyebrow>The appointment</Eyebrow>
@@ -95,7 +98,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
           <p className="reading-copy">{t.risks}</p>
         </Container>
       </Section>
-      <Section>
+      <Section className="interior-pricing">
         <Container className="editorial-grid">
           <h2>Pricing</h2>
           <div className="reading-copy">
@@ -135,6 +138,6 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
         </Container>
       </Section>
       <FinalCta {...t.finalCta} />
-    </>
+    </div>
   );
 }

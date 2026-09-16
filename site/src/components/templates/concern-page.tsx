@@ -8,6 +8,7 @@ import {
   EditorialHero,
   FaqList,
   FinalCta,
+  ModelImage,
 } from "@/components/content/shared";
 import { Copy } from "@/components/content/copy";
 import { treatments } from "@/content/treatments";
@@ -15,7 +16,7 @@ import type { Concern } from "@/content/types";
 
 export function ConcernPage({ concern: c }: { concern: Concern }) {
   return (
-    <>
+    <div className="interior-page concern-detail">
       <Container>
         <Breadcrumbs
           items={[{ label: "Concerns", href: "/concerns" }, { label: c.name }]}
@@ -25,6 +26,7 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
         eyebrow={c.name}
         title={c.hero.headline}
         introduction={c.hero.introduction}
+        image={<ModelImage variant="concern" priority sizes="(max-width: 767px) 100vw, 40vw" />}
       />
       <Section>
         <Container className="editorial-grid">
@@ -40,15 +42,16 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
           </div>
         </Container>
       </Section>
-      <Section className="bg-surface-muted">
+      <Section className="bg-surface-muted pathway-section">
         <Container>
           <div className="section-heading">
             <h2>Possible pathways</h2>
             <p>Concerns orient. Treatments explain. Consultation decides.</p>
           </div>
-          <div className="pathway-grid">
-            {c.pathways.map((path) => (
+          <div className="interior-pathways">
+            {c.pathways.map((path, index) => (
               <article className="concern-card" key={path.title}>
+                <span className="pathway-number" aria-hidden="true">0{index + 1}</span>
                 <h3>{path.title}</h3>
                 <p>{path.description}</p>
                 {path.facts && (
@@ -71,9 +74,9 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
           </Boundary>
         </Container>
       </Section>
-      <Section>
+      <Section className="interior-consultation">
         <Container className="editorial-grid">
-          <h2>What your consultation clarifies</h2>
+          <div><h2>What your consultation clarifies</h2><ModelImage consultation /></div>
           <div>
             <Copy blocks={[{ kind: "list", items: c.consultationClarifies }]} />
             <Link className="text-link mt-6" href="/consultation">
@@ -110,6 +113,6 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
         </Container>
       </Section>
       <FinalCta {...c.finalCta} />
-    </>
+    </div>
   );
 }

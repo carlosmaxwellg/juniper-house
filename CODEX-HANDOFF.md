@@ -1,10 +1,10 @@
 # Juniper House — Codex handoff
 
-## Current status — 15 September 2026
+## Current status — 16 September 2026
 
 The approved portfolio implementation is complete through local deployment readiness. The global shell, homepage, typed content models, all concern and treatment pages, remaining narrative pages, simulated booking and inquiry experiences, responsive behavior, accessibility work, metadata, security headers, automated tests, and deployment documentation are implemented. The final clean production build and all local checks pass; see `site/QA.md` for the evidence and `site/DEPLOYMENT.md` for the release procedure.
 
-The subsequent approved visual-elevation pass is complete locally: stronger hero and image-led compositions, varied editorial layouts, SVG icons, restrained motion, and one general footer disclosure. All 37 browser checks and eight unit tests pass. See `site/VISUAL-PASS.md` and `site/QA.md`. No new deployment or external-service change was made during the visual pass. The existing linked Vercel project and earlier preview remain in place; a Preview update requires separate approval. Creator portfolio and contact URLs intentionally remain visible placeholders in `site/src/content/creator.ts`.
+The approved homepage and interior visual passes are complete locally: stronger image-led compositions, varied shared editorial layouts, SVG icons, restrained motion, and one general footer disclosure. The desktop Concerns dropdown separator bug is fixed. All 44 browser checks and eight unit tests pass. See `site/INTERIOR-PASS.md`, `site/VISUAL-PASS.md`, and `site/QA.md`. No new deployment or external-service change was made during these visual passes. The existing linked Vercel project and earlier preview remain in place; a Preview update requires separate approval. Creator portfolio and contact URLs intentionally remain visible placeholders in `site/src/content/creator.ts`. Stop before another broad redesign cycle.
 
 **Prepared:** 7 September 2026  
 **Repository:** `/Users/carlos/Desktop/Freelance Web Design + AI Development/juniper-house`  
