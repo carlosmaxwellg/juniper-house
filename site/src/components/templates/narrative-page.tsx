@@ -1,3 +1,5 @@
+import { CarePlan } from "@/components/content/care-plan";
+import { pages } from "@/content/pages";
 import type { ReactNode } from "react";
 import { Container, Section } from "@/components/foundations";
 import {
@@ -27,16 +29,28 @@ export function NarrativePage({
     "privacy",
     "terms",
   ].includes(kind);
+  const sections = kind === "approach" ? page.sections.flatMap(section => {
+    if (section.title === "The method") return [{ title: "Your consultation, step by step", blocks: pages.consultation.sections[1].blocks }];
+    if (section.title === "What we commit to") return [{ title: "What guides your plan", blocks: [
+      { kind: "heading" as const, text: "What you can expect" }, ...section.blocks,
+      { kind: "heading" as const, text: "What we avoid" }, ...page.sections.find(item => item.title === "What we avoid")!.blocks,
+    ] }];
+    return section.title === "What we avoid" ? [] : [section];
+  }) : page.sections;
   return (
     <div className={utility ? "utility-page" : `interior-page narrative-page narrative-${kind}`}>
       <EditorialHero
         eyebrow={page.hero.eyebrow}
         title={page.hero.headline}
         introduction={page.hero.introduction}
-        image={utility ? undefined : kind === "consultation" || kind === "approach" ? <ModelImage consultation priority sizes="(max-width: 767px) 120vw, 70vw" /> : <ModelImage interior priority sizes="(max-width: 767px) 120vw, 70vw" />}
+        image={utility ? undefined : kind === "approach" ? <CarePlan /> : kind === "about" ? <ModelImage variant="provider" priority sizes="(max-width: 767px) 100vw, 45vw" /> : kind === "consultation" ? <ModelImage consultation priority sizes="(max-width: 767px) 120vw, 70vw" /> : <ModelImage interior priority sizes="(max-width: 767px) 120vw, 70vw" />}
       >
-        {kind === "consultation" ? (
+        {kind === "about" ? <>
+          <p className="lead-provider-name"><strong>Rowan Ellis, PA-C</strong><br />Lead aesthetic provider · Illustrative profile</p>
+          <Button />
+        </> : kind === "consultation" ? (
           <>
+            <Button>Choose a time</Button>
             <QuickFacts
               facts={{
                 Duration: "45 minutes",
@@ -49,7 +63,6 @@ export function NarrativePage({
               within 60 days. Treatment is not performed during the
               consultation.
             </p>
-            <Button>Choose a time</Button>
           </>
         ) : utility ? (
           <span />
@@ -57,12 +70,13 @@ export function NarrativePage({
           <Button />
         )}
       </EditorialHero>
-      {page.sections.map((section, i) => {
+      {sections.map((section, i) => {
         const chapters = !utility && section.blocks.filter(block => block.kind === "heading").length >= 3;
         return (
         <Section
           className={`content-section ${utility ? (i % 2 === 0 ? "" : "bg-surface-muted") : `narrative-section narrative-section-${i + 1} ${i % 3 === 1 ? "bg-surface-muted" : ""}`}`}
           key={section.title}
+          data-section={section.title}
         >
           <Container className={chapters ? "narrative-chapters" : "editorial-grid"}>
             <div>
@@ -70,6 +84,7 @@ export function NarrativePage({
             </div>
             {chapters ? <ChapterCopy blocks={section.blocks} /> : <Copy blocks={section.blocks} />}
           </Container>
+          {kind === "about" && section.title === "A sense of place" && <Container className="place-gallery"><ModelImage interior sizes="(max-width: 767px) 100vw, 65vw" /><ModelImage variant="treatment" sizes="(max-width: 767px) 100vw, 50vw" /></Container>}
         </Section>
       );})}
       {children}
@@ -79,6 +94,7 @@ export function NarrativePage({
             <h2>Your questions, considered</h2>
             <FaqList items={page.faqs} />
           </Container>
+
         </Section>
       )}
       {!utility && <FinalCta {...page.finalCta} />}

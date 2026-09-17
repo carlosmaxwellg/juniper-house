@@ -20,7 +20,7 @@ The first release should be a review preview with indexing disabled. Confirm the
 ## Post-deployment smoke checks
 
 - Homepage, concern, treatment, consultation, visit, and booking load over HTTPS.
-- Fonts and all five optimized images load across the homepage and interior templates; favicon and social image resolve at the deployed domain.
+- Fonts and all six optimized images load across the homepage and interior templates; favicon and social image resolve at the deployed domain.
 - Canonicals use the correct domain, previews and booking remain `noindex`, and the sitemap matches the chosen policy.
 - Complete booking with sample details; confirm no POST, email, charge, booking, URL leakage, or persistent browser storage.
 - Check keyboard navigation and mobile layout on the actual preview, including the sticky booking action.
@@ -37,6 +37,6 @@ For a bad release, redeploy the last verified commit through the host's rollback
 
 - A fictional clinic, not an operational healthcare site.
 - Sample dates, no live availability or transactions.
-- Two supplied illustrative images plus generated consultation, model-portrait, and prepared-room images; no complete provider/patient photography set.
+- Two supplied illustrative images plus generated consultation, model-portrait, prepared-room, and fictional lead-provider images; no real provider/patient photography set.
 - Public creator destinations intentionally remain placeholders.
 - No real-world performance, conversion, patient outcome, or accessibility-conformance claim.

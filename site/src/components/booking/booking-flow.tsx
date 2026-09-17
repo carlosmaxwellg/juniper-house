@@ -24,7 +24,7 @@ const headings: Record<Step, string> = {
   confirm: "Review your simulated booking",
   complete: "Your mock appointment is confirmed—on this screen only.",
 };
-const progress = ["Appointment", "Provider", "Time", "Details", "Confirm"];
+const progress = ["Visit", "Provider", "Time", "Details", "Confirm"];
 const nextLabels = [
   "Continue to provider",
   "Continue to time",
@@ -451,10 +451,10 @@ export function BookingFlow() {
                 </div>
                 <h3 className="mb-3">Cancellation-policy demonstration</h3>
                 <p>
-                  A real clinic would require at least 24 hours’ notice to
-                  reschedule or cancel without forfeiting the consultation fee.
-                  Complete terms would appear before payment. No fee applies to
-                  this demonstration.
+                  Sample policy: give at least 24 hours’ notice to reschedule
+                  or cancel without forfeiting the consultation fee. Review
+                  complete terms before paying for an appointment. No fee applies
+                  to this demonstration.
                 </p>
                 <p className="boundary mt-6">
                   Selecting the button below completes only the interface

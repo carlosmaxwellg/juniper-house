@@ -88,7 +88,7 @@ export function ModelImage({
 }: {
   interior?: boolean;
   consultation?: boolean;
-  variant?: "concern" | "treatment";
+  variant?: "concern" | "treatment" | "provider";
   priority?: boolean;
   sizes?: string;
 }) {
@@ -97,12 +97,12 @@ export function ModelImage({
       <div>
         <Image
           src={
-            variant === "concern" ? "/images/people/concern-model.png" : variant === "treatment" ? "/images/clinic/treatment-room.png" : consultation ? "/images/clinic/consultation-planning.png" : interior
+            variant === "provider" ? "/images/people/lead-provider.png" : variant === "concern" ? "/images/people/concern-model.png" : variant === "treatment" ? "/images/clinic/treatment-room.png" : consultation ? "/images/clinic/consultation-planning.png" : interior
               ? "/images/clinic/interior-concept.png"
               : "/images/people/hero-model.png"
           }
           alt={
-            variant === "concern" ? "Adult model with naturally textured skin in soft window light." : variant === "treatment" ? "Illustrative treatment room prepared with a clean couch, folded towel, and closed tray." : consultation ? "A hand holding a pen beside an open planning notebook on a warm stone desk." : interior
+            variant === "provider" ? "Generated portrait representing the fictional lead provider, seated at a consultation desk." : variant === "concern" ? "Adult model with naturally textured skin in soft window light." : variant === "treatment" ? "Illustrative treatment room prepared with a clean couch, folded towel, and closed tray." : consultation ? "A hand holding a pen beside an open planning notebook on a warm stone desk." : interior
               ? "Illustrative reception with warm stone, natural wood, and soft daylight."
               : "Model seated in a warm, softly lit interior."
           }
@@ -113,7 +113,7 @@ export function ModelImage({
         />
       </div>
       <figcaption>
-        {variant === "concern" ? "Generated model. Not a patient or treatment result." : variant === "treatment" ? "Generated treatment environment. Not a real clinic or procedure." : consultation ? "Generated consultation scene. Illustrative, not a real appointment." : interior
+        {variant === "provider" ? "Generated portrait of fictional provider Rowan Ellis. No real clinician or license is represented." : variant === "concern" ? "Generated model. Not a patient or treatment result." : variant === "treatment" ? "Generated treatment environment. Not a real clinic or procedure." : consultation ? "Generated consultation scene. Illustrative, not a real appointment." : interior
           ? "Generated environment. Illustrative concept, not an operating clinic."
           : "Model image. Not a patient or treatment result."}
       </figcaption>

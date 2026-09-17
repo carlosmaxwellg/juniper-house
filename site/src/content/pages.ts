@@ -89,11 +89,11 @@ export const pages = {
           },
           {
             kind: "paragraph",
-            text: "Rowan leads first-time planning consultations and selected injectable treatments within the fictional clinic’s medical structure. The consultation role is to bring clinical reasoning and client priorities into one understandable plan.",
+            text: "Rowan leads first-time planning consultations and selected injectable treatments within the clinic’s medical structure. The consultation role is to bring clinical reasoning and client priorities into one understandable plan.",
           },
           {
             kind: "quote",
-            text: "Fictional provider profile. The name, credentials, role, and biography exist only for this portfolio concept and do not represent a licensed professional or operating practice.",
+            text: "Illustrative provider profile; no real clinician or license is represented.",
           },
         ],
       },
@@ -124,7 +124,7 @@ export const pages = {
               "It does not require same-day treatment.",
               "It cannot be redeemed for cash or transferred.",
               "One credit applies to one eligible first treatment.",
-              "A real clinic would publish complete cancellation, refund, and credit terms before payment.",
+              "Review cancellation, refund, and credit terms before making a payment. No payment is taken in this booking demo.",
             ],
           },
         ],
@@ -140,7 +140,7 @@ export const pages = {
               "Consider your budget, recovery tolerance, and upcoming events or travel.",
               "Arrive with the skin free from heavy makeup when practical.",
               "Do not stop prescribed medication unless the prescribing clinician tells you to.",
-              "Do not send photographs, diagnoses, medication details, or sensitive health information through the public booking form. A real clinic would use a secure intake system.",
+              "Do not send photographs, diagnoses, medication details, or sensitive health information through the public booking form. Discuss sensitive health information through an appropriate secure clinical intake.",
             ],
           },
         ],
@@ -231,7 +231,7 @@ export const pages = {
             kind: "list",
             items: [
               "Explain why an option may or may not fit",
-              "Identify who would assess and perform each service",
+              "Know who assesses and performs each service",
               "Show starting prices, major cost factors, and expected recovery",
               "Discuss alternatives, limitations, and material risks",
               "Use consent-based photography and responsible context for any future proof",
@@ -294,7 +294,7 @@ export const pages = {
           },
           {
             kind: "quote",
-            text: "These roles and all related profiles are fictional. A real Texas clinic must verify licenses, scope, standing orders, delegation, supervision, facility requirements, device rules, and emergency procedures with qualified professionals.",
+            text: "Ask who is responsible for your care, what their role covers, and how medical oversight and urgent concerns are handled.",
           },
         ],
       },
@@ -321,7 +321,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "A real clinic could add consented before-and-after photography and verified reviews. Each result would need treatment details, timing, number of sessions, and a reminder that outcomes vary. This concept uses model imagery and does not invent testimonials, awards, or results.",
+            text: "When comparing results, consider the treatment, timing, number of sessions, and individual differences. Model imagery is not evidence of a treatment outcome.",
           },
         ],
       },
@@ -344,10 +344,10 @@ export const pages = {
   about: {
     name: "About Juniper House",
     hero: {
-      eyebrow: "About the concept",
+      eyebrow: "About Juniper House",
       headline: "A clinic designed around better decisions.",
       introduction:
-        "Juniper House imagines a warmer, clearer version of premium aesthetics: clinically responsible enough to name limits, personal enough to listen before recommending, and refined enough not to rely on hype.",
+        "A warmer, clearer approach to premium aesthetics: clinically responsible enough to name limits, personal enough to listen before recommending, and refined enough not to rely on hype.",
     },
     sections: [
       {
@@ -359,12 +359,12 @@ export const pages = {
           },
           {
             kind: "paragraph",
-            text: "The fictional business is built around one premise—when clients understand the options, trade-offs, and order, they can choose with more confidence and less pressure.",
+            text: "Our care begins with one premise—when clients understand the options, trade-offs, and order, they can choose with more confidence and less pressure.",
           },
         ],
       },
       {
-        title: "The fictional team",
+        title: "Your care team",
         blocks: [
           {
             kind: "heading",
@@ -376,7 +376,7 @@ export const pages = {
           },
           {
             kind: "paragraph",
-            text: "Leads Planning Consultations and performs selected medical-aesthetic services. Rowan’s profile represents a provider who values conservative planning, visible reasoning, and the ability to recommend less.",
+            text: "Leads Planning Consultations and performs selected medical-aesthetic services. Rowan’s approach values conservative planning, visible reasoning, and the ability to recommend less.",
           },
           {
             kind: "heading",
@@ -388,7 +388,7 @@ export const pages = {
           },
           {
             kind: "paragraph",
-            text: "Represents physician oversight of medical protocols, delegation, quality standards, and escalation pathways. The profile does not claim a specialty board certification or real license.",
+            text: "Oversees medical protocols, delegation, quality standards, and escalation pathways.",
           },
           {
             kind: "heading",
@@ -400,7 +400,7 @@ export const pages = {
           },
           {
             kind: "paragraph",
-            text: "Represents the appropriately qualified role responsible for selected IPL and fractional laser procedures under the required medical structure.",
+            text: "Focuses on selected IPL and fractional laser procedures within the required medical structure.",
           },
           {
             kind: "heading",
@@ -412,11 +412,11 @@ export const pages = {
           },
           {
             kind: "paragraph",
-            text: "Represents the role providing customized facials and eligible superficial skin services while recognizing when a concern needs medical assessment.",
+            text: "Provides customized facials and eligible superficial skin services, recognizing when a concern needs medical assessment.",
           },
           {
             kind: "quote",
-            text: "Fictional-profile disclosure: Every name, portrait, credential, biography, and role on this page is illustrative. No listed person is presented as a real provider. A production clinic site must verify every credential, license, scope statement, and professional claim.",
+            text: "All names, portraits, credentials, and roles shown here are illustrative. No real provider or license is represented.",
           },
         ],
       },
@@ -438,7 +438,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Medical direction does not make every team member qualified to perform every service. The real-world implementation would name the provider for each procedure, verify scope and delegation, and explain how support or escalation works.",
+            text: "Medical direction does not make every team member qualified to perform every service. Before choosing a procedure, understand who will perform it, their qualifications, and how support or escalation works.",
           },
         ],
       },
@@ -494,7 +494,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "The finished concept will demonstrate the practical content a real clinic should provide:",
+            text: "Before travelling to an appointment, confirm the arrival details you need:",
           },
           {
             kind: "list",
@@ -673,7 +673,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "The booking flow includes an optional field for an accessibility or communication request. It demonstrates what a real clinic should offer but does not send the request anywhere.",
+            text: "The booking flow includes an optional field for an accessibility or communication request. Your request stays in this demonstration and is not sent anywhere.",
           },
         ],
       },

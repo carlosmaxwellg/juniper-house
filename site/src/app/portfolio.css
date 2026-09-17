@@ -1,0 +1,57 @@
+/* Focused refinements to the established editorial system. */
+.treatment-introduction { max-width: 58rem; }
+.portfolio-treatment .treatment-introduction .type-lead { max-width: 43rem; }
+.portfolio-treatment .quick-facts { margin-bottom: 0; }
+.portfolio-treatment .quick-facts dt { font-size: 0.6875rem; letter-spacing: 0.06em; }
+.portfolio-treatment .quick-facts dd { line-height: 1.5; }
+.portfolio-treatment .treatment-process .editorial-grid { align-items: center; }
+.portfolio-treatment .treatment-process .model-image > div { aspect-ratio: 4/5; }
+.portfolio-treatment .treatment-process .model-image img { object-position: center; }
+.process-roadmap { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+.process-roadmap li { flex: 1 1 7rem; border-top: 1px solid var(--brand-moss); padding-top: 1rem; font-size: 0.8125rem; font-weight: 650; }
+.process-roadmap span { display: block; font-size: 0.6875rem; margin-bottom: 0.5rem; color: var(--brand-juniper); }
+.recovery-section { background: var(--brand-juniper); color: var(--brand-porcelain); }
+.recovery-section :is(h2,h3,.eyebrow) { color: inherit; }
+.recovery-timeline { list-style: none; margin: 0; padding: 0; }
+.recovery-timeline li { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: 1rem; position: relative; padding: 0 0 2rem; }
+.recovery-timeline li:last-child { padding-bottom: 0; }
+.recovery-timeline li:not(:last-child)::before { content: ""; position: absolute; left: 0.9375rem; top: 2.5rem; bottom: 0.5rem; border-left: 1px solid var(--brand-moss); }
+.timeline-number { width: 2rem; height: 2rem; display: grid; place-items: center; border: 1px solid var(--brand-porcelain); border-radius: 50%; font-size: 0.6875rem; }
+.recovery-timeline h3 { margin-bottom: 0.75rem; font-size: 1.75rem; }
+.alternative-list { list-style: none; margin: 0; padding: 0; }
+.alternative-list li { border-top: 1px solid var(--brand-mineral); padding-block: 1.5rem; }
+.alternative-list .text-link { margin-right: 1.5rem; margin-top: 0.5rem; }
+.care-plan-artifact { background: var(--brand-porcelain); color: var(--brand-juniper-ink); padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--brand-mineral); box-shadow: 12px 12px 0 var(--brand-bone); }
+.care-plan-artifact .eyebrow { margin-bottom: 0.75rem; }
+.care-plan-title { font-family: var(--font-newsreader), Georgia, serif; font-size: 2rem; margin-bottom: 1.5rem; }
+.care-plan-artifact ol { list-style: none; margin: 0; padding: 0; }
+.care-plan-artifact li { border-top: 1px solid var(--brand-mineral); padding-block: 1.25rem; }
+.interior-page .care-plan-artifact h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+.care-plan-artifact li p { font-size: 0.875rem; }
+.lead-provider-name { border-left: 2px solid var(--brand-moss); padding-left: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem; }
+.lead-provider-name strong { font-family: var(--font-newsreader), Georgia, serif; font-size: 1.75rem; font-weight: 400; }
+.image-provider img { object-position: center 35% !important; }
+.place-gallery { display: grid; gap: 2rem; margin-top: 2.5rem; }
+.place-gallery .model-image > div { aspect-ratio: 3/2; }
+.narrative-approach [data-section="What guides your plan"] .reading-copy { columns: 1; }
+.narrative-approach [data-section="What guides your plan"] .reading-copy h3 { margin-top: 1.5rem; }
+.narrative-approach [data-section="What guides your plan"] .reading-copy h3:first-child { margin-top: 0; }
+@media (min-width: 48rem) {
+  .place-gallery { grid-template-columns: 1.3fr 1fr; align-items: end; }
+  .place-gallery .model-image:last-child > div { aspect-ratio: 5/4; }
+}
+@media (max-width: 47.99rem) {
+  .home-hero h1 { font-size: clamp(2.75rem, 12vw, 3.25rem); margin-bottom: 1.5rem; }
+  .home-hero .eyebrow { margin-bottom: 1.25rem; }
+  .hero-copy { padding-top: 2rem; }
+  .interior-page .editorial-hero { padding-top: 1.5rem; }
+  .portfolio-treatment h1 { font-size: 2.65rem; }
+  .portfolio-treatment .type-lead { font-size: 1rem; line-height: 1.65; }
+  .portfolio-treatment .quick-facts { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 1.25rem; gap: 1rem; }
+  .portfolio-treatment .quick-facts > div:last-child { grid-column: 1/-1; }
+  .portfolio-treatment .treatment-process .model-image > div { aspect-ratio: 3/2; }
+  .treatments-index .treatment-card-facts > div { grid-template-columns: 6rem minmax(0,1fr); gap: 0.75rem; }
+  .treatments-index .concern-card { padding-block: 1.5rem; }
+  .care-plan-artifact { box-shadow: 6px 6px 0 var(--brand-bone); }
+  .booking-progress { font-size: 0.6875rem; gap: 0.25rem; }
+}

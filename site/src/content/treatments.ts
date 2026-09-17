@@ -89,12 +89,12 @@ export const treatments = [
       {
         question: "Can I book this without the Planning Consultation?",
         answer:
-          "Yes, as a fictional launch policy, a new client may book the facial directly and complete a suitability intake. Medical or device-based concerns still begin with the appropriate consultation.",
+          "Yes. New clients may choose the facial and complete a suitability intake. Medical or device-based concerns still begin with the appropriate consultation.",
       },
       {
         question: "Is this a Hydrafacial?",
         answer:
-          "No specific branded device is implied. The protocol would use the products and methods selected by the clinic for the assessed need.",
+          "No specific branded device is implied. Products and methods are selected for the assessed need.",
       },
       {
         question: "Can I have it the day before an event?",
@@ -168,11 +168,11 @@ export const treatments = [
       "Fractional laser may address more persistent texture or pigment with greater cost and recovery.",
     ],
     providerStandard:
-      "Provider qualifications and medical oversight depend on the peel formulation and depth. Juniper House would identify the responsible role before booking rather than treating all peels as equivalent.",
+      "Provider qualifications and medical oversight depend on the peel formulation and depth. Ask who will assess and perform your peel; different depths require different qualifications.",
     risks:
       "Chemical peels can cause redness, irritation, swelling, blistering, infection, scarring, cold-sore reactivation, or temporary or lasting changes in skin color. Risk varies with depth, skin tone, health history, and aftercare. At-home or unsupervised high-strength peels can cause serious injury.",
     pricing:
-      "$225–$350. Cost changes with the protocol, peel depth, treatment area, preparation, and required follow-up. Series pricing would show the standard per-session price and total together.",
+      "$225–$350. Cost changes with the protocol, peel depth, treatment area, preparation, and required follow-up. Before agreeing to a series, review both the per-session price and the total cost.",
     faqs: [
       {
         question: "Will my skin visibly peel?",
@@ -257,11 +257,11 @@ export const treatments = [
       "Barrier support or medical referral may be the better first step for reactive or unexplained redness.",
     ],
     providerStandard:
-      "IPL is performed by a qualified laser professional within the required Texas medical structure. A real clinic must name the specific device, verify operator qualifications and oversight, and use protocols appropriate to the client and intended target.",
+      "IPL is performed by a qualified laser professional within the required Texas medical structure. Before proceeding, ask which device will be used, who will perform the treatment, and how the protocol fits your skin and intended target.",
     risks:
       "Light-based treatment can cause pain, redness, swelling, blistering, burns, infection, scarring, eye injury, or temporary or lasting changes in skin color. It may fail to produce the desired result, and selected pigment or redness can recur. Protective eyewear and appropriate assessment are essential.",
     pricing:
-      "From $375 per facial session. Cost varies with treatment area, target, device, settings, and course. A series would be recommended only after suitability and response are assessed.",
+      "From $375 per facial session. Cost varies with treatment area, target, device, settings, and course. A series is considered only after suitability and response are assessed.",
     faqs: [
       {
         question: "Is IPL a laser?",
@@ -345,9 +345,9 @@ export const treatments = [
       "Active acne may need medical management before scar-focused treatment.",
     ],
     providerStandard:
-      "The provider should use an appropriate device, a new cartridge for each client and session, infection-control procedures, and settings selected for the treatment goal and skin. The site should never imply that professional medical microneedling and at-home rollers are equivalent.",
+      "The provider should use an appropriate device, a new cartridge for each client and session, infection-control procedures, and settings selected for the treatment goal and skin. Professional medical microneedling and at-home rollers are not equivalent.",
     risks:
-      "Microneedling can cause skin damage, prolonged redness, pain, swelling, infection, bleeding, scarring, or changes in skin color. Results may be limited or uneven, and more than one procedure may be needed. Radiofrequency microneedling is not part of this launch menu and should not be implied by this page.",
+      "Microneedling can cause skin damage, prolonged redness, pain, swelling, infection, bleeding, scarring, or changes in skin color. Results may be limited or uneven, and more than one procedure may be needed. This service does not use radiofrequency energy.",
     pricing:
       "From $475 per session. Cost varies with the treatment area, device, depth, preparation, and recommended course. Progress should be reviewed before extending a series.",
     faqs: [
@@ -364,7 +364,7 @@ export const treatments = [
       {
         question: "Is this RF microneedling?",
         answer:
-          "No. This fictional launch service is standard medical microneedling without radiofrequency energy.",
+          "No. This service is standard medical microneedling without radiofrequency energy.",
       },
     ],
     relatedConcernSlugs: ["texture-acne-marks", "fine-lines-facial-balance"],
@@ -433,7 +433,7 @@ export const treatments = [
       "IPL targets selected pigment or vessels differently and is not a resurfacing laser.",
     ],
     providerStandard:
-      "A real clinic must identify the specific laser, authorized indication, provider qualifications, oversight, protective measures, and emergency procedures. The consultation should explain why that device and intensity fit the individual rather than relying on a generic “laser” recommendation.",
+      "Before proceeding, ask about the specific laser, its authorized use, provider qualifications, oversight, protective measures, and emergency procedures. Your consultation explains why the proposed device and intensity fit your needs.",
     risks:
       "Laser treatment can cause incomplete or undesired results, pain, prolonged redness, swelling, bleeding, infection, cold-sore reactivation, scarring, eye injury, or temporary or lasting changes in skin color. Risks vary with the device, settings, treatment area, skin, and aftercare.",
     pricing:
@@ -442,7 +442,7 @@ export const treatments = [
       {
         question: "Is all fractional laser treatment the same?",
         answer:
-          "No. Devices, wavelengths, treatment depth, and recovery profiles differ. A real treatment page should identify the exact technology rather than treating “fractional” as one uniform service.",
+          "No. Devices, wavelengths, treatment depth, and recovery profiles differ. Ask which exact technology is proposed; “fractional” does not describe one uniform service.",
       },
       {
         question: "Can I work the next day?",
@@ -525,7 +525,7 @@ export const treatments = [
       "No treatment is appropriate when the line or movement does not meaningfully concern you.",
     ],
     providerStandard:
-      "Only an appropriately licensed and trained healthcare professional should obtain and administer an authorized prescription botulinum toxin product. A real clinic should identify the exact product and use authentic product from an authorized source.",
+      "Only an appropriately licensed and trained healthcare professional should obtain and administer an authorized prescription botulinum toxin product. Ask which product is proposed and confirm that it comes from an authorized source.",
     risks:
       "Possible effects include pain, swelling, bruising, headache, asymmetry, unwanted weakness, eyelid or brow droop, dry eye, or an unsatisfactory result. Botulinum toxin products carry a boxed warning about the possible distant spread of toxin effect, which can cause serious symptoms including swallowing or breathing difficulty. Seek immediate medical care for trouble breathing or swallowing or other signs of botulism after treatment.",
     pricing:
@@ -534,7 +534,7 @@ export const treatments = [
       {
         question: "Is this Botox?",
         answer:
-          "Botox Cosmetic is one brand of prescription botulinum toxin. A real clinic must state which authorized product it uses. “Botox” should not be used as a generic promise for every neuromodulator.",
+          "Botox Cosmetic is one brand of prescription botulinum toxin. Ask which authorized product is proposed. Different neuromodulators are not all Botox Cosmetic.",
       },
       {
         question: "Will I still be able to move my face?",
@@ -613,7 +613,7 @@ export const treatments = [
       "Waiting or choosing no treatment avoids filler-related risk and may be the right decision.",
     ],
     providerStandard:
-      "Filler injection is a medical procedure. A real clinic should use an FDA-approved product for its intended area, provide the specific patient labeling, use an appropriately licensed and trained provider, and maintain a current plan for recognizing and responding to vascular complications.",
+      "Filler injection is a medical procedure. Before proceeding, ask about the product’s FDA approval and intended treatment area, its patient labeling, your provider’s qualifications, and the plan for recognizing and responding to vascular complications.",
     risks:
       "Common reactions can include bruising, redness, swelling, pain, tenderness, itching, or lumps. Less common and rare complications can include infection, nodules, allergic reaction, migration, tissue damage, and a lasting undesired result. Accidental injection into a blood vessel can cause tissue death, vision abnormalities including blindness, stroke, and, rarely, death. Seek immediate medical attention for unusual pain, vision change, pale or discolored skin near the injection area, or stroke symptoms during or after treatment.",
     pricing:

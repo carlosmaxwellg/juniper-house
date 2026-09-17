@@ -1,10 +1,10 @@
 # Juniper House — Codex handoff
 
-## Current status — 16 September 2026
+## Current status — 17 September 2026
 
 The approved portfolio implementation is complete through local deployment readiness. The global shell, homepage, typed content models, all concern and treatment pages, remaining narrative pages, simulated booking and inquiry experiences, responsive behavior, accessibility work, metadata, security headers, automated tests, and deployment documentation are implemented. The final clean production build and all local checks pass; see `site/QA.md` for the evidence and `site/DEPLOYMENT.md` for the release procedure.
 
-The approved homepage and interior visual passes are complete locally: stronger image-led compositions, varied shared editorial layouts, SVG icons, restrained motion, and one general footer disclosure. The desktop Concerns dropdown separator bug is fixed. All 44 browser checks and eight unit tests pass. See `site/INTERIOR-PASS.md`, `site/VISUAL-PASS.md`, and `site/QA.md`. No new deployment or external-service change was made during these visual passes. The existing linked Vercel project and earlier preview remain in place; a Preview update requires separate approval. Creator portfolio and contact URLs intentionally remain visible placeholders in `site/src/content/creator.ts`. Stop before another broad redesign cycle.
+The approved visual passes and focused portfolio-elevation pass are complete locally. Treatment booking now precedes compact facts; process/recovery diagrams and relevant alternative links are shared across treatments. About has an explicitly fictional lead-provider portrait and environment gallery. Approach centers an HTML Now / Next / Later plan. Internal planning language was revised with user authorization; medical risk information and demo safeguards remain. All 47 browser checks and eight unit tests pass. See `site/PORTFOLIO-PASS.md`, earlier pass records, and `site/QA.md`. No new deployment or external-service change was made during these passes. The existing Vercel project and earlier preview remain in place; updates require separate approval. Creator URLs remain placeholders. The user's untracked `.vscode/tasks.json` is intentional, untouched, and excluded from implementation commits. Stop before another broad redesign cycle.
 
 **Prepared:** 7 September 2026  
 **Repository:** `/Users/carlos/Desktop/Freelance Web Design + AI Development/juniper-house`  

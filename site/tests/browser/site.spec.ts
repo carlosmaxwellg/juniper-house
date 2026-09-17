@@ -172,6 +172,49 @@ for (const route of ["/concerns/fine-lines-facial-balance", "/treatments/medical
   });
 }
 
+test("treatment pages put booking before facts and retain recovery and risk content", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const treatment of treatments) {
+    await page.goto(`/treatments/${treatment.slug}`);
+    const booking = page.locator("main").getByRole("link", { name: "Book a consultation", exact: true }).first();
+    const facts = page.locator(".quick-facts");
+    const bookingBox = await booking.boundingBox();
+    const factsBox = await facts.boundingBox();
+    expect(bookingBox!.y + bookingBox!.height).toBeLessThan(factsBox!.y);
+    expect(bookingBox!.y).toBeLessThan(844);
+    await expect(page.locator("#risks")).toContainText(treatment.risks);
+    for (const block of treatment.timeline) {
+      const texts = block.kind === "list" ? block.items : [block.text];
+      for (const text of texts) {
+        const detail = text.includes(":") ? text.slice(text.indexOf(":") + 1).trim() : text;
+        await expect(page.locator(".recovery-timeline")).toContainText(detail);
+      }
+    }
+    await expect(page.locator("main")).not.toContainText(/The site should|Series pricing would|A real clinic must/);
+  }
+});
+
+test("care plan and fictional provider remain readable and labeled", async ({ page }) => {
+  await page.goto("/approach");
+  const plan = page.getByRole("article", { name: "Now, Next, Later planning framework" });
+  for (const name of ["Now", "Next", "Later"]) await expect(plan.getByRole("heading", { name, exact: true })).toBeVisible();
+  await page.goto("/about");
+  await expect(page.locator("figcaption").filter({ hasText: "fictional provider Rowan Ellis" })).toBeVisible();
+  await expect(page.locator(".place-gallery img")).toHaveCount(2);
+  await page.goto("/book");
+  await expect(page.getByRole("list", { name: "Booking progress" })).toContainText("Visit");
+});
+
+test("portfolio pages reflow on narrow mobile and tablet", async ({ page }) => {
+  for (const width of [320, 390, 768]) {
+    await page.setViewportSize({ width, height: 844 });
+    for (const route of ["/", "/treatments", "/treatments/hyaluronic-acid-filler", "/about", "/approach", "/book"]) {
+      await page.goto(route);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${route} at ${width}`).toBe(true);
+    }
+  }
+});
+
 test("booking errors, no availability, editing, completion, privacy", async ({
   page,
   context,

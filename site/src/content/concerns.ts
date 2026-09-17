@@ -129,7 +129,7 @@ export const concerns = [
       },
     ],
     medicalBoundary:
-      "Redness accompanied by significant pain, swelling, infection, eye symptoms, sudden onset, or other concerning changes should be medically assessed. A consultation at this fictional aesthetics clinic is not a diagnostic visit.",
+      "Redness accompanied by significant pain, swelling, infection, eye symptoms, sudden onset, or other concerning changes should be medically assessed. An aesthetic consultation is not a diagnostic visit.",
     consultationClarifies: [
       "Whether the visible concern appears appropriate for an aesthetic pathway",
       "Whether IPL may be suitable for the vessel or redness pattern",
