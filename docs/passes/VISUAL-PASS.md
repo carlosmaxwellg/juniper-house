@@ -13,7 +13,7 @@ The approved substantive copy, section order, routes, consultation offer, bookin
 
 ## Validation
 
-Production build, lint, type check, eight unit tests, and all 37 production Chrome browser checks pass. All 25 public routes pass the existing axe checks. Keyboard navigation, booking/inquiry privacy, responsive reflow, no-JavaScript content, noindex metadata, image/font loading, and security headers remain covered. Desktop and mobile images/layouts were visually inspected. See `QA.md` for limits and remaining placeholders.
+Production build, lint, type check, eight unit tests, and all 37 production Chrome browser checks pass. All 25 public routes pass the existing axe checks. Keyboard navigation, booking/inquiry privacy, responsive reflow, no-JavaScript content, noindex metadata, image/font loading, and security headers remain covered. Desktop and mobile images/layouts were visually inspected. See `../QA.md` for limits and remaining placeholders.
 
 ## Asset provenance
 

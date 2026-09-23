@@ -15,8 +15,8 @@ export default function Page() {
       <Section>
         <Container className="editorial-grid">
           <div>
-            <p className="eyebrow">Illustrative orientation</p>
-            <h2>West Austin, imagined</h2>
+            <p className="eyebrow">The neighborhood</p>
+            <h2>West Austin</h2>
             <figure className="area-map">
               <svg
                 viewBox="0 0 500 320"

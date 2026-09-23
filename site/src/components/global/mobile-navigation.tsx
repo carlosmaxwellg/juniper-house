@@ -3,6 +3,7 @@
 import { Icon } from "@/components/icon";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -15,6 +16,7 @@ type MobileNavigationProps = {
 };
 
 export function MobileNavigation({ items }: MobileNavigationProps) {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const panelId = useId();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -154,13 +156,14 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
                           <Link
                             className="flex min-h-14 items-center text-xl font-semibold no-underline"
                             href={item.href}
+                            aria-current={pathname === item.href ? "page" : undefined}
                             onClick={closeMenu}
                           >
                             {item.label}
                           </Link>
                         ) : (
                           <details className="group">
-                            <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 text-xl font-semibold [&::-webkit-details-marker]:hidden">
+                            <summary data-active={pathname === item.href || pathname.startsWith(`${item.href}/`) || undefined} className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 text-xl font-semibold [&::-webkit-details-marker]:hidden">
                               {item.label}
                               <Icon name="chevron" className="transition-transform group-open:rotate-180 motion-reduce:transition-none" />
                             </summary>
@@ -181,6 +184,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
                                         <Link
                                           className="flex min-h-12 items-center font-semibold no-underline"
                                           href={link.href}
+                                          aria-current={pathname === link.href ? "page" : undefined}
                                           onClick={closeMenu}
                                         >
                                           {link.label}
@@ -193,6 +197,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
                               <Link
                                 className="inline-flex min-h-12 items-center font-semibold text-action"
                                 href={item.href}
+                            aria-current={pathname === item.href ? "page" : undefined}
                                 onClick={closeMenu}
                               >
                                 View all {item.label.toLowerCase()}

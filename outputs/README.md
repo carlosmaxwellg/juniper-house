@@ -8,7 +8,7 @@ This folder consolidates the Stage 1–11 source material that was available in 
 - `wireframes/` contains the original interactive Stage 8 wireframe artifact.
 - `supporting/` contains useful historical or AI-authoring material that is not the current implementation handoff.
 - `reconciliation/` contains new handoff documentation reconstructed from the repository and chat record. These files are summaries, not original approved stage deliverables.
-- `CODEX-HANDOFF.md` at the repository root is the current operational handoff. It summarizes approved material but does not replace it.
+- `../docs/CODEX-HANDOFF.md` is the current operational handoff. It summarizes approved material but does not replace it.
 
 ## Stage map
 
@@ -43,7 +43,7 @@ Stages 1–7 do not have separate standalone files in the retrieved workspace; t
 ## Supporting material
 
 - `supporting/ai-brand-voice-guidelines.md` — the original `.claude` authoring version. It is not byte-identical to the approved brand-voice source and must not supersede it.
-- `supporting/stage-12-implementation-handoff-2026-08-23.md` — the original pre-development handoff. It is historically useful, but its statement that no code exists is obsolete. Use the root `CODEX-HANDOFF.md` for current status.
+- `supporting/stage-12-implementation-handoff-2026-08-23.md` — the original pre-development handoff. It is historically useful, but its statement that no code exists is obsolete. Use `../docs/CODEX-HANDOFF.md` for current status.
 
 ## Reconciliations, conflicts, and unresolved items
 
@@ -83,4 +83,4 @@ The following are reconstructed from the approved files, Work chat approvals, Gi
 - `README.md` — this index.
 - `approved/assets/README.md` — asset provenance inventory.
 - `reconciliation/technical-architecture-reconciliation.md` — architecture comparison.
-- `../CODEX-HANDOFF.md` — current repository and implementation handoff.
+- `../docs/CODEX-HANDOFF.md` — current repository and implementation handoff.

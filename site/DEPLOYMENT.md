@@ -10,7 +10,7 @@ The first release should be a review preview with indexing disabled. Confirm the
 
 ## Before creating the deployment
 
-1. Review the final `QA.md` results and any recorded limitations.
+1. Review the final `../docs/QA.md` results and any recorded limitations.
 2. Confirm the Vercel account/project and preview or production intent with Carlos.
 3. Set `NEXT_PUBLIC_SITE_URL` to the actual approved destination before building. Rebuild after a URL change; canonical and social metadata are generated at build time.
 4. Leave `SITE_ALLOW_INDEXING` unset/false for previews. The fictional concept should not be indexed as a real clinic. Production indexing is a separate explicit decision.

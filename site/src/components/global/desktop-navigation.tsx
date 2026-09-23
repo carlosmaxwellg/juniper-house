@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from "next/navigation";
 
 import { Icon } from "@/components/icon";
 import Link from "next/link";
@@ -11,6 +13,7 @@ type DesktopNavigationProps = {
 };
 
 export function DesktopNavigation({ items }: DesktopNavigationProps) {
+  const pathname = usePathname();
   const navigationId = "desktop-primary-navigation";
 
   return (
@@ -27,6 +30,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
               <Link
                 className="flex min-h-12 items-center px-3 text-sm font-semibold no-underline decoration-2 hover:text-action hover:underline"
                 href={item.href}
+                aria-current={pathname === item.href ? "page" : undefined}
               >
                 {item.label}
               </Link>
@@ -35,7 +39,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
                 className="group"
                 name="desktop-primary-navigation"
               >
-                <summary className="flex min-h-12 cursor-pointer list-none items-center gap-2 px-3 text-sm font-semibold hover:text-action [&::-webkit-details-marker]:hidden">
+                <summary data-active={pathname === item.href || pathname.startsWith(`${item.href}/`) || undefined} className="flex min-h-12 cursor-pointer list-none items-center gap-2 px-3 text-sm font-semibold hover:text-action [&::-webkit-details-marker]:hidden">
                   {item.label}
                   <Icon name="chevron" className="transition-transform group-open:rotate-180 motion-reduce:transition-none" />
                 </summary>
@@ -59,6 +63,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
                             <Link
                               className="block py-1 font-semibold no-underline hover:text-action hover:underline"
                               href={link.href}
+                              aria-current={pathname === link.href ? "page" : undefined}
                             >
                               {link.label}
                             </Link>
@@ -70,6 +75,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
                   <Link
                     className="block col-span-full mt-4 border-t border-border pt-4 font-semibold text-action"
                     href={item.href}
+                aria-current={pathname === item.href ? "page" : undefined}
                   >
                     View all {item.label.toLowerCase()}
                   </Link>

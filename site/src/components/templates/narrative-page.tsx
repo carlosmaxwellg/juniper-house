@@ -38,7 +38,7 @@ export function NarrativePage({
     return section.title === "What we avoid" ? [] : [section];
   }) : page.sections;
   return (
-    <div className={utility ? "utility-page" : `interior-page narrative-page narrative-${kind}`}>
+    <div className={utility ? `utility-page ${kind === "portfolio-concept" ? "case-study" : ""}` : `interior-page narrative-page narrative-${kind}`}>
       <EditorialHero
         eyebrow={page.hero.eyebrow}
         title={page.hero.headline}
@@ -71,10 +71,10 @@ export function NarrativePage({
         )}
       </EditorialHero>
       {sections.map((section, i) => {
-        const chapters = !utility && section.blocks.filter(block => block.kind === "heading").length >= 3;
+        const chapters = (!utility || kind === "portfolio-concept") && section.blocks.filter(block => block.kind === "heading").length >= 3;
         return (
         <Section
-          className={`content-section ${utility ? (i % 2 === 0 ? "" : "bg-surface-muted") : `narrative-section narrative-section-${i + 1} ${i % 3 === 1 ? "bg-surface-muted" : ""}`}`}
+          className={`content-section ${utility ? (i % 2 === 0 ? "" : "bg-surface-muted") : `narrative-section ${section.blocks.length === 1 && section.blocks[0].kind === "paragraph" ? "narrative-pause" : ""} narrative-section-${i + 1} ${i % 3 === 1 ? "bg-surface-muted" : ""}`}`}
           key={section.title}
           data-section={section.title}
         >

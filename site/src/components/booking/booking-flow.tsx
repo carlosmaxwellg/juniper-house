@@ -19,8 +19,8 @@ import {
 const headings: Record<Step, string> = {
   appointment: "Confirm your appointment type",
   provider: "Choose a provider preference",
-  time: "Choose a demonstration time",
-  details: "Add demonstration details",
+  time: "Choose a time",
+  details: "Your details",
   confirm: "Review your simulated booking",
   complete: "Your mock appointment is confirmed—on this screen only.",
 };
@@ -197,7 +197,7 @@ export function BookingFlow() {
                           <strong>{providerNames[provider]}</strong>
                           <span className="block text-sm mt-2">
                             {provider === "first-available"
-                              ? "Recommended · See the widest selection of demonstration times with an appropriately qualified planning provider."
+                              ? "Recommended · See the widest selection of times with an appropriately qualified planning provider."
                               : "Lead aesthetic provider · Fictional profile. Planning consultations and selected medical-aesthetic services."}
                           </span>
                         </span>
@@ -245,7 +245,7 @@ export function BookingFlow() {
                     aria-describedby={errors.time ? "time-error" : undefined}
                   >
                     <legend className="font-semibold mb-4">
-                      Available demonstration times for {dateLabel(state.date)}
+                      Available times for {dateLabel(state.date)}
                     </legend>
                     {selectedTimes.length ? (
                       <div className="time-grid">
@@ -267,7 +267,7 @@ export function BookingFlow() {
                       <div role="status" className="booking-panel">
                         <h3>No times on this date</h3>
                         <p className="mt-3">
-                          Choose another date to see demonstration availability.
+                          Choose another date to see available times.
                         </p>
                       </div>
                     )}

@@ -175,7 +175,7 @@ export const pages = {
     ],
     finalCta: {
       title: "A clearer decision begins here.",
-      body: "Choose an illustrative appointment time to experience the portfolio booking flow. No payment or real appointment will be created.",
+      body: "Choose a consultation time and take the first step toward a clear Now / Next / Later plan.",
     },
   },
   approach: {
@@ -447,7 +447,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Juniper House is imagined for West Austin: quiet, contemporary, and welcoming without turning a medical-aesthetic visit into a resort fantasy. The environment supports privacy and ease; it does not substitute for clinical trust.",
+            text: "Juniper House brings a West Austin sensibility: quiet, contemporary, and welcoming without turning a medical-aesthetic visit into a resort fantasy. The environment supports privacy and ease; it does not substitute for clinical trust.",
           },
         ],
       },
@@ -461,10 +461,10 @@ export const pages = {
   visit: {
     name: "Visit and contact",
     hero: {
-      eyebrow: "West Austin · Illustrative location",
+      eyebrow: "West Austin",
       headline: "Plan an easy first visit.",
       introduction:
-        "Juniper House is imagined as a discreet West Austin clinic with straightforward arrival, parking, and accessibility information.",
+        "A considered visit begins before you arrive. Review hours, plan the arrival details you need, and make space for an unhurried conversation.",
     },
     sections: [
       {
@@ -472,12 +472,12 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "West Austin, Texas\nExact street address intentionally omitted because Juniper House is a fictional portfolio concept.",
+            text: "West Austin, Texas. Street address and directions are not available.",
           },
         ],
       },
       {
-        title: "Illustrative hours",
+        title: "Hours",
         blocks: [
           {
             kind: "list",
@@ -503,25 +503,25 @@ export const pages = {
               "Accessible parking location",
               "Suite and elevator instructions, if applicable",
               "Public-transport and rideshare drop-off guidance",
-              "A phone route for arrival help",
+              "How to ask for arrival assistance",
             ],
           },
           {
             kind: "paragraph",
-            text: "No real directions are supplied because there is no operating clinic.",
+            text: "Check the details that matter to your comfort before travelling.",
           },
         ],
       },
       {
-        title: "Demonstration contact details",
+        title: "General inquiries",
         blocks: [
           {
             kind: "paragraph",
-            text: "Phone: (512) 555-0148\nEmail: hello@juniperhouse.example",
+            text: "For questions about visits, pricing, or the consultation process, use the general inquiry form below.",
           },
           {
             kind: "paragraph",
-            text: "These reserved demonstration details do not reach a clinic or support team.",
+            text: "Please keep medical concerns and sensitive health information out of the form.",
           },
         ],
       },
@@ -537,85 +537,46 @@ export const pages = {
     ],
     faqs: [],
     finalCta: {
-      title: "Ready to experience the planning flow?",
-      body: "Choose a mock appointment time. The demonstration does not create a real booking or collect payment.",
+      title: "Begin with a clear plan.",
+      body: "Start with a 45-minute consultation to discuss your priorities, compare options, and decide what comes next.",
     },
   },
   "portfolio-concept": {
-    name: "Portfolio concept disclosure",
+    name: "Juniper House case study",
     hero: {
-      eyebrow: "About the portfolio concept",
-      headline: "Juniper House is a fictional portfolio concept.",
-      introduction:
-        "This website was created to demonstrate a conversion-focused process spanning strategy, customer thinking, market research, positioning, offer design, information architecture, copy, visual design, and development.",
+      eyebrow: "Selected work · Carlos Gonzalez",
+      headline: "A clearer path from curiosity to consultation.",
+      introduction: "Juniper House is a self-initiated website for a fictional premium aesthetics clinic. The project brings strategy, editorial design, and a complete booking journey together around one decision: what care fits the person?",
     },
     sections: [
       {
-        title: "What is fictional",
+        title: "The brief",
+        blocks: [{ kind: "paragraph", text: "Create a warm, credible digital experience for people who want healthier-looking skin but are unsure which treatment to choose. Make the consultation valuable in its own right, explain costs and recovery early, and let visitors explore without pressure." }],
+      },
+      {
+        title: "Decisions that shaped the site",
         blocks: [
-          {
-            kind: "list",
-            items: [
-              "Juniper House Skin & Aesthetics and its business operations",
-              "Every provider name, portrait, credential, biography, and team structure",
-              "The clinic location, hours, phone number, and email address",
-              "Treatment availability, pricing policies, and appointment times",
-              "Any model or environment imagery unless separately credited",
-            ],
-          },
+          { kind: "heading", text: "Start with the concern" },
+          { kind: "paragraph", text: "Concern-led navigation meets visitors in their own language. Treatment pages then make suitability, alternatives, recovery, and risks easy to compare." },
+          { kind: "heading", text: "Make the next step tangible" },
+          { kind: "paragraph", text: "A clearly priced, 45-minute consultation leads to a Now / Next / Later care plan. The booking journey keeps the offer and expectations visible as visitors choose a provider and time." },
+          { kind: "heading", text: "Balance warmth with precision" },
+          { kind: "paragraph", text: "Editorial typography, a restrained green-and-stone palette, and carefully labeled imagery create a premium atmosphere. Clear language and visible clinical boundaries carry the trust story, without invented testimonials or results." },
         ],
       },
       {
-        title: "What is simulated",
-        blocks: [
-          {
-            kind: "list",
-            items: [
-              "Appointment selection and confirmation",
-              "Contact-form submission",
-              "Payment, receipt, reminders, and follow-up",
-              "Provider availability",
-            ],
-          },
-          {
-            kind: "paragraph",
-            text: "No appointment will be created, no payment will be taken, and no clinic will receive a message.",
-          },
-        ],
+        title: "What was built",
+        blocks: [{ kind: "paragraph", text: "A responsive Next.js website with shared concern and treatment templates, comparison tools, narrative pages, and a five-step simulated booking flow. Reusable content models keep prices, recovery guidance, and related services consistent. Keyboard navigation, reduced motion, privacy safeguards, and automated browser checks support the experience." },
+          { kind: "paragraph", text: "This is an implemented portfolio concept, not a measured client success story. No live conversion, revenue, or clinical outcome claims are made." }],
       },
       {
-        title: "What is intentionally absent",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "This concept does not invent patient testimonials, ratings, awards, treatment counts, clinical outcomes, or before-and-after results. Model photography must be labeled and must not be presented as evidence.",
-          },
-        ],
-      },
-      {
-        title: "Data policy for the demonstration",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "Use test information only. Form details stay in memory while you use the demonstration. They are not sent to a clinic or permanently stored by the application. Do not enter diagnoses, medication lists, clinical photographs, or detailed health history.",
-          },
-        ],
-      },
-      {
-        title: "Real-world use",
-        blocks: [
-          {
-            kind: "paragraph",
-            text: "The concept is not ready to operate as a clinic website. Medical, legal, privacy, accessibility, regulatory, insurance, clinical-governance, provider-scope, product, device, consent, and emergency procedures would all require review and implementation by qualified professionals.",
-          },
-        ],
+        title: "Concept disclosure",
+        blocks: [{ kind: "paragraph", text: "The clinic, providers, credentials, location, hours, prices, contact details, and availability are fictional. People and environments are generated or illustrative, not patients, real clinicians, or treatment results. No patient reviews, awards, or before-and-after outcomes are fabricated." },
+          { kind: "paragraph", text: "Booking and inquiry forms simulate the interaction only: no appointment, payment, reminder, or clinic message is created. Use test information only; entries stay in browser memory and clear on completion or refresh. Do not enter health information. An operating clinic would require qualified clinical, legal, privacy, and regulatory review and real service integrations." }],
       },
     ],
     faqs: [],
-    finalCta: {
-      title: "Not sure which path fits?",
-      body: "Use a 45-minute Planning Consultation to compare appropriate options and leave with a clear Now / Next / Later plan.",
-    },
+    finalCta: { title: "Discuss your project", body: "Contact Carlos Gonzalez." },
   },
   "medical-disclaimer": {
     name: "Medical disclaimer",
@@ -664,7 +625,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Juniper House is fictional, so its demonstration phone and email do not reach a support team. A creator contact destination is not yet available; it is shown as a placeholder below.",
+            text: "Contact Carlos Gonzalez using the email link below to report an accessibility barrier. Include the page and what you were trying to do; please do not send health information.",
           },
         ],
       },

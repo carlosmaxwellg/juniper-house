@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <Section>
       <Container>
-        <p className="eyebrow">An illustrative first step</p>
+        <p className="eyebrow">Your first step</p>
         <h1 className="mb-6">Book your Planning Consultation</h1>
         <p className="boundary mb-10">
           <strong>Demonstration only:</strong> Juniper House is fictional. You

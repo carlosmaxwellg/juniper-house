@@ -21,7 +21,7 @@
 .alternative-list { list-style: none; margin: 0; padding: 0; }
 .alternative-list li { border-top: 1px solid var(--brand-mineral); padding-block: 1.5rem; }
 .alternative-list .text-link { margin-right: 1.5rem; margin-top: 0.5rem; }
-.care-plan-artifact { background: var(--brand-porcelain); color: var(--brand-juniper-ink); padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--brand-mineral); box-shadow: 12px 12px 0 var(--brand-bone); }
+.care-plan-artifact { background: var(--brand-porcelain); color: var(--brand-juniper-ink); padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--brand-mineral); box-shadow: 0 2px 4px rgb(24 33 28 / 5%), 0 16px 36px -16px rgb(24 33 28 / 24%); }
 .care-plan-artifact .eyebrow { margin-bottom: 0.75rem; }
 .care-plan-title { font-family: var(--font-newsreader), Georgia, serif; font-size: 2rem; margin-bottom: 1.5rem; }
 .care-plan-artifact ol { list-style: none; margin: 0; padding: 0; }
@@ -52,6 +52,34 @@
   .portfolio-treatment .treatment-process .model-image > div { aspect-ratio: 3/2; }
   .treatments-index .treatment-card-facts > div { grid-template-columns: 6rem minmax(0,1fr); gap: 0.75rem; }
   .treatments-index .concern-card { padding-block: 1.5rem; }
-  .care-plan-artifact { box-shadow: 6px 6px 0 var(--brand-bone); }
+  .care-plan-artifact { box-shadow: 0 2px 4px rgb(24 33 28 / 5%), 0 10px 24px -12px rgb(24 33 28 / 20%); }
   .booking-progress { font-size: 0.6875rem; gap: 0.25rem; }
+}
+
+/* Final portfolio remediation: quiet variation without changing reading order. */
+nav :is(a[aria-current="page"], summary[data-active="true"]) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+.treatment-row { color: inherit; text-decoration: none; }
+.treatment-row:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.home-provider-portrait .model-image { max-width: 28rem; margin-bottom: 2rem; }
+.home-provider-portrait .model-image > div { aspect-ratio: 4/3; }
+.home-provider-portrait .provider-quote { font-size: clamp(1.5rem, 2.5vw, 2.25rem); }
+.related-editorial-list .concern-card { padding-block: 1.75rem; }
+.related-editorial-list h3 { font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 400; }
+.narrative-page .narrative-pause .editorial-grid { display: block; max-width: 58rem; }
+.narrative-page .narrative-pause h2 { max-width: none; margin-bottom: 1.5rem; }
+.narrative-pause .reading-copy { font-size: 1.125rem; line-height: 1.8; }
+.case-study .editorial-hero { background: var(--brand-bone); }
+.case-study .editorial-hero h1 { max-width: 18ch; }
+.case-study .content-section { padding-block: clamp(2.5rem, 5vw, 5rem); }
+.case-study .copy-chapters { grid-template-columns: minmax(0, 1fr); }
+.case-study [data-section="Concept disclosure"] { font-size: 0.875rem; }
+@media (min-width: 48rem) {
+  .related-editorial-list .concern-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: 3rem; }
+  .related-editorial-list .concern-card h3 { grid-row: span 2; }
+  .related-editorial-list .concern-card p { grid-column: 2; }
+  .case-study .copy-chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

@@ -27,7 +27,7 @@ Newsreader and Manrope use `next/font/google`: a clean build needs access to Goo
 - `src/content/treatments.ts`, `concerns.ts`, and `types.ts`: typed clinical-orientation content and cross references, transcribed from approved copy.
 - `src/content/pages.ts`: consultation, approach, team, visit, and disclosure content.
 - `src/content/policies.ts`: notices describing the actual portfolio implementation.
-- `src/content/creator.ts`: the intentionally blank creator portfolio/contact destinations. Fill these in when available; the pages display a clear placeholder meanwhile.
+- `src/content/creator.ts`: Carlos Gonzalez’s approved public email, shared by the case study and accessibility page. No personal portfolio URL is invented.
 - `src/components/templates/`: shared concern, treatment, and narrative page composition.
 - `src/components/global/`: navigation, concept notice, footer, and mobile booking action.
 - `src/lib/booking/state.ts`: pure booking reducer, validation, and deterministic sample availability.
@@ -35,7 +35,7 @@ Newsreader and Manrope use `next/font/google`: a clean build needs access to Goo
 - `src/components/content/inquiry-form.tsx`: local inquiry demonstration.
 - `src/app/globals.css`: approved tokens, foundations, and responsive patterns.
 
-Approved copy is not a substitute for clinical or legal review for a real clinic. Provider names, credentials, prices, hours, and contact details are explicitly fictional. No testimonials or patient results are invented. The two supplied images are illustrative and labeled visibly.
+Approved copy is not a substitute for clinical or legal review for a real clinic. Provider names, credentials, prices, hours, and contact details are explicitly fictional. No testimonials or patient results are invented. The six supplied/generated images are illustrative and labeled visibly.
 
 ## Demonstration privacy
 
@@ -61,7 +61,7 @@ The Node tests cover reducer transitions, invalid/stale choices, data clearing, 
 
 ## Deployment configuration
 
-See `DEPLOYMENT.md` and `QA.md` for the reviewed release state and remaining manual checks. No deployment is configured or authorized by running the local build.
+See `DEPLOYMENT.md` and `../docs/QA.md` for the reviewed release state and remaining manual checks. No deployment is configured or authorized by running the local build.
 
 - Root directory on the host: `site`
 - Runtime: Node.js 24

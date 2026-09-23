@@ -80,7 +80,7 @@ export const treatments = [
       "Seek dermatology care when the concern needs diagnosis or prescription management.",
     ],
     providerStandard:
-      "The Custom Clinical Facial is performed by a licensed esthetician within the permitted scope. The esthetician should pause and refer when the concern or requested treatment falls outside that scope.",
+      "The Custom Clinical Facial is performed by a licensed esthetician within the permitted scope. Our esthetician pauses and refers when the concern or requested treatment falls outside that scope.",
     risks:
       "Possible responses include irritation, redness, sensitivity, allergic reaction, or temporary breakouts. Products, exfoliation, and extractions should be adjusted to the skin and disclosed allergies. This overview is not individual consent information.",
     pricing:
@@ -168,7 +168,7 @@ export const treatments = [
       "Fractional laser may address more persistent texture or pigment with greater cost and recovery.",
     ],
     providerStandard:
-      "Provider qualifications and medical oversight depend on the peel formulation and depth. Ask who will assess and perform your peel; different depths require different qualifications.",
+      "Provider qualifications and medical oversight depend on the peel formulation and depth. We explain who will assess and perform your peel, and how their qualifications match the proposed depth.",
     risks:
       "Chemical peels can cause redness, irritation, swelling, blistering, infection, scarring, cold-sore reactivation, or temporary or lasting changes in skin color. Risk varies with depth, skin tone, health history, and aftercare. At-home or unsupervised high-strength peels can cause serious injury.",
     pricing:
@@ -257,7 +257,7 @@ export const treatments = [
       "Barrier support or medical referral may be the better first step for reactive or unexplained redness.",
     ],
     providerStandard:
-      "IPL is performed by a qualified laser professional within the required Texas medical structure. Before proceeding, ask which device will be used, who will perform the treatment, and how the protocol fits your skin and intended target.",
+      "IPL is performed by a qualified laser professional within the required Texas medical structure. Before proceeding, we explain which device we propose, who will perform the treatment, and how the protocol fits your skin and intended target.",
     risks:
       "Light-based treatment can cause pain, redness, swelling, blistering, burns, infection, scarring, eye injury, or temporary or lasting changes in skin color. It may fail to produce the desired result, and selected pigment or redness can recur. Protective eyewear and appropriate assessment are essential.",
     pricing:
@@ -345,7 +345,7 @@ export const treatments = [
       "Active acne may need medical management before scar-focused treatment.",
     ],
     providerStandard:
-      "The provider should use an appropriate device, a new cartridge for each client and session, infection-control procedures, and settings selected for the treatment goal and skin. Professional medical microneedling and at-home rollers are not equivalent.",
+      "Our provider uses an appropriate device, a new cartridge for each client and session, infection-control procedures, and settings selected for the treatment goal and skin. Professional medical microneedling and at-home rollers are not equivalent.",
     risks:
       "Microneedling can cause skin damage, prolonged redness, pain, swelling, infection, bleeding, scarring, or changes in skin color. Results may be limited or uneven, and more than one procedure may be needed. This service does not use radiofrequency energy.",
     pricing:
@@ -433,7 +433,7 @@ export const treatments = [
       "IPL targets selected pigment or vessels differently and is not a resurfacing laser.",
     ],
     providerStandard:
-      "Before proceeding, ask about the specific laser, its authorized use, provider qualifications, oversight, protective measures, and emergency procedures. Your consultation explains why the proposed device and intensity fit your needs.",
+      "Before proceeding, we explain the specific laser, its authorized use, provider qualifications, oversight, protective measures, and emergency procedures. Your consultation explains why the proposed device and intensity fit your needs.",
     risks:
       "Laser treatment can cause incomplete or undesired results, pain, prolonged redness, swelling, bleeding, infection, cold-sore reactivation, scarring, eye injury, or temporary or lasting changes in skin color. Risks vary with the device, settings, treatment area, skin, and aftercare.",
     pricing:
@@ -525,7 +525,7 @@ export const treatments = [
       "No treatment is appropriate when the line or movement does not meaningfully concern you.",
     ],
     providerStandard:
-      "Only an appropriately licensed and trained healthcare professional should obtain and administer an authorized prescription botulinum toxin product. Ask which product is proposed and confirm that it comes from an authorized source.",
+      "Only an appropriately licensed and trained healthcare professional obtains and administers our authorized prescription botulinum toxin products. We explain which product we propose and confirm its authorized source.",
     risks:
       "Possible effects include pain, swelling, bruising, headache, asymmetry, unwanted weakness, eyelid or brow droop, dry eye, or an unsatisfactory result. Botulinum toxin products carry a boxed warning about the possible distant spread of toxin effect, which can cause serious symptoms including swallowing or breathing difficulty. Seek immediate medical care for trouble breathing or swallowing or other signs of botulism after treatment.",
     pricing:
@@ -613,7 +613,7 @@ export const treatments = [
       "Waiting or choosing no treatment avoids filler-related risk and may be the right decision.",
     ],
     providerStandard:
-      "Filler injection is a medical procedure. Before proceeding, ask about the product’s FDA approval and intended treatment area, its patient labeling, your provider’s qualifications, and the plan for recognizing and responding to vascular complications.",
+      "Filler injection is a medical procedure. Before proceeding, we discuss the product’s FDA approval and intended treatment area, its patient labeling, your provider’s qualifications, and the plan for recognizing and responding to vascular complications.",
     risks:
       "Common reactions can include bruising, redness, swelling, pain, tenderness, itching, or lumps. Less common and rare complications can include infection, nodules, allergic reaction, migration, tissue damage, and a lasting undesired result. Accidental injection into a blood vessel can cause tissue death, vision abnormalities including blindness, stroke, and, rarely, death. Seek immediate medical attention for unusual pain, vision change, pale or discolored skin near the injection area, or stroke symptoms during or after treatment.",
     pricing:

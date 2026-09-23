@@ -94,7 +94,7 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
       <Section>
         <Container>
           <h2 className="mb-8">Related treatments</h2>
-          <div className="concern-grid">
+          <div className="related-editorial-list">
             {c.relatedTreatmentSlugs.map((slug) => {
               const t = treatments.find((t) => t.slug === slug)!;
               return (

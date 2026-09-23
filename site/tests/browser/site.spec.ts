@@ -315,7 +315,7 @@ test("exiting and refreshing clear the booking", async ({ page }) => {
   ).toBeFocused();
   await page.getByRole("button", { name: "Stay in booking" }).click();
   await expect(
-    page.getByRole("heading", { name: "Add demonstration details" }),
+    page.getByRole("heading", { name: "Your details" }),
   ).toBeFocused();
   await expect(page.getByLabel("First name", { exact: true })).toHaveValue(
     "Taylor",
@@ -358,7 +358,7 @@ test("inquiry errors and completion never send or retain data", async ({
   expect(requests.join("\n")).not.toContain("InquirySentinelJuniper");
   await audit(page);
   await page.getByRole("button", { name: "Return to Visit", exact: true }).click();
-  await expect(page.getByText("Use this demonstration form for non-medical questions", { exact: false })).toBeFocused();
+  await expect(page.getByText("For general, non-medical questions", { exact: false })).toBeFocused();
   await expect(page.getByLabel("First name", { exact: true })).toHaveValue("");
 });
 test("responsive reflow and mobile booking action", async ({ page }) => {
@@ -541,4 +541,49 @@ test("content remains readable without JavaScript and no forms can submit", asyn
   await expect(page.locator("noscript p")).toContainText("This demonstration needs JavaScript.");
   await expect(page.locator("form")).toHaveCount(0);
   await context.close();
+});
+
+
+test("case study identifies the creator and provides a real contact destination", async ({ page }) => {
+  await page.goto("/portfolio-concept");
+  for (const name of ["The brief", "Decisions that shaped the site", "What was built", "Concept disclosure"]) {
+    await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+  }
+  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlosmaxwellg@gmail.com");
+  await expect(page.locator("main")).not.toContainText("coming soon");
+  await page.goto("/accessibility");
+  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlosmaxwellg@gmail.com");
+});
+
+test("home treatment rows reach their matching directory sections", async ({ page }) => {
+  await page.goto("/");
+  const destinations = await page.locator("a.treatment-row").evaluateAll(links => links.map(link => link.getAttribute("href")!));
+  expect(destinations).toHaveLength(4);
+  for (const href of destinations) {
+    await page.goto("/");
+    await page.locator(`a.treatment-row[href="${href}"]`).click();
+    await expect(page).toHaveURL(new RegExp(href + "$"));
+    await expect(page.locator(href.slice(href.indexOf("#")))).toBeInViewport();
+  }
+});
+
+test("navigation indicates exact pages and current sections across client navigation", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/about");
+  const nav = page.getByRole("navigation", { name: "Primary navigation", exact: true });
+  await expect(nav.getByRole("link", { name: "About", exact: true })).toHaveAttribute("aria-current", "page");
+  await nav.getByRole("link", { name: "Our approach", exact: true }).click();
+  await expect(nav.getByRole("link", { name: "About", exact: true })).not.toHaveAttribute("aria-current", "page");
+  await expect(nav.getByRole("link", { name: "Our approach", exact: true })).toHaveAttribute("aria-current", "page");
+  await page.goto(`/concerns/${concerns[0].slug}`);
+  await expect(nav.locator("summary").filter({ hasText: "Concerns" })).toHaveAttribute("data-active", "true");
+  await nav.locator("summary").filter({ hasText: "Concerns" }).click();
+  await expect(nav.locator(`a[href="/concerns/${concerns[0].slug}"]`)).toHaveAttribute("aria-current", "page");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: "Menu", exact: true }).click();
+  const mobile = page.getByRole("navigation", { name: "Mobile navigation" });
+  await expect(mobile.locator("summary").filter({ hasText: "Concerns" })).toHaveAttribute("data-active", "true");
+  await mobile.locator("summary").filter({ hasText: "Concerns" }).click();
+  await expect(mobile.locator(`a[href="/concerns/${concerns[0].slug}"]`)).toHaveAttribute("aria-current", "page");
+  await audit(page);
 });

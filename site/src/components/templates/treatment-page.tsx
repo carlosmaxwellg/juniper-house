@@ -116,7 +116,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
       <Section>
         <Container>
           <h2 className="mb-8">Explore related concerns</h2>
-          <div className="concern-grid">
+          <div className="related-editorial-list">
             {t.relatedConcernSlugs.map((slug) => {
               const c = concerns.find((c) => c.slug === slug)!;
               return (

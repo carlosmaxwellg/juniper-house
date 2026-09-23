@@ -36,7 +36,7 @@ export const privacy: NarrativePage = {
       blocks: [
         {
           kind: "paragraph",
-          text: "There is no appointment system, patient record, payment account, mailing list, or clinic inbox behind this concept. The displayed phone number and email address are reserved demonstration details.",
+          text: "There is no appointment system, patient record, payment account, mailing list, or clinic inbox behind this concept. The creator’s public email is a real contact channel for this project, separate from the simulated clinic.",
         },
       ],
     },
@@ -45,7 +45,7 @@ export const privacy: NarrativePage = {
       blocks: [
         {
           kind: "paragraph",
-          text: "This notice describes the portfolio application's behavior. It is not a privacy policy for an operating healthcare practice. Hosting-specific details must be confirmed before public deployment. The creator's contact route is currently a visible placeholder.",
+          text: "This notice describes the portfolio application's behavior. It is not a privacy policy for an operating healthcare practice. Hosting-specific details must be confirmed before public deployment. Contact Carlos Gonzalez through the email link on the case study or accessibility page.",
         },
       ],
     },

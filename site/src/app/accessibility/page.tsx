@@ -14,7 +14,7 @@ export default function Page() {
     <NarrativePage page={page} kind="accessibility">
       <Section>
         <Container>
-          <CreatorContact purpose="contact" />
+          <CreatorContact />
         </Container>
       </Section>
     </NarrativePage>

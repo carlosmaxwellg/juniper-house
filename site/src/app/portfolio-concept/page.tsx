@@ -14,7 +14,9 @@ export default function Page() {
     <NarrativePage page={page} kind="portfolio-concept">
       <Section>
         <Container>
-          <CreatorContact purpose="portfolio" />
+          <h2 className="mb-5">Have a project in mind?</h2>
+          <p className="mb-6">Created by Carlos Gonzalez — strategy, copy, design, and implementation with AI-assisted tools.</p>
+          <CreatorContact />
         </Container>
       </Section>
     </NarrativePage>

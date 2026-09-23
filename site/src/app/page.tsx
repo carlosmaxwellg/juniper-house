@@ -233,11 +233,11 @@ export default function Home() {
                 "Neuromodulators and conservative HA filler may be discussed when movement or volume—not skin quality alone—is the main consideration.",
               ],
             ].map(([title, body], i) => (
-              <article className="treatment-row" key={title}>
-                <span className="number">0{i + 1}</span>
+              <Link className="treatment-row" href={`/treatments#${title.toLowerCase().replaceAll(" ", "-")}`} key={title}>
+                <span className="number" aria-hidden="true">0{i + 1}</span>
                 <h3>{title}</h3>
                 <p>{body}</p>
-              </article>
+              </Link>
             ))}
           </div>
         </Container>
@@ -255,14 +255,17 @@ export default function Home() {
               procedure.
             </p>
             <Link className="text-link mt-4" href="/about">
-              Meet the fictional team <Icon />
+              Meet your care team <Icon />
             </Link>
           </div>
+            <div className="home-provider-portrait">
+              <ModelImage variant="provider" sizes="(max-width: 767px) 100vw, 45vw" />
             <blockquote className="provider-quote">
               “A useful consultation may lead to treatment, a different
               sequence, or a recommendation to wait. The reasoning should be
               clear either way.”
             </blockquote>
+            </div>
           </div>
           <div>
             <Eyebrow>What responsible care looks like here</Eyebrow>
@@ -274,7 +277,7 @@ export default function Home() {
               ],
               [
                 "Roles you can understand",
-                "Each service identifies the type of professional who would assess or perform it. “The team” is not treated as interchangeable.",
+                "Know who will assess or perform each service, and what their role covers.",
               ],
               [
                 "Boundaries you can trust",
@@ -309,8 +312,7 @@ export default function Home() {
               Sunday–Monday, closed
             </p>
             <div><p>
-              Explore illustrative arrival, parking, and accessibility
-              information.
+              Plan your arrival, parking, and accessibility needs.
             </p>
             <Link className="text-link mt-5" href="/visit">
               Plan your visit <Icon />

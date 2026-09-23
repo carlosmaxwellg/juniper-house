@@ -1,6 +1,5 @@
-// Add the creator's public destination here when it is ready. No invented contact.
+// Public creator contact, shared by the case study and accessibility page.
 export const creator = {
-  name: "Carlos",
-  portfolioUrl: "",
-  contactUrl: "",
+  name: "Carlos Gonzalez",
+  contactUrl: "mailto:carlosmaxwellg@gmail.com",
 } as const;

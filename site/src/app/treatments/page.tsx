@@ -40,7 +40,7 @@ export default function Page() {
         "Improve texture",
         "Soften and balance",
       ].map((group, i) => (
-        <Section className={i % 2 === 0 ? "bg-surface-muted" : ""} key={group}>
+        <Section id={group.toLowerCase().replaceAll(" ", "-")} className={i % 2 === 0 ? "bg-surface-muted" : ""} key={group}>
           <Container>
             <h2 className="mb-8">{group}</h2>
             <div className="concern-grid">

@@ -68,8 +68,7 @@ export function InquiryForm() {
   return (
     <div>
       <p className="mb-6" ref={introduction} tabIndex={-1}>
-        Use this demonstration form for non-medical questions about the concept
-        experience. Use test information only. Do not include diagnoses,
+        For general, non-medical questions. Use test information only. Do not include diagnoses,
         medication, photographs, or other sensitive health information. No
         message will be sent or stored.
       </p>
