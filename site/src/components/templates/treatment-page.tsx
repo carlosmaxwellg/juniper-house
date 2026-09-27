@@ -57,7 +57,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
         </Container>
       </Section>
       <Section className="bg-surface-muted treatment-process">
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <div>
             <Eyebrow>The appointment</Eyebrow>
             <h2>The process</h2>
@@ -67,19 +67,22 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
         </Container>
       </Section>
       <Section className="recovery-section">
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <div><Eyebrow>Allow time</Eyebrow><h2>What to expect</h2><p>Timing and response vary. Use these phases to plan for recovery, not as a promise of results.</p></div>
           <RecoveryTimeline treatment={t} />
         </Container>
       </Section>
       <Section>
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <h2>Alternatives and trade-offs</h2>
           <TreatmentAlternatives treatment={t} />
         </Container>
       </Section>
+      <div className="image-break">
+        <ModelImage interior sizes="100vw" />
+      </div>
       <Section className="bg-surface-muted">
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <h2>Provider and standard</h2>
           <div className="reading-copy">
             <p>{t.providerStandard}</p>
@@ -90,7 +93,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
         </Container>
       </Section>
       <Section id="risks" className="bg-warning-surface">
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <div>
             <Eyebrow>Understand before deciding</Eyebrow>
             <h2>Risks and limitations</h2>
@@ -99,7 +102,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
         </Container>
       </Section>
       <Section className="interior-pricing">
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <h2>Pricing</h2>
           <div className="reading-copy">
             <p>{t.pricing}</p>
@@ -108,7 +111,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
         </Container>
       </Section>
       <Section className="bg-surface-muted">
-        <Container className="editorial-grid">
+        <Container className="editorial-grid chapter-grid">
           <h2>Your questions, considered</h2>
           <FaqList items={t.faqs} />
         </Container>

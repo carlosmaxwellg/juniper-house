@@ -78,7 +78,7 @@ export function NarrativePage({
           key={section.title}
           data-section={section.title}
         >
-          <Container className={chapters ? "narrative-chapters" : "editorial-grid"}>
+          <Container className={chapters ? "narrative-chapters" : utility ? "editorial-grid" : "editorial-grid chapter-grid"}>
             <div>
               <h2>{section.title}</h2>
             </div>

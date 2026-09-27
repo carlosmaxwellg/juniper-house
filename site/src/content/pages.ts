@@ -562,6 +562,8 @@ export const pages = {
           { kind: "paragraph", text: "A clearly priced, 45-minute consultation leads to a Now / Next / Later care plan. The booking journey keeps the offer and expectations visible as visitors choose a provider and time." },
           { kind: "heading", text: "Balance warmth with precision" },
           { kind: "paragraph", text: "Editorial typography, a restrained green-and-stone palette, and carefully labeled imagery create a premium atmosphere. Clear language and visible clinical boundaries carry the trust story, without invented testimonials or results." },
+          { kind: "heading", text: "Let motion earn its place" },
+          { kind: "paragraph", text: "Motion draws on the brand's own materials: the hero portrait clears from reeded glass, photographs open like print spreads, and the care plan settles like a document placed in front of you. WebGL was considered and set aside because nothing here needs a third dimension, and a 2D treatment delivers the same idea without cost to speed or battery. Every effect is decorative and resolves to a complete static page for reduced-motion visitors." },
         ],
       },
       {

@@ -1,7 +1,10 @@
 
 import { Icon } from "@/components/icon";
+import Image from "next/image";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
+import { CarePlan } from "@/components/content/care-plan";
+import { HeroGlass } from "@/components/content/hero-glass";
 import {
   Button,
   Eyebrow,
@@ -68,7 +71,10 @@ export default function Home() {
             <Eyebrow>
               Skin health and medical aesthetics · Austin, Texas
             </Eyebrow>
-            <h1 className="type-display">Know what fits <span>before you decide.</span></h1>
+            <h1 className="type-display hero-title">
+              <span className="hero-line"><span>Know what fits</span></span>{" "}
+              <span className="hero-line"><span>before you decide.</span></span>
+            </h1>
             <p className="type-lead">
               Thoughtful skin and aesthetic care begins with a clear
               understanding of your goals, your options, and what each path may
@@ -82,7 +88,24 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <ModelImage priority sizes="(max-width: 767px) 130vw, 80vw" />
+          <ModelImage
+            priority
+            className="hero-portrait"
+            sizes="(max-width: 767px) 130vw, 80vw"
+            overlay={<HeroGlass />}
+          >
+            <span className="hero-inset" aria-hidden="true">
+              <Image
+                src="/images/clinic/treatment-room.png"
+                alt=""
+                fill
+                // Above the fold on desktop; hidden on phones, where only the smallest variant loads.
+                loading="eager"
+                sizes="(max-width: 767px) 1px, 40rem"
+                className="object-cover"
+              />
+            </span>
+          </ModelImage>
         </Container>
       </section>
       <div className="trust-strip">
@@ -159,28 +182,7 @@ export default function Home() {
           </div>
           <div className="consultation-story">
           <ModelImage consultation sizes="(max-width: 767px) 115vw, 95vw" />
-          <div className="plan-panel">
-            <Eyebrow>Your personal care plan</Eyebrow>
-            {[
-              [
-                "Now",
-                "The most useful first priority—whether that is treatment, home-care support, more information, or referral.",
-              ],
-              [
-                "Next",
-                "Options that may make sense after the first step, with the order and reason explained.",
-              ],
-              [
-                "Later",
-                "Maintenance or future possibilities that do not need to compete for attention or budget today.",
-              ],
-            ].map(([title, body]) => (
-              <div key={title}>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </div>
-            ))}
-          </div>
+          <CarePlan variant="section" headingLevel={3} />
           </div>
         </Container>
       </Section>

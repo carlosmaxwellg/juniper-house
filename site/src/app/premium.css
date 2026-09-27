@@ -1,0 +1,491 @@
+/*
+ * Premium art-direction layer: "Clarity, revealed".
+ * One motion vocabulary built from glass, paper, and light. Every effect is decorative,
+ * enhances an already-complete static page, and resolves to that page under reduced motion
+ * or without scroll-driven animation support.
+ */
+:root {
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.12, 1);
+  --ease-quiet: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-micro: 200ms;
+  --dur-menu: 260ms;
+  --dur-reveal: 900ms;
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .13 0 0 0 0 .11 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------------------------------------------ */
+/* Homepage hero: the portrait resolves from reeded glass to clarity.  */
+/* ------------------------------------------------------------------ */
+.hero-line {
+  display: block;
+  overflow: clip;
+  padding-block: 0.06em 0.14em;
+  margin-block: -0.06em -0.14em;
+}
+.hero-portrait { position: relative; }
+.hero-glass {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  pointer-events: none;
+}
+.hero-glass span {
+  -webkit-backdrop-filter: blur(11px) saturate(1.06) brightness(1.03);
+  backdrop-filter: blur(11px) saturate(1.06) brightness(1.03);
+  background: linear-gradient(
+    90deg,
+    rgb(248 245 239 / 24%) 0%,
+    rgb(248 245 239 / 5%) 28%,
+    rgb(24 33 28 / 6%) 72%,
+    rgb(248 245 239 / 16%) 100%
+  );
+  box-shadow: inset 1px 0 0 rgb(255 255 255 / 16%);
+}
+html[data-hero-resolved] .hero-glass { display: none; }
+.hero-inset { display: none; }
+
+@media (min-width: 48rem) {
+  .hero-inset {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    left: -2.25rem;
+    bottom: 4.25rem;
+    width: clamp(8rem, 11vw, 11rem);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 0.375rem solid var(--brand-porcelain);
+    box-shadow: 0 1.25rem 2.5rem -1.25rem rgb(24 33 28 / 45%);
+  }
+  .hero-portrait .hero-inset img {
+    object-position: 26% 0%;
+    transform: scale(2.3);
+    transform-origin: 56% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-glass span {
+    animation: jh-flute-clear 900ms var(--ease-editorial) calc(380ms + var(--flute) * 45ms) both;
+  }
+  .hero-line > span { animation: jh-line-rise 1000ms var(--ease-editorial) 80ms both; }
+  .hero-line + .hero-line > span { animation-delay: 190ms; }
+  .hero-copy > .type-lead { animation: jh-fade-up 800ms var(--ease-quiet) 420ms both; }
+  .hero-copy > .type-lead + div { animation: jh-fade-up 800ms var(--ease-quiet) 520ms both; }
+  .hero-inset { animation: jh-inset-open 1000ms var(--ease-editorial) 1150ms both; }
+
+  @supports (animation-timeline: view()) {
+    @media (min-width: 48rem) {
+      /* Quiet depth: the portrait's crop widens and the inset drifts (≤16px) as the hero leaves. */
+      .hero-portrait > div > img {
+        animation: jh-hero-settle linear both;
+        animation-timeline: view();
+        animation-range: exit 0% exit 100%;
+      }
+      .hero-inset {
+        animation:
+          jh-inset-open 1000ms var(--ease-editorial) 1150ms both,
+          jh-inset-drift linear both;
+        animation-timeline: auto, view();
+        animation-range: normal, exit 0% exit 100%;
+      }
+    }
+    /* Bookend: the closing promise comes into focus. */
+    .home-page .final-cta h2 {
+      animation: jh-clarify linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 90%;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-glass { display: none; }
+}
+
+@keyframes jh-flute-clear { to { opacity: 0; visibility: hidden; } }
+@keyframes jh-line-rise { from { transform: translateY(108%); } }
+@keyframes jh-fade-up { from { opacity: 0; translate: 0 0.5rem; } }
+@keyframes jh-inset-open { from { opacity: 0; clip-path: inset(100% 0 0 0); } to { opacity: 1; clip-path: inset(0); } }
+@keyframes jh-inset-drift { to { translate: 0 -1rem; } }
+@keyframes jh-hero-settle { to { transform: scale(1.03); } }
+@keyframes jh-clarify { from { filter: blur(6px); opacity: 0.55; } }
+
+/* ------------------------------------------------------------------ */
+/* Editorial image reveals: frames open like a print spread.           */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .model-image[data-reveal] > div {
+      animation: jh-frame-open var(--ease-editorial) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;
+    }
+    .model-image[data-reveal] > div > img {
+      animation: jh-image-settle var(--ease-editorial) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 55%;
+    }
+    .model-image[data-reveal] figcaption {
+      animation: jh-fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 40% entry 100%;
+    }
+  }
+}
+@keyframes jh-frame-open { from { clip-path: inset(8% 6% 8% 6%); } to { clip-path: inset(0); } }
+@keyframes jh-image-settle { from { transform: scale(1.1); } to { transform: scale(1); } }
+
+/* ------------------------------------------------------------------ */
+/* Now / Next / Later: a layered paper document.                       */
+/* ------------------------------------------------------------------ */
+.care-plan-artifact {
+  position: relative;
+  isolation: isolate;
+  color: var(--brand-juniper-ink);
+  margin: 0.75rem 0.5rem 1.5rem;
+}
+.care-plan-sheet {
+  display: block;
+  background-color: var(--brand-porcelain);
+  background-image: var(--paper-grain);
+  border: 1px solid rgb(24 33 28 / 8%);
+}
+.care-plan-sheet-back,
+.care-plan-sheet-middle {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.care-plan-sheet-back {
+  background-color: var(--brand-bone);
+  transform: translate(-0.6rem, 0.85rem) rotate(-2.2deg);
+  box-shadow: 0 1.5rem 3rem -1.5rem rgb(24 33 28 / 35%);
+}
+.care-plan-sheet-middle {
+  background-color: #f3efe7;
+  transform: translate(0.4rem, 0.4rem) rotate(1.1deg);
+}
+.care-plan-sheet-front {
+  position: relative;
+  padding: clamp(1.75rem, 3.5vw, 3.25rem);
+  box-shadow: 0 1px 2px rgb(24 33 28 / 6%), 0 1.5rem 3rem -1.5rem rgb(24 33 28 / 30%);
+}
+.care-plan-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--brand-juniper);
+}
+.care-plan-artifact .eyebrow { color: var(--brand-juniper); margin: 0; }
+.care-plan-meta { font-size: 0.75rem; color: var(--brand-juniper); }
+.care-plan-title {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+.care-plan-artifact ol { list-style: none; margin: 0; padding: 0; }
+.care-plan-artifact li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--brand-mineral);
+}
+.care-plan-artifact li::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 2.25rem;
+  height: 1px;
+  background: var(--brand-clay);
+  transform-origin: left;
+}
+.care-plan-tier {
+  padding-top: 0.55rem;
+  font-size: 0.6875rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  color: var(--brand-clay);
+}
+.care-plan-artifact :is(h2, h3) {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+  color: var(--brand-juniper-ink);
+}
+.care-plan-artifact li p { font-size: 0.875rem; }
+.care-plan-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--brand-mineral);
+  font-size: 0.75rem;
+  color: var(--brand-juniper);
+}
+/* The settling sheets are decorative and must never widen the page. */
+.home-consultation,
+.editorial-hero:has(.care-plan-artifact) { overflow-x: clip; }
+@media (min-width: 48rem) {
+  .consultation-story .care-plan-artifact { margin: 2rem 0 4rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Approach hero: the sheets settle as the page arrives. */
+  .care-plan-artifact[data-variant="hero"] .care-plan-sheet-back { animation: jh-sheet-back 1200ms var(--ease-editorial) 150ms both; }
+  .care-plan-artifact[data-variant="hero"] .care-plan-sheet-middle { animation: jh-sheet-middle 1200ms var(--ease-editorial) 100ms both; }
+  .care-plan-artifact[data-variant="hero"] .care-plan-sheet-front { animation: jh-sheet-front 1000ms var(--ease-editorial) both; }
+  .care-plan-artifact[data-variant="hero"] li::before { animation: jh-rule-draw 700ms var(--ease-editorial) 700ms both; }
+  .care-plan-artifact[data-variant="hero"] li:nth-child(2)::before { animation-delay: 820ms; }
+  .care-plan-artifact[data-variant="hero"] li:nth-child(3)::before { animation-delay: 940ms; }
+
+  /* Homepage: the document settles into place as it scrolls into view. Nothing is pinned. */
+  @supports (animation-timeline: view()) {
+    .care-plan-artifact[data-variant="section"] { view-timeline: --plan block; }
+    .care-plan-artifact[data-variant="section"] .care-plan-sheet-back,
+    .care-plan-artifact[data-variant="section"] .care-plan-sheet-middle,
+    .care-plan-artifact[data-variant="section"] .care-plan-sheet-front {
+      animation-timing-function: var(--ease-editorial);
+      animation-fill-mode: both;
+      animation-timeline: --plan;
+      animation-range: entry 0% cover 45%;
+    }
+    .care-plan-artifact[data-variant="section"] .care-plan-sheet-back { animation-name: jh-sheet-back; }
+    .care-plan-artifact[data-variant="section"] .care-plan-sheet-middle { animation-name: jh-sheet-middle; }
+    .care-plan-artifact[data-variant="section"] .care-plan-sheet-front { animation-name: jh-sheet-front; }
+    .care-plan-artifact[data-variant="section"] li { view-timeline: --tier block; }
+    .care-plan-artifact[data-variant="section"] li::before {
+      animation: jh-rule-draw var(--ease-editorial) both;
+      animation-timeline: --tier;
+      animation-range: entry 100% cover 45%;
+    }
+    /* Each tier comes into full focus as it reaches the reading zone; never below AA contrast. */
+    .care-plan-artifact[data-variant="section"] li > * {
+      animation: jh-tier-focus linear both;
+      animation-timeline: --tier;
+      animation-range: cover 10% cover 90%;
+    }
+  }
+}
+@keyframes jh-sheet-back { from { transform: translate(-2.5rem, 2.75rem) rotate(-6.5deg); opacity: 0; } }
+@keyframes jh-sheet-middle { from { transform: translate(1.75rem, 1.75rem) rotate(4deg); opacity: 0; } }
+@keyframes jh-sheet-front { from { transform: translateY(2rem) rotate(-1.4deg); } }
+@keyframes jh-rule-draw { from { transform: scaleX(0); } }
+@keyframes jh-tier-focus {
+  0% { opacity: 0.72; }
+  30%, 70% { opacity: 1; }
+  100% { opacity: 0.85; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Interior chapters: long pages progress like a considered document.  */
+/* ------------------------------------------------------------------ */
+.interior-page { counter-reset: chapter; }
+.chapter-grid { counter-increment: chapter; }
+.chapter-grid > :first-child::before {
+  content: counter(chapter, decimal-leading-zero);
+  content: counter(chapter, decimal-leading-zero) / "";
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: var(--brand-clay);
+}
+.recovery-section .chapter-grid > :first-child::before { color: var(--brand-porcelain); opacity: 0.75; }
+
+@media (min-width: 64rem) {
+  .chapter-grid > :first-child {
+    position: sticky;
+    top: 2.5rem;
+    align-self: start;
+  }
+  .treatment-process .chapter-grid > :first-child,
+  .narrative-pause .chapter-grid > :first-child {
+    position: static;
+    align-self: auto;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .chapter-grid { view-timeline: --chapter block; }
+      .chapter-grid > :first-child::after {
+        content: "";
+        display: block;
+        width: min(100%, 12rem);
+        height: 1px;
+        margin-top: 1.5rem;
+        background: currentColor;
+        opacity: 0.35;
+        transform-origin: left;
+        animation: jh-chapter-progress linear both;
+        animation-timeline: --chapter;
+        animation-range: cover 20% cover 80%;
+      }
+      .treatment-process .chapter-grid > :first-child::after,
+      .narrative-pause .chapter-grid > :first-child::after { content: none; }
+    }
+  }
+}
+@keyframes jh-chapter-progress { from { transform: scaleX(0.04); } to { transform: scaleX(1); } }
+
+/* Process and recovery diagrams draw themselves as they are read. */
+.process-roadmap li { position: relative; border-top-color: var(--brand-mineral); }
+.process-roadmap li::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--brand-juniper);
+  transform-origin: left;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .process-roadmap { view-timeline: --roadmap block; }
+    .process-roadmap li::before {
+      animation: jh-rule-draw var(--ease-editorial) both;
+      animation-timeline: --roadmap;
+      animation-range: entry 60% cover 40%;
+    }
+    .process-roadmap li:nth-child(2)::before { animation-range: entry 70% cover 44%; }
+    .process-roadmap li:nth-child(3)::before { animation-range: entry 80% cover 48%; }
+    .process-roadmap li:nth-child(4)::before { animation-range: entry 90% cover 52%; }
+    .process-roadmap li:nth-child(n + 5)::before { animation-range: entry 100% cover 56%; }
+
+    .recovery-timeline li { view-timeline: --phase block; }
+    .recovery-timeline li:not(:last-child)::before {
+      transform-origin: top;
+      animation: jh-line-down var(--ease-editorial) both;
+      animation-timeline: --phase;
+      animation-range: entry 80% cover 60%;
+    }
+  }
+}
+@keyframes jh-line-down { from { transform: scaleY(0); } }
+
+/* A full-bleed pause between decision chapters on treatment pages. */
+.image-break .model-image > div { aspect-ratio: 4 / 3; }
+.image-break .model-image img { object-position: center 58%; }
+.image-break .model-image figcaption { padding-inline: var(--container-gutter); }
+@media (min-width: 48rem) {
+  .image-break .model-image > div { aspect-ratio: 21 / 8; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Microinteractions and navigation.                                   */
+/* ------------------------------------------------------------------ */
+.button { transition: background var(--dur-micro) var(--ease-quiet); }
+.text-link {
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  transition:
+    text-underline-offset var(--dur-micro) var(--ease-quiet),
+    text-decoration-color var(--dur-micro) var(--ease-quiet);
+}
+.text-link:is(:hover, :focus-visible) { text-decoration-color: currentColor; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.7rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-micro) var(--ease-editorial);
+}
+.nav-link:is(:hover, :focus-visible)::after,
+details[open] > .nav-link::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-link:is([aria-current="page"], [data-active="true"])::after { display: none; }
+
+/* Booking progress: the connecting hairline fills; step content still changes instantly. */
+.booking-progress { --progress-gap: 0.5rem; }
+.booking-progress li { position: relative; }
+.booking-progress li:not(:first-child)::before,
+.booking-progress li:not(:first-child)::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: calc(-50% - var(--progress-gap) + 1.25rem);
+  right: calc(50% + 1.25rem);
+  height: 1px;
+  background: var(--brand-mineral);
+}
+.booking-progress li:not(:first-child)::after {
+  background: var(--semantic-action);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 480ms var(--ease-editorial);
+}
+.booking-progress li:is([data-complete], [aria-current]):not(:first-child)::after { transform: scaleX(1); }
+@media (max-width: 47.99rem) {
+  .booking-progress { --progress-gap: 0.25rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :is(.button, .text-link):is(:hover, :focus-visible) .icon-arrow {
+    animation: jh-arrow-cycle 420ms var(--ease-editorial);
+  }
+  /* Menus move by clip and position only, so text is never rendered at reduced contrast. */
+  details[open] > .nav-panel { animation: jh-panel-in var(--dur-menu) var(--ease-editorial) backwards; }
+  details[open] > .nav-panel > * { animation: jh-rise 360ms var(--ease-quiet) 60ms backwards; }
+  .mobile-menu { animation: jh-menu-in var(--dur-menu) var(--ease-quiet) backwards; }
+  .mobile-menu-item {
+    animation: jh-rise 420ms var(--ease-quiet) calc(90ms + var(--item) * 40ms) backwards;
+  }
+}
+@keyframes jh-arrow-cycle {
+  0% { translate: 0 0; opacity: 1; }
+  42% { translate: 0.55rem -0.55rem; opacity: 0; }
+  43% { translate: -0.55rem 0.55rem; opacity: 0; }
+  100% { translate: 0 0; opacity: 1; }
+}
+@keyframes jh-panel-in { from { clip-path: inset(0 -3rem 100% -3rem); } to { clip-path: inset(0 -3rem -3rem -3rem); } }
+@keyframes jh-menu-in { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes jh-rise { from { translate: 0 0.5rem; } }
+
+/* ------------------------------------------------------------------ */
+/* Route changes: one continuous space, not separate pages.            */
+/* ------------------------------------------------------------------ */
+/* Clicks during the brief transition reach the live page. */
+::view-transition { pointer-events: none; }
+/* The old page leaves quickly; the new one settles in with a slight rise. */
+::view-transition-old(.page-swap) {
+  animation: jh-page-out 140ms var(--ease-quiet) both;
+}
+::view-transition-new(.page-swap) {
+  animation: jh-page-in 320ms var(--ease-editorial) 100ms both;
+}
+/* Page heights differ; skip the size morph so neither snapshot stretches. */
+::view-transition-group(.page-swap) { animation: none; }
+@keyframes jh-page-out { to { opacity: 0; } }
+@keyframes jh-page-in { from { opacity: 0; translate: 0 0.5rem; } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

@@ -84,6 +84,7 @@ export function BookingFlow() {
               <li
                 key={step}
                 aria-current={state.step === step ? "step" : undefined}
+                data-complete={i < current || undefined}
               >
                 <span>{i + 1}</span>
                 {progress[i]}

@@ -348,9 +348,22 @@ Motion should support comprehension, not make the site feel theatrical.
 - Micro-interactions: 160–220ms
 - Menus, drawers, and accordions: 220–300ms
 - Image and section entrances: up to 500ms, subtle opacity and position only
-- No parallax, floating product animation, cursor effects, or looping background video
+- Editorial reveals (premium direction amendment): up to 900ms, or tied to scroll position; clip, scale, and opacity only; each element reveals once and never loops
+- No decorative parallax, floating product animation, cursor effects, or looping background video. One restrained depth offset (≤16px) is permitted in the homepage hero and is disabled under reduced motion
 - Respect `prefers-reduced-motion` by removing non-essential movement
-- Booking progress should update immediately and preserve focus
+- Booking progress should update immediately and preserve focus; only the connecting progress line may animate
+
+### Premium direction amendment: "Clarity, revealed"
+
+Motion draws on the brand's own materials (reeded glass, paper, daylight) rather than generic effects:
+
+- **Homepage hero:** the portrait resolves once from a reeded-glass pane to a clear image, echoing "clarity before treatment." It is a CSS-only decorative overlay; the photograph remains the LCP element.
+- **Photography:** frames open from a slightly tighter crop as they enter view, like a print spread.
+- **Now / Next / Later:** presented as a layered paper document that settles into place; it remains a semantic ordered list.
+- **Long interior pages:** section headings become numbered, sticky chapter heads with a quiet reading-progress rule; process and recovery diagrams draw as they are read.
+- **Route changes:** page content crossfades (140ms out, 320ms in with a slight rise) while the header and footer stay anchored, using React's built-in `<ViewTransition>`. Shared-element morphs were not used because link labels and destination headlines are different text. Reduced motion makes the swap instant.
+- **No 3D or WebGL.** The brand's world is materials and light, not objects; a refraction shader was evaluated and rejected because a 2D treatment delivers the same idea without performance or battery cost.
+- **No animation library.** Effects use CSS scroll-driven animations with an `@supports` gate; browsers without support, and visitors who prefer reduced motion, see the complete static page.
 
 Detailed interaction decisions remain Stage 14 work.
 

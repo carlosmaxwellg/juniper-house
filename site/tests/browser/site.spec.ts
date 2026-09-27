@@ -587,3 +587,25 @@ test("navigation indicates exact pages and current sections across client naviga
   await expect(mobile.locator(`a[href="/concerns/${concerns[0].slug}"]`)).toHaveAttribute("aria-current", "page");
   await audit(page);
 });
+
+test("premium motion layer resolves to the complete static page", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page.locator(".hero-glass")).toBeHidden();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Know what fits before you decide.");
+  await expect(page.locator(".hero-inset")).toHaveAttribute("aria-hidden", "true");
+  const plan = page.getByRole("article", { name: "Now, Next, Later planning framework" });
+  await expect(plan.getByRole("listitem")).toHaveCount(3);
+  await expect(plan.getByRole("heading", { level: 3 })).toHaveText(["Now", "Next", "Later"]);
+  await expect(page.locator(".model-image[data-reveal] > div").first()).toHaveCSS("clip-path", "none");
+
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  await expect(page.locator(".hero-glass span").first()).toBeHidden({ timeout: 4000 });
+
+  await page.goto("/treatments/fractional-laser-resurfacing");
+  await expect(page.getByRole("heading", { name: "Alternatives and trade-offs" })).toHaveText("Alternatives and trade-offs");
+  await expect(page.locator(".image-break figcaption")).toContainText("Generated environment");
+  await audit(page);
+});

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Manrope, Newsreader } from "next/font/google";
 
 import { SiteFooter, SiteHeader } from "@/components/global";
@@ -12,6 +13,7 @@ import "./globals.css";
 import "./home.css";
 import "./interior.css";
 import "./portfolio.css";
+import "./premium.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -50,7 +52,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <SiteHeader />
         <main id="main-content" tabIndex={-1}>
-          {children}
+          {/* Route changes crossfade page content; header and footer stay anchored. */}
+          <ViewTransition default="none" update="page-swap">
+            {children}
+          </ViewTransition>
         </main>
         <SiteFooter />
         <MobileBookingAction />

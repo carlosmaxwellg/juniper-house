@@ -4,7 +4,7 @@ import { Icon } from "@/components/icon";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 
 import { Container } from "@/components/foundations";
@@ -121,7 +121,7 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
       {isOpen
         ? createPortal(
             <div
-              className="fixed inset-0 z-50 overflow-y-auto bg-background"
+              className="mobile-menu fixed inset-0 z-50 overflow-y-auto bg-background"
               role="dialog"
               aria-modal="true"
               aria-label="Site menu"
@@ -150,8 +150,12 @@ export function MobileNavigation({ items }: MobileNavigationProps) {
 
                 <nav aria-label="Mobile navigation" className="py-8">
                   <ul className="list-none space-y-2 p-0">
-                    {items.map((item) => (
-                      <li className="border-b border-border" key={item.href}>
+                    {items.map((item, index) => (
+                      <li
+                        className="mobile-menu-item border-b border-border"
+                        key={item.href}
+                        style={{ "--item": index } as CSSProperties}
+                      >
                         {item.kind === "link" ? (
                           <Link
                             className="flex min-h-14 items-center text-xl font-semibold no-underline"

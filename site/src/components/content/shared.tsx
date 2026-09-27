@@ -85,15 +85,27 @@ export function ModelImage({
   variant,
   priority = false,
   sizes = "(max-width: 767px) 100vw, 50vw",
+  className = "",
+  overlay,
+  children,
 }: {
   interior?: boolean;
   consultation?: boolean;
   variant?: "concern" | "treatment" | "provider";
   priority?: boolean;
   sizes?: string;
+  className?: string;
+  /** Decorative layer drawn over the photograph, inside its frame. */
+  overlay?: ReactNode;
+  /** Decorative layers composed around the frame, such as an inset detail. */
+  children?: ReactNode;
 }) {
   return (
-    <figure className={`model-image ${interior ? "interior-image" : ""} ${consultation ? "consultation-image" : ""} ${variant ? `image-${variant}` : ""}`}>
+    <figure
+      className={`model-image ${interior ? "interior-image" : ""} ${consultation ? "consultation-image" : ""} ${variant ? `image-${variant}` : ""} ${className}`}
+      // Above-the-fold images arrive immediately; everything else opens as it enters view.
+      data-reveal={priority ? undefined : ""}
+    >
       <div>
         <Image
           src={
@@ -111,7 +123,9 @@ export function ModelImage({
           preload={priority}
           className="object-cover"
         />
+        {overlay}
       </div>
+      {children}
       <figcaption>
         {variant === "provider" ? "Generated portrait of fictional provider Rowan Ellis. No real clinician or license is represented." : variant === "concern" ? "Generated model. Not a patient or treatment result." : variant === "treatment" ? "Generated treatment environment. Not a real clinic or procedure." : consultation ? "Generated consultation scene. Illustrative, not a real appointment." : interior
           ? "Generated environment. Illustrative concept, not an operating clinic."

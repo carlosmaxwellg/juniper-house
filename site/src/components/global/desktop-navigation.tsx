@@ -28,7 +28,7 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
           <li key={item.href}>
             {item.kind === "link" ? (
               <Link
-                className="flex min-h-12 items-center px-3 text-sm font-semibold no-underline decoration-2 hover:text-action hover:underline"
+                className="nav-link flex min-h-12 items-center px-3 text-sm font-semibold no-underline decoration-2 hover:text-action"
                 href={item.href}
                 aria-current={pathname === item.href ? "page" : undefined}
               >
@@ -39,12 +39,12 @@ export function DesktopNavigation({ items }: DesktopNavigationProps) {
                 className="group"
                 name="desktop-primary-navigation"
               >
-                <summary data-active={pathname === item.href || pathname.startsWith(`${item.href}/`) || undefined} className="flex min-h-12 cursor-pointer list-none items-center gap-2 px-3 text-sm font-semibold hover:text-action [&::-webkit-details-marker]:hidden">
+                <summary data-active={pathname === item.href || pathname.startsWith(`${item.href}/`) || undefined} className="nav-link flex min-h-12 cursor-pointer list-none items-center gap-2 px-3 text-sm font-semibold hover:text-action [&::-webkit-details-marker]:hidden">
                   {item.label}
                   <Icon name="chevron" className="transition-transform group-open:rotate-180 motion-reduce:transition-none" />
                 </summary>
                 <div
-                  className={`absolute right-0 top-full z-50 border border-border bg-surface p-6 shadow-xl ${
+                  className={`nav-panel absolute right-0 top-full z-50 border border-border bg-surface p-6 shadow-xl ${
                     item.desktopPanelColumns === 2
                       ? "grid w-[42rem] grid-cols-2 gap-8"
                       : "w-96"

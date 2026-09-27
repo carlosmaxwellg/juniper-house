@@ -21,13 +21,6 @@
 .alternative-list { list-style: none; margin: 0; padding: 0; }
 .alternative-list li { border-top: 1px solid var(--brand-mineral); padding-block: 1.5rem; }
 .alternative-list .text-link { margin-right: 1.5rem; margin-top: 0.5rem; }
-.care-plan-artifact { background: var(--brand-porcelain); color: var(--brand-juniper-ink); padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--brand-mineral); box-shadow: 0 2px 4px rgb(24 33 28 / 5%), 0 16px 36px -16px rgb(24 33 28 / 24%); }
-.care-plan-artifact .eyebrow { margin-bottom: 0.75rem; }
-.care-plan-title { font-family: var(--font-newsreader), Georgia, serif; font-size: 2rem; margin-bottom: 1.5rem; }
-.care-plan-artifact ol { list-style: none; margin: 0; padding: 0; }
-.care-plan-artifact li { border-top: 1px solid var(--brand-mineral); padding-block: 1.25rem; }
-.interior-page .care-plan-artifact h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-.care-plan-artifact li p { font-size: 0.875rem; }
 .lead-provider-name { border-left: 2px solid var(--brand-moss); padding-left: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem; }
 .lead-provider-name strong { font-family: var(--font-newsreader), Georgia, serif; font-size: 1.75rem; font-weight: 400; }
 .image-provider img { object-position: center 35% !important; }
@@ -52,7 +45,6 @@
   .portfolio-treatment .treatment-process .model-image > div { aspect-ratio: 3/2; }
   .treatments-index .treatment-card-facts > div { grid-template-columns: 6rem minmax(0,1fr); gap: 0.75rem; }
   .treatments-index .concern-card { padding-block: 1.5rem; }
-  .care-plan-artifact { box-shadow: 0 2px 4px rgb(24 33 28 / 5%), 0 10px 24px -12px rgb(24 33 28 / 20%); }
   .booking-progress { font-size: 0.6875rem; gap: 0.25rem; }
 }
 
@@ -81,5 +73,5 @@ nav :is(a[aria-current="page"], summary[data-active="true"]) {
   .related-editorial-list .concern-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: 3rem; }
   .related-editorial-list .concern-card h3 { grid-row: span 2; }
   .related-editorial-list .concern-card p { grid-column: 2; }
-  .case-study .copy-chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .case-study .copy-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
