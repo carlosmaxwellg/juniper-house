@@ -87,7 +87,7 @@ export function ConcernPage({ concern: c }: { concern: Concern }) {
       </Section>
       <Section className="bg-surface-muted">
         <Container className="editorial-grid">
-          <h2>Your questions, considered</h2>
+          <h2>Common questions</h2>
           <FaqList items={c.faqs} />
         </Container>
       </Section>

@@ -2505,7 +2505,7 @@ Before Stage 9 copy begins:
 
 Turn the approved strategy and wireframes into a coherent, conversion-focused website voice that helps visitors understand their concern, compare appropriate paths, evaluate trust, and book the Planning Consultation without pressure or misleading claims.
 
-The complete page and interface copy is maintained in `outputs/website-copy.md`. Reusable voice rules are maintained in `outputs/brand-voice-guidelines.md` and mirrored in `.claude/brand-voice-guidelines.md` for later AI-assisted writing and implementation.
+The complete page and interface copy is maintained in `docs/design/website-copy.md`. Reusable voice rules are maintained in `docs/design/brand-voice-guidelines.md` and mirrored in `.claude/brand-voice-guidelines.md` for later AI-assisted writing and implementation.
 
 ### Core verbal direction
 
@@ -2566,8 +2566,8 @@ The Stage 9 deck includes:
 - **Team-copy stance:** Fictional named profiles may support the concept only with adjacent disclosure
 - **Proof stance:** Use explicit placeholders rather than invented social or clinical proof
 - **Demo-data stance:** No real booking, payment, message, or health-data collection
-- **Copy source of truth:** `outputs/website-copy.md`
-- **Voice source of truth:** `outputs/brand-voice-guidelines.md`
+- **Copy source of truth:** `docs/design/website-copy.md`
+- **Voice source of truth:** `docs/design/brand-voice-guidelines.md`
 - **Deferred to Stage 15:** Final metadata, structured data, privacy, terms, and tested accessibility language
 
 ---
@@ -2580,7 +2580,7 @@ The Stage 9 deck includes:
 
 Create a premium, commercially credible visual system that makes Juniper House feel warm and contemporary without weakening clinical trust or becoming interchangeable with beige spa brands.
 
-The full direction is documented in `outputs/visual-direction.md`. A rendered brand board is maintained in `outputs/visual-direction-board.html`, with original generated references in `outputs/assets/`.
+The full direction is documented in `docs/design/visual-direction.md`. A rendered brand board is maintained in `docs/design/visual-direction-board.html`, with original generated references in `docs/design/assets/`.
 
 ### Recommended territory
 
@@ -2677,8 +2677,8 @@ Detailed interaction design remains Stage 14 work.
 - **Motion:** Subtle, functional, and reduced-motion aware
 - **Accessibility:** WCAG 2.2 AA target; visible focus and redundant status communication
 - **Image ethics:** Generated models and environments are illustrative, labeled, and never proof
-- **Visual source of truth:** `outputs/visual-direction.md`
-- **Board source:** `outputs/visual-direction-board.html`
+- **Visual source of truth:** `docs/design/visual-direction.md`
+- **Board source:** `docs/design/visual-direction-board.html`
 
 ---
 
@@ -2690,7 +2690,7 @@ Detailed interaction design remains Stage 14 work.
 
 Create a modern coded foundation that supports the approved strategy, copy, and visual system while remaining understandable to a developing programmer, fast for public visitors, ethically safe as a fictional demonstration, and reusable for future service-business projects.
 
-The full system design is maintained in `outputs/technical-architecture.md`. The foundational decision and trade-offs are recorded in `outputs/adr-001-technical-foundation.md`.
+The full system design is maintained in `docs/design/technical-architecture.md`. The foundational decision and trade-offs are recorded in `docs/design/adr-001-technical-foundation.md`.
 
 ### Architecture principle
 
@@ -2788,9 +2788,9 @@ Launch with the framework, styling tool, and test tools only. Do not add global 
 - **Package manager:** npm
 - **Testing:** Type check, lint, and production build throughout; focused logic tests when justified; Playwright, axe, and manual QA closer to completion
 - **Dependencies:** Minimal and requirement-led
-- **Architecture source:** `outputs/technical-architecture.md`
-- **Decision record:** `outputs/adr-001-technical-foundation.md`
-- **Application root:** `site/`, keeping deployable code separate from `outputs/`
+- **Architecture source:** `docs/design/technical-architecture.md`
+- **Decision record:** `docs/design/adr-001-technical-foundation.md`
+- **Application root:** `site/`, keeping deployable code separate from `docs/design/`
 
 ### Approved implementation notes
 
@@ -2799,8 +2799,8 @@ Launch with the framework, styling tool, and test tools only. Do not add global 
 - Keep testing proportional to the project’s maturity.
 - Do not add dependencies casually. Every added package needs a clear requirement and trade-off explanation.
 - Use just-in-time learning during implementation rather than front-loading theory.
-- Create the deployable Next.js application in `site/`; preserve `outputs/` as the locked project archive.
+- Create the deployable Next.js application in `site/`; preserve `docs/design/` as the locked project archive.
 - Before major steps, explain what will be created, which files matter, and which choices affect maintainability, performance, or future changes.
 - After major steps, summarize what changed, point to the important files, and explain what the user needs to understand before continuing.
 
-The canonical Stage 12 working agreement and starting checklist are maintained in `outputs/stage-12-implementation-handoff.md`.
+The canonical Stage 12 working agreement and starting checklist are maintained in `docs/design/stage-12-implementation-handoff.md`.

@@ -1,1 +1,15 @@
+# Local dependencies, generated files, credentials, and editor state
 .DS_Store
+node_modules/
+.next/
+.vercel/
+.env*
+!.env.example
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+.vscode/
+.idea/
+*.log
+.superpowers/

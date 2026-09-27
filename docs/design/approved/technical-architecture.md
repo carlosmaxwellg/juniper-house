@@ -588,11 +588,11 @@ Keep strategy and production code separate inside the shared workspace:
 
 ```text
 workspace/
-├── outputs/    # approved strategy, copy, visual, and architecture artifacts
+├── docs/design/    # approved strategy, copy, visual, and architecture artifacts
 └── site/       # the deployable Next.js application created in Stage 12
 ```
 
-Vercel will use `site/` as the project root. This prevents the Next.js scaffold from overwriting the existing `outputs/` archive and keeps client-facing strategy artifacts separate from application dependencies and build files.
+Vercel will use `site/` as the project root. This prevents the Next.js scaffold from overwriting the existing `docs/design/` archive and keeps client-facing strategy artifacts separate from application dependencies and build files.
 
 ## Proposed application structure
 
@@ -785,8 +785,8 @@ Treat Node.js, npm, React, Next.js, App Router, Server and Client Components, Ty
 - **Performance:** Minimal third-party code, optimized local images/fonts, and Core Web Vitals targets
 - **SEO foundation:** Next.js Metadata API and file conventions, completed in Stage 15
 - **Dependency stance:** Add only after a demonstrated need; no global state, form, animation, CMS, auth, payment, scheduler, or analytics library at launch
-- **Architecture source of truth:** `outputs/technical-architecture.md`
-- **Decision record:** `outputs/adr-001-technical-foundation.md`
+- **Architecture source of truth:** `docs/design/technical-architecture.md`
+- **Decision record:** `docs/design/adr-001-technical-foundation.md`
 - **Implementation learning rule:** Just-in-time, plain-language explanations before and after major steps
 
 ## Sources checked

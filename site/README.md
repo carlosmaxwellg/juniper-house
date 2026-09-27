@@ -1,6 +1,6 @@
 # Juniper House
 
-A fictional Austin skin and aesthetics clinic, built as a portfolio project. The approved strategy, copy, wireframes, and visual direction live in `../outputs/approved/`; the application lives here.
+A fictional Austin skin and aesthetics clinic, built as a portfolio project. The approved strategy, copy, wireframes, and visual direction live in `../docs/design/approved/`; the application lives here.
 
 ## Run locally
 
@@ -61,7 +61,7 @@ The Node tests cover reducer transitions, invalid/stale choices, data clearing, 
 
 ## Deployment configuration
 
-See `DEPLOYMENT.md` and `../docs/QA.md` for the reviewed release state and remaining manual checks. No deployment is configured or authorized by running the local build.
+See `../docs/DEPLOYMENT.md` and `../docs/QA.md` for the reviewed release state and remaining manual checks. No deployment is configured or authorized by running the local build.
 
 - Root directory on the host: `site`
 - Runtime: Node.js 24

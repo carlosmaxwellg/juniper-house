@@ -252,7 +252,7 @@ Favor disciplined sentences, useful white space, and a small vocabulary of recur
 
 ## Sources
 
-- `outputs/project-strategy.md`, approved Stages 1–8
+- `docs/design/project-strategy.md`, approved Stages 1–8
 - U.S. Food and Drug Administration: Aesthetic (Cosmetic) Devices
 - U.S. Food and Drug Administration: Dermal Fillers (Soft Tissue Fillers)
 - U.S. Food and Drug Administration: Microneedling Devices

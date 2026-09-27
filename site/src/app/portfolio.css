@@ -75,3 +75,10 @@ nav :is(a[aria-current="page"], summary[data-active="true"]) {
   .related-editorial-list .concern-card p { grid-column: 2; }
   .case-study .copy-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+.case-study-screens h2 { margin-bottom: 1rem; }
+.case-study-gallery { display: grid; gap: 3rem; margin-top: 2rem; }
+.case-study-gallery figure { margin: 0; }
+.case-study-gallery a { display: block; }
+.case-study-gallery img { width: 100%; height: auto; border: 1px solid var(--brand-mineral); }
+.case-study-gallery figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--brand-juniper); }

@@ -44,28 +44,6 @@
   box-shadow: inset 1px 0 0 rgb(255 255 255 / 16%);
 }
 html[data-hero-resolved] .hero-glass { display: none; }
-.hero-inset { display: none; }
-
-@media (min-width: 48rem) {
-  .hero-inset {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    left: -2.25rem;
-    bottom: 4.25rem;
-    width: clamp(8rem, 11vw, 11rem);
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    border: 0.375rem solid var(--brand-porcelain);
-    box-shadow: 0 1.25rem 2.5rem -1.25rem rgb(24 33 28 / 45%);
-  }
-  .hero-portrait .hero-inset img {
-    object-position: 26% 0%;
-    transform: scale(2.3);
-    transform-origin: 56% 0%;
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .hero-glass span {
     animation: jh-flute-clear 900ms var(--ease-editorial) calc(380ms + var(--flute) * 45ms) both;
@@ -74,22 +52,14 @@ html[data-hero-resolved] .hero-glass { display: none; }
   .hero-line + .hero-line > span { animation-delay: 190ms; }
   .hero-copy > .type-lead { animation: jh-fade-up 800ms var(--ease-quiet) 420ms both; }
   .hero-copy > .type-lead + div { animation: jh-fade-up 800ms var(--ease-quiet) 520ms both; }
-  .hero-inset { animation: jh-inset-open 1000ms var(--ease-editorial) 1150ms both; }
 
   @supports (animation-timeline: view()) {
     @media (min-width: 48rem) {
-      /* Quiet depth: the portrait's crop widens and the inset drifts (≤16px) as the hero leaves. */
+      /* Quiet depth: the portrait's crop widens slightly as the hero leaves. */
       .hero-portrait > div > img {
         animation: jh-hero-settle linear both;
         animation-timeline: view();
         animation-range: exit 0% exit 100%;
-      }
-      .hero-inset {
-        animation:
-          jh-inset-open 1000ms var(--ease-editorial) 1150ms both,
-          jh-inset-drift linear both;
-        animation-timeline: auto, view();
-        animation-range: normal, exit 0% exit 100%;
       }
     }
     /* Bookend: the closing promise comes into focus. */
@@ -107,8 +77,6 @@ html[data-hero-resolved] .hero-glass { display: none; }
 @keyframes jh-flute-clear { to { opacity: 0; visibility: hidden; } }
 @keyframes jh-line-rise { from { transform: translateY(108%); } }
 @keyframes jh-fade-up { from { opacity: 0; translate: 0 0.5rem; } }
-@keyframes jh-inset-open { from { opacity: 0; clip-path: inset(100% 0 0 0); } to { opacity: 1; clip-path: inset(0); } }
-@keyframes jh-inset-drift { to { translate: 0 -1rem; } }
 @keyframes jh-hero-settle { to { transform: scale(1.03); } }
 @keyframes jh-clarify { from { filter: blur(6px); opacity: 0.55; } }
 
@@ -291,57 +259,12 @@ html[data-hero-resolved] .hero-glass { display: none; }
 }
 
 /* ------------------------------------------------------------------ */
-/* Interior chapters: long pages progress like a considered document.  */
-/* ------------------------------------------------------------------ */
-.interior-page { counter-reset: chapter; }
-.chapter-grid { counter-increment: chapter; }
-.chapter-grid > :first-child::before {
-  content: counter(chapter, decimal-leading-zero);
-  content: counter(chapter, decimal-leading-zero) / "";
-  display: block;
-  margin-bottom: 1.25rem;
-  font-family: var(--font-manrope), Arial, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  line-height: 1;
-  color: var(--brand-clay);
-}
-.recovery-section .chapter-grid > :first-child::before { color: var(--brand-porcelain); opacity: 0.75; }
-
+/* Interior reading layout. */
 @media (min-width: 64rem) {
-  .chapter-grid > :first-child {
-    position: sticky;
-    top: 2.5rem;
-    align-self: start;
-  }
+  .chapter-grid > :first-child { position: sticky; top: 2.5rem; align-self: start; }
   .treatment-process .chapter-grid > :first-child,
-  .narrative-pause .chapter-grid > :first-child {
-    position: static;
-    align-self: auto;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      .chapter-grid { view-timeline: --chapter block; }
-      .chapter-grid > :first-child::after {
-        content: "";
-        display: block;
-        width: min(100%, 12rem);
-        height: 1px;
-        margin-top: 1.5rem;
-        background: currentColor;
-        opacity: 0.35;
-        transform-origin: left;
-        animation: jh-chapter-progress linear both;
-        animation-timeline: --chapter;
-        animation-range: cover 20% cover 80%;
-      }
-      .treatment-process .chapter-grid > :first-child::after,
-      .narrative-pause .chapter-grid > :first-child::after { content: none; }
-    }
-  }
+  .narrative-pause .chapter-grid > :first-child { position: static; align-self: auto; }
 }
-@keyframes jh-chapter-progress { from { transform: scaleX(0.04); } to { transform: scaleX(1); } }
 
 /* Process and recovery diagrams draw themselves as they are read. */
 .process-roadmap li { position: relative; border-top-color: var(--brand-mineral); }
@@ -378,14 +301,6 @@ html[data-hero-resolved] .hero-glass { display: none; }
   }
 }
 @keyframes jh-line-down { from { transform: scaleY(0); } }
-
-/* A full-bleed pause between decision chapters on treatment pages. */
-.image-break .model-image > div { aspect-ratio: 4 / 3; }
-.image-break .model-image img { object-position: center 58%; }
-.image-break .model-image figcaption { padding-inline: var(--container-gutter); }
-@media (min-width: 48rem) {
-  .image-break .model-image > div { aspect-ratio: 21 / 8; }
-}
 
 /* ------------------------------------------------------------------ */
 /* Microinteractions and navigation.                                   */

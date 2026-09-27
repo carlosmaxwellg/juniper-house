@@ -87,7 +87,6 @@ export function ModelImage({
   sizes = "(max-width: 767px) 100vw, 50vw",
   className = "",
   overlay,
-  children,
 }: {
   interior?: boolean;
   consultation?: boolean;
@@ -97,8 +96,6 @@ export function ModelImage({
   className?: string;
   /** Decorative layer drawn over the photograph, inside its frame. */
   overlay?: ReactNode;
-  /** Decorative layers composed around the frame, such as an inset detail. */
-  children?: ReactNode;
 }) {
   return (
     <figure
@@ -125,11 +122,10 @@ export function ModelImage({
         />
         {overlay}
       </div>
-      {children}
       <figcaption>
-        {variant === "provider" ? "Generated portrait of fictional provider Rowan Ellis. No real clinician or license is represented." : variant === "concern" ? "Generated model. Not a patient or treatment result." : variant === "treatment" ? "Generated treatment environment. Not a real clinic or procedure." : consultation ? "Generated consultation scene. Illustrative, not a real appointment." : interior
-          ? "Generated environment. Illustrative concept, not an operating clinic."
-          : "Model image. Not a patient or treatment result."}
+        {variant === "provider" ? "Generated provider portrait. Not a real clinician." : variant === "concern" ? "Generated model. Not a patient or treatment result." : variant === "treatment" ? "Generated clinic image. Not an operating clinic." : consultation ? "Generated consultation image. Not a real appointment." : interior
+          ? "Generated clinic image. Not an operating clinic."
+          : "Generated model. Not a patient or treatment result."}
       </figcaption>
     </figure>
   );
@@ -163,7 +159,7 @@ export function FinalCta({
 export function Boundary({ children }: { children: ReactNode }) {
   return (
     <aside className="boundary">
-      <p className="eyebrow">A considered boundary</p>
+      <p className="eyebrow">When to seek medical care</p>
       {children}
     </aside>
   );

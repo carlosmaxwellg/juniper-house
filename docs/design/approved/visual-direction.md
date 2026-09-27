@@ -328,8 +328,8 @@ Use sparingly. Default cards rely on borders and background contrast. One soft e
 
 ### Generated reference assets
 
-- `outputs/assets/juniper-house-hero-reference.png` — portrait and hero composition reference
-- `outputs/assets/juniper-house-interior-reference.png` — materials, light, and environment reference
+- `docs/design/assets/juniper-house-hero-reference.png` — portrait and hero composition reference
+- `docs/design/assets/juniper-house-interior-reference.png` — materials, light, and environment reference
 
 These images were created with the built-in image-generation workflow for this fictional project. They are illustrative model/environment imagery, not patient proof. The final website must label the portrait as a model image.
 
@@ -362,6 +362,7 @@ Motion draws on the brand's own materials (reeded glass, paper, daylight) rather
 - **Now / Next / Later:** presented as a layered paper document that settles into place; it remains a semantic ordered list.
 - **Long interior pages:** section headings become numbered, sticky chapter heads with a quiet reading-progress rule; process and recovery diagrams draw as they are read.
 - **Route changes:** page content crossfades (140ms out, 320ms in with a slight rise) while the header and footer stay anchored, using React's built-in `<ViewTransition>`. Shared-element morphs were not used because link labels and destination headlines are different text. Reduced motion makes the swap instant.
+- **Treatment discovery:** on desktop with a fine pointer, homepage row hover or visible keyboard focus crossfades a framed decorative crop in 260ms; focus takes priority, the active numeral turns clay (mixed with 8% Juniper Ink for small-text contrast on Bone), and other rows soften without text opacity changes. The first group is the idle image; reduced motion switches instantly, and touch/small screens retain the list. Maintain/support and Improve texture share different treatment-room crops; Correct tone uses the concern model and Soften/balance the hero model, with a generated-image disclosure.
 - **No 3D or WebGL.** The brand's world is materials and light, not objects; a refraction shader was evaluated and rejected because a 2D treatment delivers the same idea without performance or battery cost.
 - **No animation library.** Effects use CSS scroll-driven animations with an `@supports` gate; browsers without support, and visitors who prefer reduced motion, see the complete static page.
 

@@ -21,7 +21,7 @@ Constraints: original image; no text; no logos; no watermark; no syringes; no pr
 Avoid: influencer aesthetic, luxury hotel staging, sterile hospital look, stock-photo smile, dramatic transformation imagery, facial treatment in progress
 ```
 
-**Saved asset:** `outputs/assets/juniper-house-hero-reference.png`
+**Saved asset:** `docs/design/assets/juniper-house-hero-reference.png`
 
 ## Interior reference
 
@@ -40,4 +40,4 @@ Constraints: original image; no text; no logos; no watermark; no product display
 Avoid: hotel lobby, resort spa, sterile hospital, all-beige influencer interior, excessive plants, cosmetic retail shelving
 ```
 
-**Saved asset:** `outputs/assets/juniper-house-interior-reference.png`
+**Saved asset:** `docs/design/assets/juniper-house-interior-reference.png`

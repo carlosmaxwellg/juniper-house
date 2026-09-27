@@ -9,7 +9,7 @@ The approved visual passes and focused portfolio-elevation pass are complete loc
 The final remediation adds the buyer-facing case study and Carlos Gonzalez’s public email, removes conversion-surface meta copy, reuses Rowan’s portrait, adds active navigation and linked treatment rows, softens the care-plan shadow, and varies shared interior layouts. Records are now under `docs/`; see `docs/passes/FINAL-REMEDIATION.md`.
 
 **Prepared:** 7 September 2026  
-**Repository:** `/Users/carlos/Desktop/Freelance Web Design + AI Development/juniper-house`  
+**Repository:** `<baseline-repository>`
 **Application:** `site/`  
 **Current branch:** `main`  
 **Next milestone:** Final remediation complete. Stop; any Vercel Preview update requires separate approval.
@@ -37,15 +37,15 @@ Do not reopen approved Stages 1–11 merely because a different implementation i
 
 ## Read first
 
-1. `outputs/README.md` — artifact index, approval status, conflicts, and missing inputs.
-2. `outputs/approved/project-strategy.md` — master locked decisions for Stages 1–11.
-3. `outputs/approved/technical-architecture.md` and `outputs/approved/adr-001-technical-foundation.md` — implementation boundaries and trade-offs.
-4. `outputs/approved/visual-direction.md` and `outputs/approved/visual-direction-board.html` — design system and visual intent.
-5. `outputs/approved/website-copy.md` and `outputs/approved/brand-voice-guidelines.md` — final implementation copy and voice source of truth.
-6. `outputs/wireframes/juniper-house-wireframes.html` — page hierarchy and responsive conversion logic.
+1. `docs/design/README.md` — artifact index, approval status, conflicts, and missing inputs.
+2. `docs/design/approved/project-strategy.md` — master locked decisions for Stages 1–11.
+3. `docs/design/approved/technical-architecture.md` and `docs/design/approved/adr-001-technical-foundation.md` — implementation boundaries and trade-offs.
+4. `docs/design/approved/visual-direction.md` and `docs/design/approved/visual-direction-board.html` — design system and visual intent.
+5. `docs/design/approved/website-copy.md` and `docs/design/approved/brand-voice-guidelines.md` — final implementation copy and voice source of truth.
+6. `docs/design/wireframes/juniper-house-wireframes.html` — page hierarchy and responsive conversion logic.
 7. `site/AGENTS.md` — Next.js-version-specific instruction to consult the local framework docs before code changes.
 
-The older `outputs/supporting/stage-12-implementation-handoff-2026-08-23.md` is historical. Its initial milestone has already begun and its statement that no implementation exists is no longer current.
+The older `docs/design/supporting/stage-12-implementation-handoff-2026-08-23.md` is historical. Its initial milestone has already begun and its statement that no implementation exists is no longer current.
 
 ## Historical handoff snapshot — 7 September 2026
 
@@ -76,7 +76,7 @@ These files belong to the existing work in progress. Preserve and review them; d
 ### Documentation added by this handoff
 
 - Untracked: `CODEX-HANDOFF.md`
-- Untracked: `outputs/`
+- Untracked: `docs/design/`
 
 These are intentionally not staged or committed.
 
@@ -113,7 +113,7 @@ Verified on 7 September 2026 against the current working tree:
 - TypeScript strict check with `./node_modules/.bin/tsc --noEmit` passes.
 - `git diff --check` passes.
 - The committed skip-link fix is present: the root `main` has `tabIndex={-1}`, and the associated focus styling remains in the committed design foundation.
-- `outputs/approved/technical-architecture.md` and `site/technical-architecture.md` are byte-for-byte identical.
+- `docs/design/approved/technical-architecture.md` and `site/technical-architecture.md` are byte-for-byte identical.
 
 Uncertain or outstanding:
 
@@ -129,7 +129,7 @@ Uncertain or outstanding:
 Prerequisites: Node.js 24 and npm. `.nvmrc` contains `24`. Dependencies are currently present locally; on a fresh checkout, use the locked dependency tree.
 
 ```bash
-cd "/Users/carlos/Desktop/Freelance Web Design + AI Development/juniper-house/site"
+cd "<repository>/site"
 npm ci
 npm run dev
 ```
@@ -148,7 +148,7 @@ Do not install additional tooling merely to satisfy the long-term test plan befo
 
 ## Missing context and assets
 
-- Only two original AI-generated art-direction images are available: a hero portrait and an interior. They are illustrative references, not a full production photography set. Their prompts and restrictions are in `outputs/approved/image-generation-prompts.md` and provenance is summarized in `outputs/approved/assets/README.md`.
+- Only two original AI-generated art-direction images are available: a hero portrait and an interior. They are illustrative references, not a full production photography set. Their prompts and restrictions are in `docs/design/approved/image-generation-prompts.md` and provenance is summarized in `docs/design/approved/assets/README.md`.
 - No separate usage-rights certificate accompanies those generated images.
 - No real clinic credentials, addresses, contact channels, testimonials, patient results, reviews, awards, metrics, or provider proof should be invented. The approved copy uses fictional disclosures and explicit placeholders.
 - Final metadata, structured data, privacy, terms, and tested accessibility language are deferred to Stage 15.

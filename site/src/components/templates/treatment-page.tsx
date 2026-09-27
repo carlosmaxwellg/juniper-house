@@ -78,9 +78,6 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
           <TreatmentAlternatives treatment={t} />
         </Container>
       </Section>
-      <div className="image-break">
-        <ModelImage interior sizes="100vw" />
-      </div>
       <Section className="bg-surface-muted">
         <Container className="editorial-grid chapter-grid">
           <h2>Provider and standard</h2>
@@ -112,7 +109,7 @@ export function TreatmentPage({ treatment: t }: { treatment: Treatment }) {
       </Section>
       <Section className="bg-surface-muted">
         <Container className="editorial-grid chapter-grid">
-          <h2>Your questions, considered</h2>
+          <h2>Common questions</h2>
           <FaqList items={t.faqs} />
         </Container>
       </Section>

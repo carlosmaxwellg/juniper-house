@@ -18,7 +18,7 @@ No content model, dependency, booking behavior, external connection, or deployme
 - New dropdown regression checks at 1024, 1440, and 1920 pixels verify separation from the last item, hover underline, and keyboard order.
 - New interior checks cover concern, treatment, Approach, About, Consultation, and Visit at 320, 768, and 1440 pixels, image loading, reduced motion, and 320-pixel enlarged text spacing with axe checks.
 - Representative concern, treatment, Approach, About, and Consultation desktop/mobile layouts were previewed locally and visually inspected.
-- Generated cloud-conflict TypeScript duplicates were moved recoverably from `.next/types` to `/tmp/juniper-generated-conflicts-20260916`; no source history was reset.
+- Generated cloud-conflict TypeScript duplicates were moved recoverably from `.next/types` to `an ignored temporary recovery folder`; no source history was reset.
 
 Automated accessibility checks do not establish complete WCAG conformance. Manual VoiceOver and real-device Safari/iOS validation remain outside this pass. Creator contact/portfolio destinations remain the approved placeholders. No deployment was performed.
 

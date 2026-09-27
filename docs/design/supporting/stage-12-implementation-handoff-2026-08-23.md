@@ -15,14 +15,14 @@ The implementation should translate those decisions faithfully, in small reviewa
 
 | Area | Source |
 |---|---|
-| Stages 1–11 decisions | `outputs/project-strategy.md` |
-| Final website copy | `outputs/website-copy.md` |
-| Brand voice | `outputs/brand-voice-guidelines.md` |
-| Visual system | `outputs/visual-direction.md` |
-| Visual reference board | `outputs/visual-direction-board.html` |
-| Generated-image prompts | `outputs/image-generation-prompts.md` |
-| Technical architecture | `outputs/technical-architecture.md` |
-| Architecture decision | `outputs/adr-001-technical-foundation.md` |
+| Stages 1–11 decisions | `docs/design/project-strategy.md` |
+| Final website copy | `docs/design/website-copy.md` |
+| Brand voice | `docs/design/brand-voice-guidelines.md` |
+| Visual system | `docs/design/visual-direction.md` |
+| Visual reference board | `docs/design/visual-direction-board.html` |
+| Generated-image prompts | `docs/design/image-generation-prompts.md` |
+| Technical architecture | `docs/design/technical-architecture.md` |
+| Architecture decision | `docs/design/adr-001-technical-foundation.md` |
 
 When implementation details conflict with a locked source, pause and resolve the conflict rather than silently improvising a new strategy.
 
@@ -32,7 +32,7 @@ Stage 12 will create the application inside `site/`:
 
 ```text
 workspace/
-├── outputs/    # locked project artifacts
+├── docs/design/    # locked project artifacts
 └── site/       # Next.js application and deployment root
 ```
 
@@ -224,7 +224,7 @@ Before moving to the design foundations:
 - Production build passes
 - Installed Next.js version is a supported security-patched 16.x release
 - No unapproved dependency is present
-- `outputs/` remains unchanged except for deliberate documentation updates
+- `docs/design/` remains unchanged except for deliberate documentation updates
 
 ### Handoff after the scaffold
 

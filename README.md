@@ -1,12 +1,22 @@
 # Juniper House
 
-A consultation-led aesthetics website and portfolio case study by Carlos Gonzalez.
+A fictional premium aesthetics clinic and portfolio project by Carlos Gonzalez, demonstrating conversion-focused web design and development.
 
-- [Application and local setup](site/README.md)
-- [Approved strategy, copy, and design sources](outputs/README.md)
-- [Implementation handoff](docs/CODEX-HANDOFF.md)
-- [QA record](docs/QA.md)
-- [Deployment procedure](site/DEPLOYMENT.md)
-- [Historical implementation passes](docs/passes/)
+The site helps visitors understand their concerns, compare treatment costs and recovery, and try a five-step booking demonstration. It includes a buyer-facing case study at `/portfolio-concept`.
 
-The clinic is fictional. Booking and inquiries are local simulations. Deployment and indexing changes require separate approval.
+## Development
+
+Use Node.js 24. From `site/`, run `npm ci` and `npm run dev`.
+
+Next.js 16, React 19, strict TypeScript, and Tailwind CSS 4. Static by default, interactive by exception. No database, payment, email, analytics, or live booking integration.
+
+## Documentation
+
+- [Application setup and tests](site/README.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Release validation](docs/QA.md)
+- [Deployment and freeze checklist](docs/DEPLOYMENT.md)
+- [Design and content references](docs/design/README.md)
+- [Historical implementation records](docs/archive/README.md)
+
+All clinic details and imagery are fictional or illustrative. Booking and inquiries are browser-memory simulations. No conversion or clinical outcomes are claimed. Search indexing stays disabled by default.

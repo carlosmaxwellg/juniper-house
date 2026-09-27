@@ -181,7 +181,7 @@ export const pages = {
   approach: {
     name: "Our approach",
     hero: {
-      eyebrow: "Considered care",
+      eyebrow: "Our care philosophy",
       headline: "Clarity before treatment.",
       introduction:
         "Good aesthetic care is not measured by how much is recommended. It is measured by whether the goal is understood, the reasoning is visible, the risk is proportionate, and the client remains in control.",
@@ -234,7 +234,7 @@ export const pages = {
               "Know who assesses and performs each service",
               "Show starting prices, major cost factors, and expected recovery",
               "Discuss alternatives, limitations, and material risks",
-              "Use consent-based photography and responsible context for any future proof",
+              "Ask permission before taking photographs and explain how they will be used",
               "Make room for no treatment, more time, or referral",
               "Avoid artificial urgency and sales pressure",
             ],
@@ -317,7 +317,7 @@ export const pages = {
         ],
       },
       {
-        title: "Proof should explain—not perform",
+        title: "Understanding treatment photographs",
         blocks: [
           {
             kind: "paragraph",
@@ -330,7 +330,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Juniper House is not positioned as a dermatology practice or urgent-care service. New, changing, painful, bleeding, infected, or medically complex concerns require the appropriate clinician. Responsible scope is part of the service, not a footnote.",
+            text: "Juniper House does not offer dermatology diagnosis or urgent care. New, changing, painful, bleeding, infected, or medically complex concerns require the appropriate clinician. We will explain when you need another clinician.",
           },
         ],
       },
@@ -347,7 +347,7 @@ export const pages = {
       eyebrow: "About Juniper House",
       headline: "A clinic designed around better decisions.",
       introduction:
-        "A warmer, clearer approach to premium aesthetics: clinically responsible enough to name limits, personal enough to listen before recommending, and refined enough not to rely on hype.",
+        "We listen before recommending, explain the limits of each option, and give you time to decide.",
     },
     sections: [
       {
@@ -355,7 +355,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "The category asks people to make complex choices through treatment menus, trends, and dramatic promises. Juniper House begins elsewhere: with the concern, the person, and the decision they are actually trying to make.",
+            text: "Choosing aesthetic care can feel overwhelming. We begin with what you are noticing, what matters to you, and the questions you want answered.",
           },
           {
             kind: "paragraph",
@@ -447,7 +447,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Juniper House brings a West Austin sensibility: quiet, contemporary, and welcoming without turning a medical-aesthetic visit into a resort fantasy. The environment supports privacy and ease; it does not substitute for clinical trust.",
+            text: "Our spaces are quiet and welcoming, with private rooms for consultation and treatment. There is time to settle in, ask questions, and talk through your plan.",
           },
         ],
       },
@@ -464,7 +464,7 @@ export const pages = {
       eyebrow: "West Austin",
       headline: "Plan an easy first visit.",
       introduction:
-        "A considered visit begins before you arrive. Review hours, plan the arrival details you need, and make space for an unhurried conversation.",
+        "An easy visit begins before you arrive. Review hours, plan the arrival details you need, and make space for an unhurried conversation.",
     },
     sections: [
       {

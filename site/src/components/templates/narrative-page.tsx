@@ -1,5 +1,4 @@
 import { CarePlan } from "@/components/content/care-plan";
-import { pages } from "@/content/pages";
 import type { ReactNode } from "react";
 import { Container, Section } from "@/components/foundations";
 import {
@@ -30,7 +29,7 @@ export function NarrativePage({
     "terms",
   ].includes(kind);
   const sections = kind === "approach" ? page.sections.flatMap(section => {
-    if (section.title === "The method") return [{ title: "Your consultation, step by step", blocks: pages.consultation.sections[1].blocks }];
+    if (section.title === "The method") return [{ ...section, title: "Your care, from assessment to review" }];
     if (section.title === "What we commit to") return [{ title: "What guides your plan", blocks: [
       { kind: "heading" as const, text: "What you can expect" }, ...section.blocks,
       { kind: "heading" as const, text: "What we avoid" }, ...page.sections.find(item => item.title === "What we avoid")!.blocks,
@@ -91,7 +90,7 @@ export function NarrativePage({
       {page.faqs.length > 0 && (
         <Section className="bg-surface-muted">
           <Container className="editorial-grid">
-            <h2>Your questions, considered</h2>
+            <h2>Common questions</h2>
             <FaqList items={page.faqs} />
           </Container>
 

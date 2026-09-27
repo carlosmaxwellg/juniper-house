@@ -1,6 +1,5 @@
 
 import { Icon } from "@/components/icon";
-import Image from "next/image";
 import Link from "next/link";
 import { Container, Section } from "@/components/foundations";
 import { CarePlan } from "@/components/content/care-plan";
@@ -14,7 +13,7 @@ import {
 
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
-  "Considered skin & aesthetic care · Portfolio concept",
+  "Personal skin & aesthetic care · Portfolio concept",
   "Explore Juniper House, a fictional Austin clinic concept built around clear treatment choices and a 45-minute Planning Consultation.",
   "/",
 );
@@ -78,7 +77,7 @@ export default function Home() {
             <p className="type-lead">
               Thoughtful skin and aesthetic care begins with a clear
               understanding of your goals, your options, and what each path may
-              involve. Juniper House helps you make a considered plan—without
+              involve. Juniper House helps you make a clear plan—without
               pressure to choose a treatment on the spot.
             </p>
             <div className="flex flex-wrap items-center gap-5">
@@ -93,19 +92,7 @@ export default function Home() {
             className="hero-portrait"
             sizes="(max-width: 767px) 130vw, 80vw"
             overlay={<HeroGlass />}
-          >
-            <span className="hero-inset" aria-hidden="true">
-              <Image
-                src="/images/clinic/treatment-room.png"
-                alt=""
-                fill
-                // Above the fold on desktop; hidden on phones, where only the smallest variant loads.
-                loading="eager"
-                sizes="(max-width: 767px) 1px, 40rem"
-                className="object-cover"
-              />
-            </span>
-          </ModelImage>
+          />
         </Container>
       </section>
       <div className="trust-strip">
@@ -190,7 +177,7 @@ export default function Home() {
         <Container>
           <div className="section-heading">
             <Eyebrow>The Juniper House approach</Eyebrow>
-            <h2>Considered care, step by step</h2>
+            <h2>Your care, from assessment to review</h2>
           </div>
           <ol className="steps">
             {method.map(([name, body]) => (
@@ -235,7 +222,7 @@ export default function Home() {
                 "Neuromodulators and conservative HA filler may be discussed when movement or volume—not skin quality alone—is the main consideration.",
               ],
             ].map(([title, body], i) => (
-              <Link className="treatment-row" href={`/treatments#${title.toLowerCase().replaceAll(" ", "-")}`} key={title}>
+              <Link className="treatment-row" data-treatment={i + 1} href={`/treatments#${title.toLowerCase().replaceAll(" ", "-")}`} key={title}>
                 <span className="number" aria-hidden="true">0{i + 1}</span>
                 <h3>{title}</h3>
                 <p>{body}</p>
@@ -324,7 +311,7 @@ export default function Home() {
         </Container>
       </Section>
       <FinalCta
-        title="Clarity before treatment."
+        title="Start with a conversation."
         body="Bring the concern. Leave with a prioritized plan, realistic expectations, and room to decide."
       />
     </div>

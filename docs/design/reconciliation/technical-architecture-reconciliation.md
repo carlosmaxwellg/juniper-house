@@ -12,7 +12,7 @@ No content difference exists.
 - SHA-256 for both: `8260cb6825f1b6c5c89d85e8a3eaf9cef96b29088aabe555dd4e474bff20b3a9`
 - Both files: 807 lines, 30,914 bytes in the source workspace comparison
 
-The Stage 11 strategy names the outputs version as the full-system source of truth. Therefore, `outputs/approved/technical-architecture.md` is the authoritative handoff copy. `site/technical-architecture.md` remains an exact implementation-local mirror and has not been overwritten, edited, moved, staged, or deleted.
+The Stage 11 strategy names the outputs version as the full-system source of truth. Therefore, `docs/design/approved/technical-architecture.md` is the authoritative handoff copy. `site/technical-architecture.md` remains an exact implementation-local mirror and has not been overwritten, edited, moved, staged, or deleted.
 
 ## Implementation state versus the approved architecture
 

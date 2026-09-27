@@ -199,7 +199,7 @@ test("care plan and fictional provider remain readable and labeled", async ({ pa
   const plan = page.getByRole("article", { name: "Now, Next, Later planning framework" });
   for (const name of ["Now", "Next", "Later"]) await expect(plan.getByRole("heading", { name, exact: true })).toBeVisible();
   await page.goto("/about");
-  await expect(page.locator("figcaption").filter({ hasText: "fictional provider Rowan Ellis" })).toBeVisible();
+  await expect(page.locator("figcaption").filter({ hasText: "Generated provider portrait. Not a real clinician." })).toBeVisible();
   await expect(page.locator(".place-gallery img")).toHaveCount(2);
   await page.goto("/book");
   await expect(page.getByRole("list", { name: "Booking progress" })).toContainText("Visit");
@@ -408,7 +408,7 @@ test("production images, fonts, metadata and headers load without browser errors
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  for (const image of await page.locator("main img").all()) {
+  for (const image of await page.locator("main img:visible").all()) {
     await image.scrollIntoViewIfNeeded();
     await expect(image).toBeVisible();
     await expect
@@ -549,10 +549,10 @@ test("case study identifies the creator and provides a real contact destination"
   for (const name of ["The brief", "Decisions that shaped the site", "What was built", "Concept disclosure"]) {
     await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
   }
-  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlosmaxwellg@gmail.com");
+  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlos@carlosmaxwell.dev");
   await expect(page.locator("main")).not.toContainText("coming soon");
   await page.goto("/accessibility");
-  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlosmaxwellg@gmail.com");
+  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlos@carlosmaxwell.dev");
 });
 
 test("home treatment rows reach their matching directory sections", async ({ page }) => {
@@ -594,7 +594,7 @@ test("premium motion layer resolves to the complete static page", async ({ page 
   await page.goto("/");
   await expect(page.locator(".hero-glass")).toBeHidden();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Know what fits before you decide.");
-  await expect(page.locator(".hero-inset")).toHaveAttribute("aria-hidden", "true");
+  await expect(page.locator(".hero-inset")).toHaveCount(0);
   const plan = page.getByRole("article", { name: "Now, Next, Later planning framework" });
   await expect(plan.getByRole("listitem")).toHaveCount(3);
   await expect(plan.getByRole("heading", { level: 3 })).toHaveText(["Now", "Next", "Later"]);
@@ -606,6 +606,6 @@ test("premium motion layer resolves to the complete static page", async ({ page 
 
   await page.goto("/treatments/fractional-laser-resurfacing");
   await expect(page.getByRole("heading", { name: "Alternatives and trade-offs" })).toHaveText("Alternatives and trade-offs");
-  await expect(page.locator(".image-break figcaption")).toContainText("Generated environment");
+  await expect(page.locator(".image-break")).toHaveCount(0);
   await audit(page);
 });
