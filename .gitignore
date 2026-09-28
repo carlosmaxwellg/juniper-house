@@ -13,3 +13,6 @@ test-results/
 .idea/
 *.log
 .superpowers/
+out/
+.wrangler/
+.dev.vars*

@@ -106,9 +106,9 @@ export function ModelImage({
       <div>
         <Image
           src={
-            variant === "provider" ? "/images/people/lead-provider.png" : variant === "concern" ? "/images/people/concern-model.png" : variant === "treatment" ? "/images/clinic/treatment-room.png" : consultation ? "/images/clinic/consultation-planning.png" : interior
-              ? "/images/clinic/interior-concept.png"
-              : "/images/people/hero-model.png"
+            variant === "provider" ? "/images/people/lead-provider.webp" : variant === "concern" ? "/images/people/concern-model.webp" : variant === "treatment" ? "/images/clinic/treatment-room.webp" : consultation ? "/images/clinic/consultation-planning.webp" : interior
+              ? "/images/clinic/interior-concept.webp"
+              : "/images/people/hero-model.webp"
           }
           alt={
             variant === "provider" ? "Generated portrait representing the fictional lead provider, seated at a consultation desk." : variant === "concern" ? "Adult model with naturally textured skin in soft window light." : variant === "treatment" ? "Illustrative treatment room prepared with a clean couch, folded towel, and closed tray." : consultation ? "A hand holding a pen beside an open planning notebook on a warm stone desk." : interior

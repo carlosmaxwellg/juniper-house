@@ -8,7 +8,7 @@ The site helps visitors understand their concerns, compare treatment costs and r
 
 Use Node.js 24. From `site/`, run `npm ci` and `npm run dev`.
 
-Next.js 16, React 19, strict TypeScript, and Tailwind CSS 4. Static by default, interactive by exception. No database, payment, email, analytics, or live booking integration.
+Next.js 16, React 19, strict TypeScript, and Tailwind CSS 4. Fully static Next.js export for Cloudflare Pages, with browser-side interactions. No database, payment, email, analytics, or live booking integration.
 
 ## Documentation
 

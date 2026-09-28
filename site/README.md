@@ -14,11 +14,11 @@ npm run dev
 Open http://localhost:3000. For a production preview:
 
 ```sh
-npm run build
+NEXT_PUBLIC_SITE_URL=https://juniper-house.example SITE_ENV=preview SITE_ALLOW_INDEXING=false npm run build
 npm run start
 ```
 
-Next.js 16.3.5, React 19, strict TypeScript, and Tailwind v4 are the application stack. Public pages prerender at build time. Webpack is selected explicitly for development and production builds because Turbopack's worker process was blocked by the development environment. This remains a standard Next.js deployment, not a static export.
+Next.js 16.3.5, React 19, strict TypeScript, and Tailwind v4 are the application stack. Public pages prerender at build time. Webpack is selected explicitly for development and production builds because Turbopack's worker process was blocked by the development environment. The production build is a fully static export in `out/`, served by Cloudflare Pages.
 
 Newsreader and Manrope use `next/font/google`: a clean build needs access to Google Fonts, while visitors receive self-hosted fonts from the site. No runtime Google Fonts request is needed.
 
@@ -51,11 +51,12 @@ The optional free-text checks are only a reminder against entering health detail
 npm run lint
 npm run typecheck
 npm test
-npm run build
+export NEXT_PUBLIC_SITE_URL=https://juniper-house.example
+SITE_ENV=production SITE_ALLOW_INDEXING=false npm run build
 npm run test:e2e
 ```
 
-The end-to-end suite starts the built app on `127.0.0.1:3100`. It uses the installed Google Chrome through Playwright; install Chrome first on another machine, or change the channel in `playwright.config.ts` to an installed Playwright browser. Test reports and traces stay in ignored local folders. Tests require permission to start a local server and browser.
+The end-to-end suite starts Wrangler Pages against the exported `out/` directory on `127.0.0.1:3100`, including clean URLs and Cloudflare security headers. Install its browser with `npx playwright install chromium`, or use `PLAYWRIGHT_CHANNEL=chrome` for installed Chrome. Test reports and traces stay in ignored local folders. Tests require permission to start a local server and browser.
 
 The Node tests cover reducer transitions, invalid/stale choices, data clearing, validation, content completeness, and internal references. Browser tests cover every public route, axe accessibility scans, menu behavior, booking and inquiry journeys, request/storage checks, responsive reflow, text spacing, reduced motion, forced colors, image loading, and no-JavaScript content.
 
@@ -64,11 +65,12 @@ The Node tests cover reducer transitions, invalid/stale choices, data clearing, 
 See `../docs/DEPLOYMENT.md` and `../docs/QA.md` for the reviewed release state and remaining manual checks. No deployment is configured or authorized by running the local build.
 
 - Root directory on the host: `site`
-- Runtime: Node.js 24
+- Build runtime: Node.js 24; no server runtime
 - Install: `npm ci`
 - Build: `npm run build`
-- Start on a generic Next-compatible host: `npm run start`
+- Output directory: `out`
+- Local Cloudflare Pages preview: `npm start` (never deploys)
 - `NEXT_PUBLIC_SITE_URL`: approved absolute HTTPS site URL; set before the host builds the site.
-- `SITE_ALLOW_INDEXING`: defaults off. Only set to `true` after an explicit indexing decision. Vercel previews remain `noindex` even if they inherit this flag.
+- `SITE_ALLOW_INDEXING`: defaults off. Only set to `true` after an explicit indexing decision. Also requires `SITE_ENV=production`; use `SITE_ENV=preview` in Pages preview settings. Preview and unclassified builds remain `noindex` even if they inherit the indexing flag.
 
 Without an approved URL, local social-image metadata uses localhost and canonical links are omitted. That is suitable for local QA only. Booking and confirmation always remain `noindex`; no fictional clinic business schema is emitted. CSP blocks native form submissions and third-party requests; its inline-script allowance supports statically rendered Next.js hydration and is not a nonce-based strict CSP.

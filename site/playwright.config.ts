@@ -6,16 +6,18 @@ export default defineConfig({
   timeout: 30000,
   use: {
     baseURL: "http://127.0.0.1:3100",
-    channel: "chrome",
+    // Use Playwright Chromium by default; PLAYWRIGHT_CHANNEL=chrome opts into local Chrome.
+    channel: process.env.PLAYWRIGHT_CHANNEL || undefined,
     headless: true,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
   },
   reporter: [["list"], ["html", { open: "never" }]],
   webServer: {
-    command: "npm run start -- --hostname 127.0.0.1 --port 3100",
+    command: "npm run start",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: false,
-    timeout: 30000,
+    timeout: 60000,
+    env: { WRANGLER_SEND_METRICS: "false" },
   },
 });

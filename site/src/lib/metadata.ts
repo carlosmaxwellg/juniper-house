@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 
 // Set only after the production URL and indexing policy have been approved.
 export const publicSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+// Unknown/local environments fail closed; Pages sets SITE_ENV per build environment.
 export const allowIndexing =
+  process.env.SITE_ENV === "production" &&
   process.env.VERCEL_ENV !== "preview" &&
   process.env.SITE_ALLOW_INDEXING === "true" &&
   !!publicSiteUrl;
