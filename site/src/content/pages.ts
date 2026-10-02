@@ -627,7 +627,7 @@ export const pages = {
         blocks: [
           {
             kind: "paragraph",
-            text: "Contact Carlos Gonzalez using the email link below to report an accessibility barrier. Include the page and what you were trying to do; please do not send health information.",
+            text: "Contact Carlos Gonzalez through his Upwork profile using the link below to report an accessibility barrier. Include the page and what you were trying to do; please do not send health information.",
           },
         ],
       },

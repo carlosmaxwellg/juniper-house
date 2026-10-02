@@ -549,10 +549,14 @@ test("case study identifies the creator and provides a real contact destination"
   for (const name of ["The brief", "Decisions that shaped the site", "What was built", "Concept disclosure"]) {
     await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
   }
-  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlos@carlosmaxwell.dev");
+  await expect(page.getByRole("link", { name: "View my Upwork profile" })).toHaveAttribute("href", "https://www.upwork.com/freelancers/~0126e2bd7f7f4f6af4");
+  await expect(page.getByRole("link", { name: "View my Upwork profile" })).toHaveAttribute("target", "_blank");
+  await expect(page.getByRole("link", { name: "View my Upwork profile" })).toHaveAttribute("rel", "noopener noreferrer");
   await expect(page.locator("main")).not.toContainText("coming soon");
   await page.goto("/accessibility");
-  await expect(page.getByRole("link", { name: "Email Carlos Gonzalez" })).toHaveAttribute("href", "mailto:carlos@carlosmaxwell.dev");
+  await expect(page.getByRole("link", { name: "View my Upwork profile" })).toHaveAttribute("href", "https://www.upwork.com/freelancers/~0126e2bd7f7f4f6af4");
+  await expect(page.getByRole("link", { name: "View my Upwork profile" })).toHaveAttribute("target", "_blank");
+  await expect(page.getByRole("link", { name: "View my Upwork profile" })).toHaveAttribute("rel", "noopener noreferrer");
 });
 
 test("home treatment rows reach their matching directory sections", async ({ page }) => {
